@@ -21,8 +21,7 @@
   letter-spacing: -0.055em;
 }
 
-.mapCloseButton,
-.worldMapButton {
+.mapCloseButton {
   min-height: 40px;
   padding: 0.55rem 0.9rem;
   border: 1px solid var(--line);
@@ -34,7 +33,6 @@
   font-weight: 700;
 }
 
-.worldMapButton:hover,
 .mapCloseButton:hover {
   border-color: var(--violet);
   color: var(--violet);

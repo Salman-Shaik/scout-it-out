@@ -2,6 +2,7 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
+  color: var(--ink);
   background:
     radial-gradient(
       circle at 6% 18%,
@@ -239,6 +240,13 @@
     linear-gradient(135deg, var(--forest) 50%, transparent 50%)
       calc(100% - 13px) 50% / 6px 6px no-repeat,
     var(--paper);
+}
+
+.App[data-theme="dark"] .startGameButton:disabled,
+.App[data-theme="dark"] .addButton:disabled,
+.App[data-theme="dark"] .next:disabled {
+  background: #34413a;
+  color: #bfc8bf;
 }
 
 .app_section {

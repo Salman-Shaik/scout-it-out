@@ -173,7 +173,8 @@
 .startGameButton:disabled,
 .addButton:disabled {
   cursor: not-allowed;
-  opacity: 0.42;
+  background: #d8d5cc;
+  color: #646960;
 }
 
 @media (max-width: 540px) {

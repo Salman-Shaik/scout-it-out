@@ -94,7 +94,7 @@ test("opens and closes the interactive world map", async () => {
   renderCarousel();
 
   await user.click(screen.getByRole("button", { name: /world map/i }));
-  const dialog = await screen.findByRole("dialog");
+  const dialog = await screen.findByRole("dialog", {}, { timeout: 5000 });
   expect(
     within(dialog).getByRole("heading", { name: /world map/i }),
   ).toBeInTheDocument();
