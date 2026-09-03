@@ -20,7 +20,10 @@ const items = [
   },
 ];
 
-const renderCarousel = (players = [new Player("Ada"), new Player("Grace")]) => {
+const renderCarousel = (
+  players = [new Player("Ada"), new Player("Grace")],
+  winTarget = 7,
+) => {
   const setPlayers = vi.fn();
   const setIsNewGame = vi.fn();
   render(
@@ -29,6 +32,7 @@ const renderCarousel = (players = [new Player("Ada"), new Player("Grace")]) => {
       players={players}
       setPlayers={setPlayers}
       setIsNewGame={setIsNewGame}
+      winTarget={winTarget}
     />,
   );
   return { setPlayers, setIsNewGame };
@@ -72,21 +76,36 @@ test("hides controls while the flag overlay is open", async () => {
   expect(screen.getByRole("combobox")).toBeInTheDocument();
 });
 
-test("confirms before quitting an unfinished game", async () => {
+test("lets players end an Endless game and shows final scores", async () => {
   const user = userEvent.setup();
-  const { setIsNewGame } = renderCarousel();
+  const { setIsNewGame } = renderCarousel(undefined, null);
 
-  await user.click(screen.getByRole("button", { name: /^quit game$/i }));
+  await user.click(screen.getByRole("button", { name: /^end game$/i }));
   expect(screen.getByRole("dialog")).toBeInTheDocument();
   expect(setIsNewGame).not.toHaveBeenCalled();
 
   await user.click(screen.getByRole("button", { name: /keep playing/i }));
   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 
-  await user.click(screen.getByRole("button", { name: /^quit game$/i }));
+  await user.click(screen.getByRole("button", { name: /^end game$/i }));
   const dialog = screen.getByRole("dialog");
-  await user.click(within(dialog).getByRole("button", { name: /quit game/i }));
-  expect(setIsNewGame).toHaveBeenCalledWith(true);
+  await user.click(within(dialog).getByRole("button", { name: /end game/i }));
+  expect(screen.getByText(/great scouting/i)).toBeInTheDocument();
+  expect(setIsNewGame).not.toHaveBeenCalled();
+});
+
+test("does not allow a finite game to end early", () => {
+  renderCarousel(undefined, 3);
+  expect(screen.queryByRole("button", { name: /end game/i })).toBeNull();
+  expect(screen.getByText("First to 3")).toBeInTheDocument();
+});
+
+test("uses the selected finite score as the win target", async () => {
+  const user = userEvent.setup();
+  renderCarousel([new Player("Ada", 2), new Player("Grace")], 3);
+  await user.selectOptions(screen.getByRole("combobox"), "Ada");
+  await user.click(screen.getByRole("button", { name: /award point/i }));
+  expect(screen.getByText(/Ada wins/i)).toBeInTheDocument();
 });
 
 test("opens and closes the interactive world map", async () => {

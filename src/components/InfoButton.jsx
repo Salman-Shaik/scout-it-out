@@ -1,12 +1,14 @@
 import React from "react";
 import "./css/InfoButton.css";
 
-const InfoButton = ({ players }) => {
+const InfoButton = ({ players, winTarget }) => {
   return (
     <aside className="scorePanel" aria-label="Scoreboard">
       <div className="scorePanelHeader">
         <span>Scoreboard</span>
-        <span className="scoreTarget">First to 7</span>
+        <span className="scoreTarget">
+          {winTarget === null ? "Endless" : `First to ${winTarget}`}
+        </span>
       </div>
       <div className="scoreList">
         {players.map((player, index) => (

@@ -16,8 +16,8 @@ class Player {
     this.score = this.score + 1;
   }
 
-  isWinner() {
-    return this.score >= 7;
+  isWinner(targetScore = 7) {
+    return Number.isFinite(targetScore) && this.score >= targetScore;
   }
 
   static fromJson(playerObj) {

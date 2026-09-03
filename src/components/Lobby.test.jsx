@@ -32,8 +32,15 @@ test("starts a game with Player instances", async () => {
   const user = userEvent.setup();
   const setPlayerState = vi.fn();
   const setIsNewGame = vi.fn();
+  const setWinTarget = vi.fn();
   const alertSpy = vi.spyOn(window, "alert").mockImplementation(() => {});
-  render(<Lobby setPlayerState={setPlayerState} setIsNewGame={setIsNewGame} />);
+  render(
+    <Lobby
+      setPlayerState={setPlayerState}
+      setIsNewGame={setIsNewGame}
+      setWinTarget={setWinTarget}
+    />,
+  );
 
   const startButton = screen.getByRole("button", { name: /start exploring/i });
   expect(startButton).toBeDisabled();
@@ -46,10 +53,31 @@ test("starts a game with Player instances", async () => {
   expect(players).toHaveLength(3);
   expect(players.every((player) => player instanceof Player)).toBe(true);
   expect(setIsNewGame).toHaveBeenCalledWith(false);
+  expect(setWinTarget).toHaveBeenCalledWith(7);
   expect(alertSpy).toHaveBeenCalledWith(
     "Game starting with players: Ada, Grace, Linus",
   );
   alertSpy.mockRestore();
+});
+
+test("offers finite targets and Endless mode", async () => {
+  const user = userEvent.setup();
+  const setWinTarget = vi.fn();
+  const setIsNewGame = vi.fn();
+  vi.spyOn(window, "alert").mockImplementation(() => {});
+  render(
+    <Lobby
+      setPlayerState={vi.fn()}
+      setIsNewGame={setIsNewGame}
+      setWinTarget={setWinTarget}
+    />,
+  );
+
+  for (const name of ["Ada", "Grace", "Linus"]) await addPlayer(user, name);
+  await user.click(screen.getByRole("radio", { name: /endless/i }));
+  await user.click(screen.getByRole("button", { name: /start exploring/i }));
+
+  expect(setWinTarget).toHaveBeenCalledWith(null);
 });
 
 test("caps the lobby at thirteen players", async () => {

@@ -12,6 +12,8 @@ describe("Player", () => {
 
     expect(player.getScore()).toBe(7);
     expect(player.isWinner()).toBe(true);
+    expect(player.isWinner(10)).toBe(false);
+    expect(player.isWinner(null)).toBe(false);
   });
 
   test("serializes and restores a player", () => {

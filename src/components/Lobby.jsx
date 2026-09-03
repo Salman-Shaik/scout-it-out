@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import "./css/Lobby.css"; // Import CSS styles
 import Player from "../model/Player";
 
-const Lobby = ({ setPlayerState, setIsNewGame }) => {
+const WIN_OPTIONS = [3, 5, 7, 10, "endless"];
+
+const Lobby = ({ setPlayerState, setIsNewGame, setWinTarget }) => {
   const [players, setPlayers] = useState([]);
   const [playerName, setPlayerName] = useState("");
+  const [selectedTarget, setSelectedTarget] = useState(7);
 
   const addPlayer = () => {
     if (playerName.trim()) {
@@ -29,6 +32,7 @@ const Lobby = ({ setPlayerState, setIsNewGame }) => {
     // Perform necessary actions to start the game (e.g., redirect to game page)
     const playerObjects = players.map((player) => new Player(player.name));
     setPlayerState(playerObjects);
+    setWinTarget(selectedTarget === "endless" ? null : selectedTarget);
     setIsNewGame(false);
     alert(
       "Game starting with players: " +
@@ -41,7 +45,7 @@ const Lobby = ({ setPlayerState, setIsNewGame }) => {
       <div className="lobbyIntro">
         <span className="section-kicker">Ready to roam?</span>
         <h2>Build your scout crew</h2>
-        <p>Add 3–13 players. Race to seven correct guesses to win.</p>
+        <p>Add 3–13 players, then choose how long you want to play.</p>
       </div>
       <form
         className="playerInput"
@@ -93,6 +97,27 @@ const Lobby = ({ setPlayerState, setIsNewGame }) => {
           </span>
         ))}
       </div>
+      <fieldset className="winCriteria">
+        <legend>Choose the win criteria</legend>
+        <div className="winOptions">
+          {WIN_OPTIONS.map((target) => (
+            <label
+              className={selectedTarget === target ? "selected" : ""}
+              key={target}
+            >
+              <input
+                type="radio"
+                name="win-target"
+                value={target}
+                checked={selectedTarget === target}
+                onChange={() => setSelectedTarget(target)}
+              />
+              <strong>{target === "endless" ? "Endless" : target}</strong>
+              <span>{target === "endless" ? "End when ready" : "to win"}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
       <button
         type="button"
         onClick={handleStartGame}

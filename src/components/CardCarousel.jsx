@@ -7,7 +7,13 @@ import Player from "../model/Player";
 
 const WorldMap = lazy(() => import("./WorldMap"));
 
-const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
+const CardCarousel = ({
+  items,
+  players,
+  setPlayers,
+  setIsNewGame,
+  winTarget = 7,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedPlayer, setSelectedPlayer] = useState("default");
   const [isFlagMode, setIsFlagMode] = useState(false);
@@ -15,6 +21,8 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
   const [winner, setWinner] = useState("");
   const [showQuitConfirmation, setShowQuitConfirmation] = useState(false);
   const [showWorldMap, setShowWorldMap] = useState(false);
+  const [gameEnded, setGameEnded] = useState(false);
+  const isEndless = winTarget === null;
 
   const handleNextCard = () => {
     setCurrentIndex((index) => Math.min(index + 1, items.length - 1));
@@ -26,7 +34,9 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
     setPlayers(updatedPlayers);
     setDisableNext(true);
     setSelectedPlayer("default");
-    const winningPlayer = updatedPlayers.find((player) => player.isWinner());
+    const winningPlayer = updatedPlayers.find((player) =>
+      player.isWinner(winTarget),
+    );
     if (winningPlayer) setWinner(winningPlayer.getName());
   };
 
@@ -35,12 +45,16 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
     setDisableNext(false);
   };
 
-  if (winner) {
+  if (winner || gameEnded) {
     return (
       <Overlay showOverlay>
         <section className="winningOverlay">
-          <span className="section-kicker">Trail completed</span>
-          <h1 className="winnerMessage">🎉 {winner} wins! 🎊</h1>
+          <span className="section-kicker">
+            {winner ? "Trail completed" : "Game completed"}
+          </span>
+          <h1 className="winnerMessage">
+            {winner ? `🎉 ${winner} wins! 🎊` : "Great scouting!"}
+          </h1>
           <h2>Final scores</h2>
           {players.map((player) => (
             <h4 key={player.getName()}>
@@ -60,10 +74,10 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
       {showQuitConfirmation && (
         <Overlay showOverlay>
           <section className="quitOverlay" aria-labelledby="quit-title">
-            <span className="section-kicker">End this game?</span>
+            <span className="section-kicker">End this Endless game?</span>
             <h2 id="quit-title">Your current scores will be cleared.</h2>
             <p>
-              You’ll return to the lobby and can start again with a new crew.
+              Your final scores will be shown before you return to the lobby.
             </p>
             <div className="quitActions">
               <button
@@ -76,9 +90,12 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
               <button
                 className="confirmQuit"
                 type="button"
-                onClick={() => setIsNewGame(true)}
+                onClick={() => {
+                  setShowQuitConfirmation(false);
+                  setGameEnded(true);
+                }}
               >
-                Quit game
+                End game
               </button>
             </div>
           </section>
@@ -99,17 +116,19 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
           >
             World map
           </button>
-          <button
-            className="quitGameButton"
-            type="button"
-            onClick={() => setShowQuitConfirmation(true)}
-          >
-            Quit game
-          </button>
+          {isEndless && (
+            <button
+              className="quitGameButton"
+              type="button"
+              onClick={() => setShowQuitConfirmation(true)}
+            >
+              End game
+            </button>
+          )}
         </div>
       </div>
       <div className="gameLayout">
-        <InfoButton players={players} />
+        <InfoButton players={players} winTarget={winTarget} />
         <main className="playArea">
           <div className="roundMeta">
             <span>Country card</span>

@@ -64,6 +64,35 @@ test("discards malformed saved state", () => {
   expect(localStorage.getItem("scoutItOutPlayers")).toBe("[]");
 });
 
+test("falls back safely from invalid saved win criteria", () => {
+  localStorage.setItem(
+    "scoutItOutPlayers",
+    JSON.stringify([{ name: "Ada", score: 0 }]),
+  );
+  localStorage.setItem("scoutItOutWinTarget", "99");
+
+  const { unmount } = render(<App />);
+  expect(screen.getByText("First to 7")).toBeInTheDocument();
+  unmount();
+
+  localStorage.setItem("scoutItOutWinTarget", "not json");
+  render(<App />);
+  expect(screen.getByText("First to 7")).toBeInTheDocument();
+  expect(localStorage.getItem("scoutItOutWinTarget")).toBe("7");
+});
+
+test("restores Endless mode", () => {
+  localStorage.setItem(
+    "scoutItOutPlayers",
+    JSON.stringify([{ name: "Ada", score: 0 }]),
+  );
+  localStorage.setItem("scoutItOutWinTarget", "null");
+
+  render(<App />);
+  expect(screen.getByText("Endless")).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "End game" })).toBeInTheDocument();
+});
+
 test("uses the system theme and remembers a manual override", async () => {
   const user = userEvent.setup();
   const originalMatchMedia = window.matchMedia;

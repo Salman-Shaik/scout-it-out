@@ -7,6 +7,8 @@ import Player from "./model/Player";
 
 const STORAGE_KEY = "scoutItOutPlayers";
 const THEME_KEY = "scoutItOutTheme";
+const WIN_TARGET_KEY = "scoutItOutWinTarget";
+const VALID_WIN_TARGETS = [3, 5, 7, 10, null];
 
 const getInitialTheme = () => {
   const savedTheme = localStorage.getItem(THEME_KEY);
@@ -35,10 +37,23 @@ const loadPlayers = () => {
   }
 };
 
+const loadWinTarget = () => {
+  try {
+    const savedValue = localStorage.getItem(WIN_TARGET_KEY);
+    if (savedValue === null) return 7;
+    const savedTarget = JSON.parse(savedValue);
+    return VALID_WIN_TARGETS.includes(savedTarget) ? savedTarget : 7;
+  } catch {
+    localStorage.removeItem(WIN_TARGET_KEY);
+    return 7;
+  }
+};
+
 function App() {
   const [info, setInfo] = useState(() => shuffle(countryData));
   const [players, setPlayers] = useState(loadPlayers);
   const [isNewGame, setIsNewGame] = useState(() => loadPlayers().length === 0);
+  const [winTarget, setWinTarget] = useState(loadWinTarget);
   const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
@@ -52,6 +67,10 @@ function App() {
     localStorage.setItem(THEME_KEY, theme);
     document.documentElement.style.colorScheme = theme;
   }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem(WIN_TARGET_KEY, JSON.stringify(winTarget));
+  }, [winTarget]);
 
   const toggleTheme = () => {
     setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
@@ -92,7 +111,11 @@ function App() {
       </header>
       {isNewGame ? (
         <section>
-          <Lobby setPlayerState={setPlayers} setIsNewGame={setGameState} />
+          <Lobby
+            setPlayerState={setPlayers}
+            setIsNewGame={setGameState}
+            setWinTarget={setWinTarget}
+          />
         </section>
       ) : (
         <section className="app_section">
@@ -101,6 +124,7 @@ function App() {
             players={players}
             setPlayers={setPlayers}
             setIsNewGame={setGameState}
+            winTarget={winTarget}
           />
         </section>
       )}
