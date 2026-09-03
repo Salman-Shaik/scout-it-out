@@ -3,9 +3,16 @@ import worldMap from "@svg-maps/world";
 import Overlay from "./Overlay";
 import "./css/WorldMap.css";
 
+const WORLD_VIEW = { x: 0, y: 0, width: 1010, height: 666 };
+const REGION_VIEWS = {
+  europe: { x: 430, y: 205, width: 190, height: 150 },
+  northAmerica: { x: 25, y: 120, width: 390, height: 330 },
+};
+
 const WorldMap = ({ countries, onClose }) => {
   const [activeCountry, setActiveCountry] = useState("Select a country");
   const [pointer, setPointer] = useState(null);
+  const [view, setView] = useState(WORLD_VIEW);
   const countryNames = useMemo(
     () =>
       new Map(
@@ -26,6 +33,21 @@ const WorldMap = ({ countries, onClose }) => {
     });
   };
 
+  const zoomBy = (factor) => {
+    setView((current) => {
+      const width = current.width * factor;
+      const height = current.height * factor;
+      return {
+        x: current.x + (current.width - width) / 2,
+        y: current.y + (current.height - height) / 2,
+        width,
+        height,
+      };
+    });
+  };
+
+  const viewBox = `${view.x} ${view.y} ${view.width} ${view.height}`;
+
   return (
     <Overlay showOverlay>
       <section className="worldMapDialog" aria-labelledby="world-map-title">
@@ -41,10 +63,44 @@ const WorldMap = ({ countries, onClose }) => {
         <p className="mapInstructions">
           Hover, tap, or use the keyboard to discover country names.
         </p>
+        <nav className="mapControls" aria-label="Map controls">
+          <div className="regionControls">
+            <button type="button" onClick={() => setView(REGION_VIEWS.europe)}>
+              Europe
+            </button>
+            <button
+              type="button"
+              onClick={() => setView(REGION_VIEWS.northAmerica)}
+            >
+              North America
+            </button>
+            <button type="button" onClick={() => setView(WORLD_VIEW)}>
+              Whole world
+            </button>
+          </div>
+          <div className="zoomControls">
+            <button
+              type="button"
+              aria-label="Zoom out"
+              onClick={() => zoomBy(1.35)}
+              disabled={view.width >= WORLD_VIEW.width}
+            >
+              −
+            </button>
+            <button
+              type="button"
+              aria-label="Zoom in"
+              onClick={() => zoomBy(0.7)}
+              disabled={view.width <= 180}
+            >
+              +
+            </button>
+          </div>
+        </nav>
         <div className="mapCanvas">
           <svg
             className="worldMapSvg"
-            viewBox={worldMap.viewBox}
+            viewBox={viewBox}
             role="img"
             aria-label="Interactive world map"
           >

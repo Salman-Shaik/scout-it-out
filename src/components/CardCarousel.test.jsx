@@ -101,6 +101,23 @@ test("opens and closes the interactive world map", async () => {
   expect(
     within(dialog).getByRole("img", { name: /interactive world map/i }),
   ).toBeInTheDocument();
+  const map = within(dialog).getByRole("img", {
+    name: /interactive world map/i,
+  });
+  expect(map).toHaveAttribute("viewBox", "0 0 1010 666");
+  await user.click(within(dialog).getByRole("button", { name: /zoom in/i }));
+  expect(map).not.toHaveAttribute("viewBox", "0 0 1010 666");
+  await user.click(within(dialog).getByRole("button", { name: /zoom out/i }));
+  await user.click(within(dialog).getByRole("button", { name: "Europe" }));
+  expect(map).toHaveAttribute("viewBox", "430 205 190 150");
+  await user.click(
+    within(dialog).getByRole("button", { name: "North America" }),
+  );
+  expect(map).toHaveAttribute("viewBox", "25 120 390 330");
+  await user.click(
+    within(dialog).getByRole("button", { name: /whole world/i }),
+  );
+  expect(map).toHaveAttribute("viewBox", "0 0 1010 666");
 
   const alpha = within(dialog).getByRole("button", { name: "Alpha" });
   await user.hover(alpha);

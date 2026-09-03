@@ -43,6 +43,54 @@
   color: var(--muted);
 }
 
+.mapControls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.regionControls,
+.zoomControls {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.mapControls button {
+  min-height: 40px;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mapControls button:hover:not(:disabled) {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.mapControls button:disabled {
+  background: #d8d5cc;
+  color: #646960;
+  cursor: not-allowed;
+}
+
+.zoomControls button {
+  width: 42px;
+  padding: 0;
+  font-size: 1.25rem;
+}
+
+.App[data-theme="dark"] .mapControls button:disabled {
+  background: #34413a;
+  color: #bfc8bf;
+}
+
 .mapCanvas {
   position: relative;
   overflow: hidden;
@@ -113,6 +161,23 @@
 
   .mapInstructions {
     font-size: 0.85rem;
+  }
+
+  .mapControls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .regionControls {
+    overflow-x: auto;
+  }
+
+  .regionControls button {
+    flex: 1 0 auto;
+  }
+
+  .zoomControls {
+    align-self: flex-end;
   }
 
   .mapCanvas {

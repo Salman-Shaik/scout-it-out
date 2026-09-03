@@ -51,6 +51,10 @@ test("world map opens and identifies countries", async ({ page }) => {
   await expect(
     dialog.getByRole("img", { name: "Interactive world map" }),
   ).toBeVisible();
+  await dialog.getByRole("button", { name: "Europe" }).click();
+  await expect(
+    dialog.getByRole("img", { name: "Interactive world map" }),
+  ).toHaveAttribute("viewBox", "430 205 190 150");
   await dialog.getByRole("button", { name: "France" }).focus();
   await expect(dialog.getByRole("status")).toHaveText("France");
   await dialog.getByRole("button", { name: "Close map" }).click();
