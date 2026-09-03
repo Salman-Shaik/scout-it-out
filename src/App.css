@@ -1,0 +1,258 @@
+.App {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 6% 18%,
+      rgba(223, 245, 111, 0.7),
+      transparent 22rem
+    ),
+    radial-gradient(
+      circle at 94% 82%,
+      rgba(124, 108, 242, 0.16),
+      transparent 28rem
+    ),
+    var(--cream);
+}
+
+.App[data-theme="dark"] {
+  --ink: #eff4ed;
+  --muted: #a7b0a7;
+  --paper: #18231f;
+  --cream: #0c1512;
+  --forest: #dff56f;
+  --on-forest: #172019;
+  --lime: #bedb46;
+  --on-lime: #172019;
+  --orange: #ff8a57;
+  --violet: #9a8cff;
+  --on-violet: #172019;
+  --line: rgba(235, 245, 236, 0.13);
+  --shadow: 0 28px 80px rgba(0, 0, 0, 0.38);
+  background:
+    radial-gradient(
+      circle at 6% 18%,
+      rgba(190, 219, 70, 0.13),
+      transparent 23rem
+    ),
+    radial-gradient(
+      circle at 94% 82%,
+      rgba(154, 140, 255, 0.15),
+      transparent 28rem
+    ),
+    var(--cream);
+}
+
+.App::before,
+.App::after {
+  position: fixed;
+  z-index: 0;
+  width: 18rem;
+  height: 18rem;
+  border: 1px solid rgba(22, 68, 58, 0.12);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.App::before {
+  top: -11rem;
+  right: 14%;
+}
+
+.App::after {
+  bottom: -13rem;
+  left: 5%;
+}
+
+.App-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  max-width: 1240px;
+  min-height: 92px;
+  padding: 1.25rem clamp(1.2rem, 4vw, 3.5rem);
+  margin: 0 auto;
+  color: var(--forest);
+}
+
+.brand-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--forest);
+  color: var(--lime);
+  font-size: 1.35rem;
+  transform: rotate(-5deg);
+  box-shadow: 0 8px 18px rgba(22, 68, 58, 0.2);
+}
+
+.brand-copy {
+  display: grid;
+  gap: 0.05rem;
+  text-align: left;
+}
+
+.brand-eyebrow,
+.section-kicker,
+.cardKicker,
+.clueLabel,
+.revealKicker {
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
+.country-count {
+  padding: 0.55rem 0.9rem;
+  margin-left: auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.58);
+  color: var(--forest);
+  font-size: 0.78rem;
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+}
+
+.theme-toggle {
+  display: grid;
+  min-width: 58px;
+  min-height: 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 253, 247, 0.58);
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+.theme-toggle-track {
+  position: relative;
+  display: flex;
+  width: 46px;
+  height: 28px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 999px;
+  background: rgba(22, 68, 58, 0.12);
+}
+
+.theme-toggle-icon {
+  z-index: 1;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.App[data-theme="dark"] .theme-toggle {
+  background: rgba(24, 35, 31, 0.74);
+}
+
+.App[data-theme="dark"] .theme-toggle-track {
+  background: rgba(223, 245, 111, 0.18);
+}
+
+.App[data-theme="dark"] .theme-toggle-thumb {
+  transform: translateX(18px);
+}
+
+.App[data-theme="dark"] .brand-mark {
+  background: var(--lime);
+  color: #172019;
+}
+
+.App[data-theme="dark"] .country-count {
+  background: rgba(24, 35, 31, 0.72);
+}
+
+.App[data-theme="dark"] .lobbyContainer,
+.App[data-theme="dark"] .scorePanel,
+.App[data-theme="dark"] .card-controls {
+  border-color: rgba(255, 255, 255, 0.09);
+  background: rgba(24, 35, 31, 0.78);
+}
+
+.App[data-theme="dark"] .playerInput,
+.App[data-theme="dark"] .player-dropdown,
+.App[data-theme="dark"] .cards,
+.App[data-theme="dark"] .overlay > * {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.App[data-theme="dark"] .playerListItem,
+.App[data-theme="dark"] .scoreRow:hover,
+.App[data-theme="dark"] .flagButton:hover {
+  background: rgba(223, 245, 111, 0.1);
+}
+
+.App[data-theme="dark"] .removeButton,
+.App[data-theme="dark"] .theme-toggle-track {
+  color: var(--forest);
+}
+
+.App[data-theme="dark"] .bonus_text {
+  background: #1d2a25;
+}
+
+.App[data-theme="dark"] .player-dropdown {
+  background:
+    linear-gradient(45deg, transparent 50%, var(--forest) 50%) calc(100% - 18px)
+      50% / 6px 6px no-repeat,
+    linear-gradient(135deg, var(--forest) 50%, transparent 50%)
+      calc(100% - 13px) 50% / 6px 6px no-repeat,
+    var(--paper);
+}
+
+.app_section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 540px) {
+  .App-header {
+    min-height: 76px;
+  }
+
+  .brand-eyebrow,
+  .country-count {
+    display: none;
+  }
+}

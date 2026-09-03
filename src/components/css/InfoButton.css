@@ -1,0 +1,104 @@
+.scorePanel {
+  position: sticky;
+  top: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  background: rgba(255, 253, 247, 0.7);
+  box-shadow: 0 16px 50px rgba(33, 48, 39, 0.1);
+  backdrop-filter: blur(18px);
+}
+
+.scorePanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid var(--line);
+  color: var(--forest);
+  font:
+    800 0.83rem "Manrope",
+    sans-serif;
+}
+
+.scoreTarget {
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--on-lime);
+  font-size: 0.65rem;
+}
+
+.scoreList {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.7rem;
+}
+
+.scoreRow {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.55rem;
+  border-radius: 14px;
+}
+
+.scoreRow:hover {
+  background: rgba(22, 68, 58, 0.06);
+}
+
+.playerAvatar {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--violet);
+  color: var(--on-violet);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.scoreName {
+  overflow: hidden;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.scoreRow strong {
+  color: var(--forest);
+  font:
+    800 1rem "Manrope",
+    sans-serif;
+}
+
+@media (max-width: 760px) {
+  .scorePanel {
+    position: static;
+  }
+
+  .scoreList {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 390px) {
+  .scoreList {
+    grid-template-columns: 1fr 1fr;
+    padding: 0.5rem;
+  }
+
+  .scoreRow {
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    gap: 0.4rem;
+    padding: 0.4rem;
+  }
+
+  .playerAvatar {
+    width: 28px;
+    height: 28px;
+  }
+}

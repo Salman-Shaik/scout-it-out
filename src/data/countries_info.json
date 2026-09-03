@@ -1,0 +1,2732 @@
+[
+  {
+    "clues": [
+      "The Sahara covers much of its territory, while the Atlas Mountains rise nearer the Mediterranean coast.",
+      "The ancient Roman city of Timgad preserves a striking grid of streets and public buildings.",
+      "Its capital is Algiers, the country's main seat of national government.",
+      "Traditional couscous is widely shared at family meals across the country.",
+      "It lies in Northern Africa and shares land borders with 7 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Casbah",
+    "continent": "Africa",
+    "answer": "Algeria",
+    "country_code": "dz"
+  },
+  {
+    "clues": [
+      "Kalandula Falls drops in a broad horseshoe amid green highland scenery.",
+      "Portuguese is the official language, reflecting centuries of colonial rule.",
+      "Its capital is Luanda, the country's main seat of national government.",
+      "The giant sable antelope, once feared lost, survives in protected areas here.",
+      "It lies in Middle Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the kwanza denomination for everyday payments."
+    ],
+    "buzzword": "Semba",
+    "continent": "Africa",
+    "answer": "Angola",
+    "country_code": "ao"
+  },
+  {
+    "clues": [
+      "The historic city of Ouidah is closely associated with Vodun traditions and the Atlantic slave trade.",
+      "Ganvié is a lakeside settlement where many homes stand on stilts above Lake Nokoué.",
+      "Its capital is Porto-Novo, the country's main seat of national government.",
+      "The royal palaces of Abomey preserve the history of a powerful precolonial kingdom.",
+      "It lies in Western Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Zangbeto",
+    "continent": "Africa",
+    "answer": "Benin",
+    "country_code": "bj"
+  },
+  {
+    "clues": [
+      "The Okavango Delta spreads into the Kalahari as a vast seasonal wetland rich in wildlife.",
+      "Chobe National Park is especially known for large gatherings of elephants along its river.",
+      "Its capital is Gaborone, the country's main seat of national government.",
+      "Tsodilo Hills contains thousands of ancient rock paintings in the Kalahari.",
+      "It lies in Southern Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the pula denomination for everyday payments."
+    ],
+    "buzzword": "Mopane",
+    "continent": "Africa",
+    "answer": "Botswana",
+    "country_code": "bw"
+  },
+  {
+    "clues": [
+      "Ouagadougou hosts FESPACO, a major festival celebrating cinema made across the African continent.",
+      "Traditional buildings in Tiébélé are decorated with bold geometric wall paintings.",
+      "Its capital is Ouagadougou, the country's main seat of national government.",
+      "The country lies in the Sahel, where savanna gradually gives way to drier landscapes.",
+      "It lies in Western Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Dolo",
+    "continent": "Africa",
+    "answer": "Burkina Faso",
+    "country_code": "bf"
+  },
+  {
+    "clues": [
+      "Lake Tanganyika forms much of its southwestern edge and supports fishing communities.",
+      "Traditional royal drumming is performed by large ensembles using tall ceremonial drums.",
+      "Its capital is Bujumbura, the country's main seat of national government.",
+      "The source region of the Nile lies near the country's central highlands.",
+      "It lies in Eastern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Inanga",
+    "continent": "Africa",
+    "answer": "Burundi",
+    "country_code": "bi"
+  },
+  {
+    "clues": [
+      "This Atlantic island nation is famous for morna, a soulful musical style linked with Cesária Évora.",
+      "Its volcanic island of Fogo is dominated by a large active volcano and dark lava landscapes.",
+      "Its capital is Praia, the country's main seat of national government.",
+      "Creole languages are widely spoken alongside Portuguese throughout the islands.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the escudo denomination for everyday payments."
+    ],
+    "buzzword": "Cachupa",
+    "continent": "Africa",
+    "answer": "Cabo Verde",
+    "country_code": "cv"
+  },
+  {
+    "clues": [
+      "A high active volcano rises near the Atlantic coast above tropical forests and farmland.",
+      "The country stretches from Gulf of Guinea rainforests to dry Sahel landscapes in the north.",
+      "Its capital is Yaoundé, the country's main seat of national government.",
+      "Traditional grassfields kingdoms are known for carved masks, beadwork, and palace art.",
+      "It lies in Middle Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Makossa",
+    "continent": "Africa",
+    "answer": "Cameroon",
+    "country_code": "cm"
+  },
+  {
+    "clues": [
+      "Dzanga-Sangha is known for forest clearings where elephants and western lowland gorillas can be seen.",
+      "The country is landlocked and lies around the watershed between the Congo and Lake Chad basins.",
+      "Its capital is Bangui, the country's main seat of national government.",
+      "Sangha Trinational protects rainforest shared with two neighboring states.",
+      "It lies in Middle Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Sango",
+    "continent": "Africa",
+    "answer": "Central African Republic",
+    "country_code": "cf"
+  },
+  {
+    "clues": [
+      "A large shallow lake on the western edge changes greatly with seasons and rainfall.",
+      "The Ennedi Plateau contains dramatic sandstone arches and prehistoric rock art.",
+      "Its capital is N'Djamena, the country's main seat of national government.",
+      "The Sahara dominates the north, while savanna landscapes spread across the south.",
+      "It lies in Middle Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Zakouma",
+    "continent": "Africa",
+    "answer": "Chad",
+    "country_code": "td"
+  },
+  {
+    "clues": [
+      "This volcanic island nation lies in the Indian Ocean between Madagascar and the African mainland.",
+      "Ylang-ylang flowers are traditionally distilled here for fragrant essential oil used in perfumes.",
+      "Its capital is Moroni, the country's main seat of national government.",
+      "Mount Karthala is an active volcano rising above the main island.",
+      "It lies in Eastern Africa and has no land border with another sovereign state.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Mwali",
+    "continent": "Africa",
+    "answer": "Comoros",
+    "country_code": "km"
+  },
+  {
+    "clues": [
+      "A vast equatorial rainforest covers much of the country and shelters bonobos and okapis.",
+      "Virunga National Park includes volcanoes, forests, lakes, and habitat for mountain gorillas.",
+      "Its capital is Kinshasa, the country's main seat of national government.",
+      "The mighty river system here forms a major transport route through the interior.",
+      "It lies in Middle Africa and shares land borders with 9 neighboring states.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Rumba",
+    "continent": "Africa",
+    "answer": "Democratic Republic of the Congo",
+    "country_code": "cd"
+  },
+  {
+    "clues": [
+      "Much of the north is covered by dense equatorial rainforest with rivers and swampy clearings.",
+      "Odzala-Kokoua National Park protects forest elephants, gorillas, and swampy clearings called bais.",
+      "Its capital is Brazzaville, the country's main seat of national government.",
+      "Brazzaville faces another national capital directly across a broad river.",
+      "It lies in Middle Africa and shares land borders with 5 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Sapeurs",
+    "continent": "Africa",
+    "answer": "Republic of the Congo",
+    "country_code": "cg"
+  },
+  {
+    "clues": [
+      "The Basilica of Our Lady of Peace in Yamoussoukro has a vast dome and monumental interior.",
+      "Grand-Bassam preserves colonial-era buildings beside a lagoon and the Atlantic shoreline.",
+      "Its capital is Yamoussoukro, the country's main seat of national government.",
+      "Masked dances and carved wooden art are important traditions among several communities.",
+      "It lies in Western Africa and shares land borders with 5 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Attiéké",
+    "continent": "Africa",
+    "answer": "Ivory Coast",
+    "country_code": "ci"
+  },
+  {
+    "clues": [
+      "Lake Assal lies in a stark desert depression surrounded by salt flats and volcanic terrain.",
+      "The Gulf of Tadjoura opens toward the Red Sea and is visited seasonally by whale sharks.",
+      "Its international telephone calling code is +253, a useful clue for geography fans.",
+      "Much of the landscape is arid, with lava fields and rift valleys shaped by tectonic activity.",
+      "It lies in Eastern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Skoudehkaris",
+    "continent": "Africa",
+    "answer": "Djibouti",
+    "country_code": "dj"
+  },
+  {
+    "clues": [
+      "The pyramids and Great Sphinx at Giza were built during the age of the ancient pharaohs.",
+      "The Nile flows through a narrow fertile valley before spreading into a broad delta.",
+      "Its capital is Cairo, the country's main seat of national government.",
+      "Abu Simbel's rock-cut temples were moved to save them from rising reservoir waters.",
+      "It lies in Northern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the pound denomination for everyday payments."
+    ],
+    "buzzword": "Hieroglyphs",
+    "continent": "Africa",
+    "answer": "Egypt",
+    "country_code": "eg"
+  },
+  {
+    "clues": [
+      "The country includes a mainland region and several volcanic islands near the equator in the Atlantic.",
+      "Bioko Island rises steeply from the sea and contains rainforest and volcanic peaks.",
+      "Its capital is Malabo, the country's main seat of national government.",
+      "Spanish is an official language, unusual among sovereign states on the continent.",
+      "It lies in Middle Africa and shares land borders with 2 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Succotash",
+    "continent": "Africa",
+    "answer": "Equatorial Guinea",
+    "country_code": "gq"
+  },
+  {
+    "clues": [
+      "Asmara is celebrated for modernist buildings shaped by Italian architecture of the twentieth century.",
+      "The country has a long Red Sea coastline and includes the Dahlak Archipelago.",
+      "Its capital is Asmara, the country's main seat of national government.",
+      "Highland monasteries and ancient churches reflect a long Christian tradition.",
+      "It lies in Eastern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the nakfa denomination for everyday payments."
+    ],
+    "buzzword": "Massawa",
+    "continent": "Africa",
+    "answer": "Eritrea",
+    "country_code": "er"
+  },
+  {
+    "clues": [
+      "The annual Umhlanga reed dance brings together large groups in a major cultural ceremony.",
+      "The country is landlocked between South Africa and Mozambique.",
+      "Its capital is Mbabane, the country's main seat of national government.",
+      "Traditional beehive-shaped huts and colorful beadwork remain visible in cultural villages.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the lilangeni denomination for everyday payments."
+    ],
+    "buzzword": "Lobamba",
+    "continent": "Africa",
+    "answer": "Eswatini",
+    "country_code": "sz"
+  },
+  {
+    "clues": [
+      "The rock-hewn churches of Lalibela were carved downward into solid stone.",
+      "The highlands are home to gelada monkeys and a rare red-coated mountain wolf.",
+      "Its capital is Addis Ababa, the country's main seat of national government.",
+      "Coffee traditions here often involve roasting beans and preparing several rounds for guests.",
+      "It lies in Eastern Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the birr denomination for everyday payments."
+    ],
+    "buzzword": "Injera",
+    "continent": "Africa",
+    "answer": "Ethiopia",
+    "country_code": "et"
+  },
+  {
+    "clues": [
+      "Loango National Park combines Atlantic beaches, lagoons, savanna, and dense rainforest.",
+      "Forest elephants, gorillas, and mandrills live in protected equatorial forests.",
+      "Its capital is Libreville, the country's main seat of national government.",
+      "Libreville grew around an estuary on the Atlantic coast.",
+      "It lies in Middle Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Mvet",
+    "continent": "Africa",
+    "answer": "Gabon",
+    "country_code": "ga"
+  },
+  {
+    "clues": [
+      "The country forms a narrow ribbon of land following both banks of a major river.",
+      "It is almost entirely surrounded by Senegal, except for a short Atlantic coastline.",
+      "Its capital is Banjul, the country's main seat of national government.",
+      "Abuko Nature Reserve protects woodland, wetlands, monkeys, crocodiles, and many bird species.",
+      "It lies in Western Africa and shares a land border with just one neighboring state.",
+      "The national currency uses the dalasi denomination for everyday payments."
+    ],
+    "buzzword": "Kora",
+    "continent": "Africa",
+    "answer": "Gambia",
+    "country_code": "gm"
+  },
+  {
+    "clues": [
+      "Cape Coast and Elmina castles preserve difficult histories connected to the Atlantic slave trade.",
+      "Kente cloth is woven in bright geometric patterns and worn on important occasions.",
+      "Its capital is Accra, the country's main seat of national government.",
+      "Lake Volta stretches through much of the country's interior behind the Akosombo Dam.",
+      "It lies in Western Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the cedi denomination for everyday payments."
+    ],
+    "buzzword": "Akwaaba",
+    "continent": "Africa",
+    "answer": "Ghana",
+    "country_code": "gh"
+  },
+  {
+    "clues": [
+      "The Fouta Djallon highlands are the source region for several major West African rivers.",
+      "Mount Nimba rises in a biodiversity-rich reserve shared across national borders.",
+      "Its capital is Conakry, the country's main seat of national government.",
+      "Conakry stands on a narrow peninsula extending into the Atlantic Ocean.",
+      "It lies in Western Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Djembe",
+    "continent": "Africa",
+    "answer": "Guinea",
+    "country_code": "gn"
+  },
+  {
+    "clues": [
+      "The Bijagós Archipelago contains mangroves, mudflats, islands, and important sea turtle nesting sites.",
+      "Many communities maintain strong traditions of rice farming in coastal wetlands.",
+      "Its international telephone calling code is +245, a useful clue for geography fans.",
+      "Bolama preserves faded colonial buildings from an earlier period as a regional capital.",
+      "It lies in Western Africa and shares land borders with 2 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Cashew",
+    "continent": "Africa",
+    "answer": "Guinea-Bissau",
+    "country_code": "gw"
+  },
+  {
+    "clues": [
+      "The Maasai Mara is famous for grasslands, big cats, and seasonal movements of wildebeest.",
+      "A rugged equatorial mountain rises with sharp peaks, glaciers, and unusual alpine vegetation.",
+      "Its capital is Nairobi, the country's main seat of national government.",
+      "Swahili culture developed strongly along the Indian Ocean coast around ports such as Lamu.",
+      "It lies in Eastern Africa and shares land borders with 5 neighboring states.",
+      "The national currency uses the shilling denomination for everyday payments."
+    ],
+    "buzzword": "Safari",
+    "continent": "Africa",
+    "answer": "Kenya",
+    "country_code": "ke"
+  },
+  {
+    "clues": [
+      "The entire country lies at high elevation and is surrounded by South Africa.",
+      "Traditional Basotho blankets and conical mokorotlo hats are familiar cultural symbols.",
+      "Its capital is Maseru, the country's main seat of national government.",
+      "Maletsunyane Falls plunges from a high basalt cliff into a deep gorge.",
+      "It lies in Southern Africa and shares a land border with just one neighboring state.",
+      "The national currency uses the loti denomination for everyday payments."
+    ],
+    "buzzword": "Pony trekking",
+    "continent": "Africa",
+    "answer": "Lesotho",
+    "country_code": "ls"
+  },
+  {
+    "clues": [
+      "Monrovia faces the Atlantic Ocean near the mouth of the Mesurado River.",
+      "The Sapo National Park protects one of the region's important remaining rainforest areas.",
+      "Its capital is Monrovia, the country's main seat of national government.",
+      "The country's modern history is closely connected with settlements founded by formerly enslaved people from America.",
+      "It lies in Western Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Kpatawee",
+    "continent": "Africa",
+    "answer": "Liberia",
+    "country_code": "lr"
+  },
+  {
+    "clues": [
+      "Leptis Magna preserves grand Roman ruins beside the Mediterranean coast.",
+      "The vast Sahara dominates the interior, including the dramatic Acacus rock formations.",
+      "Its capital is Tripoli, the country's main seat of national government.",
+      "Ghadames is an old oasis town known for whitewashed walls and covered passageways.",
+      "It lies in Northern Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Couscous",
+    "continent": "Africa",
+    "answer": "Libya",
+    "country_code": "ly"
+  },
+  {
+    "clues": [
+      "Lemurs live naturally here and nowhere else in the wild.",
+      "The Avenue of the Baobabs is lined with enormous bottle-shaped trees near Morondava.",
+      "Its capital is Antananarivo, the country's main seat of national government.",
+      "Tsingy de Bemaraha features razor-sharp limestone pinnacles, caves, and unusual wildlife.",
+      "It lies in Eastern Africa and has no land border with another sovereign state.",
+      "The national currency uses the ariary denomination for everyday payments."
+    ],
+    "buzzword": "Romazava",
+    "continent": "Africa",
+    "answer": "Madagascar",
+    "country_code": "mg"
+  },
+  {
+    "clues": [
+      "A long rift-valley lake fills much of the eastern side and holds remarkable freshwater fish diversity.",
+      "Mount Mulanje rises above tea-growing lowlands with dramatic cliffs and plateaus.",
+      "Its capital is Lilongwe, the country's main seat of national government.",
+      "Traditional Gule Wamkulu masked dances are performed by Chewa communities.",
+      "It lies in Eastern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the kwacha denomination for everyday payments."
+    ],
+    "buzzword": "Likoma",
+    "continent": "Africa",
+    "answer": "Malawi",
+    "country_code": "mw"
+  },
+  {
+    "clues": [
+      "Timbuktu grew famous as a Saharan trading and learning center with historic mosques and manuscripts.",
+      "The Great Mosque of Djenné is rebuilt and maintained with earthen plaster.",
+      "Its capital is Bamako, the country's main seat of national government.",
+      "The Niger River curves through the country, supporting farming and historic river towns.",
+      "It lies in Western Africa and shares land borders with 7 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Bogolan",
+    "continent": "Africa",
+    "answer": "Mali",
+    "country_code": "ml"
+  },
+  {
+    "clues": [
+      "The Richat Structure forms a huge circular pattern visible from high above the Sahara.",
+      "Ancient caravan towns such as Chinguetti preserve libraries, mosques, and desert architecture.",
+      "Its capital is Nouakchott, the country's main seat of national government.",
+      "Much of the country lies within the Sahara, with Atlantic waters along its western edge.",
+      "It lies in Western Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the (1973–2017) denomination for everyday payments."
+    ],
+    "buzzword": "Thieboudienne",
+    "continent": "Africa",
+    "answer": "Mauritania",
+    "country_code": "mr"
+  },
+  {
+    "clues": [
+      "The extinct dodo once lived only on this Indian Ocean island.",
+      "Le Morne Brabant is a dramatic mountain linked to memories of escaped enslaved people.",
+      "Its capital is Port Louis, the country's main seat of national government.",
+      "Creole, Indian, African, Chinese, and European influences meet strongly in local food and festivals.",
+      "It lies in Eastern Africa and has no land border with another sovereign state.",
+      "The national currency uses the rupee denomination for everyday payments."
+    ],
+    "buzzword": "Sega",
+    "continent": "Africa",
+    "answer": "Mauritius",
+    "country_code": "mu"
+  },
+  {
+    "clues": [
+      "Marrakesh is known for its old medina, souks, courtyards, and busy Jemaa el-Fnaa square.",
+      "The Atlas Mountains rise between Atlantic plains and the Sahara.",
+      "Its capital is Rabat, the country's main seat of national government.",
+      "Blue-painted lanes make the hill town of Chefchaouen instantly recognizable.",
+      "It lies in Northern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the dirham denomination for everyday payments."
+    ],
+    "buzzword": "Tagine",
+    "continent": "Africa",
+    "answer": "Morocco",
+    "country_code": "ma"
+  },
+  {
+    "clues": [
+      "A long Indian Ocean coastline faces coral islands, mangroves, and warm tropical waters.",
+      "A historic coral island preserves stone buildings shaped by African, Arab, Indian, and Portuguese trade.",
+      "Its capital is Maputo, the country's main seat of national government.",
+      "Peri-peri flavors and seafood are common features of local cooking.",
+      "It lies in Eastern Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the metical denomination for everyday payments."
+    ],
+    "buzzword": "Marrabenta",
+    "continent": "Africa",
+    "answer": "Mozambique",
+    "country_code": "mz"
+  },
+  {
+    "clues": [
+      "Towering red dunes surround the white clay pan of Sossusvlei in the Namib Desert.",
+      "Etosha National Park centers on a huge salt pan visited by abundant wildlife.",
+      "Its capital is Windhoek, the country's main seat of national government.",
+      "The Skeleton Coast is known for fog, shipwrecks, dunes, and a harsh Atlantic shoreline.",
+      "It lies in Southern Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Oryx",
+    "continent": "Africa",
+    "answer": "Namibia",
+    "country_code": "na"
+  },
+  {
+    "clues": [
+      "The Sahara covers much of the country, including the Aïr Mountains and Ténéré Desert.",
+      "Agadez has an old mud-brick mosque with a tall earthen minaret.",
+      "Its capital is Niamey, the country's main seat of national government.",
+      "A major river crosses the southwest and supports farming around the capital, Niamey.",
+      "It lies in Western Africa and shares land borders with 7 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Tuareg silver",
+    "continent": "Africa",
+    "answer": "Niger",
+    "country_code": "ne"
+  },
+  {
+    "clues": [
+      "Lagos is a huge coastal city known for music, film, markets, and busy lagoon waterways.",
+      "Nollywood produces films in many languages and reaches audiences across the continent and beyond.",
+      "Its capital is Abuja, the country's main seat of national government.",
+      "The ancient Nok culture is remembered for distinctive terracotta sculptures.",
+      "It lies in Western Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the naira denomination for everyday payments."
+    ],
+    "buzzword": "Afrobeats",
+    "continent": "Africa",
+    "answer": "Nigeria",
+    "country_code": "ng"
+  },
+  {
+    "clues": [
+      "Mountain gorillas live in bamboo forests on the slopes of the Virunga volcanoes.",
+      "Lake Kivu forms much of the country's western border among steep green hills.",
+      "Its capital is Kigali, the country's main seat of national government.",
+      "Traditional imigongo art uses raised geometric designs, often arranged in bold patterns.",
+      "It lies in Eastern Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Agaseke",
+    "continent": "Africa",
+    "answer": "Rwanda",
+    "country_code": "rw"
+  },
+  {
+    "clues": [
+      "This island nation sits near the equator in the Gulf of Guinea.",
+      "Cocoa plantations and old plantation houses reflect a long history of tropical agriculture.",
+      "Its capital is São Tomé, the country's main seat of national government.",
+      "Pico Cão Grande rises like a narrow stone tower from dense rainforest.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the dobra denomination for everyday payments."
+    ],
+    "buzzword": "Calulu",
+    "continent": "Africa",
+    "answer": "Sao Tome and Principe",
+    "country_code": "st"
+  },
+  {
+    "clues": [
+      "Dakar occupies the Cap-Vert peninsula, projecting into the Atlantic Ocean.",
+      "Gorée Island preserves buildings connected with the history of the Atlantic slave trade.",
+      "Its capital is Dakar, the country's main seat of national government.",
+      "Traditional sabar drumming and dance are important in celebrations and performance.",
+      "It lies in Western Africa and shares land borders with 5 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Teranga",
+    "continent": "Africa",
+    "answer": "Senegal",
+    "country_code": "sn"
+  },
+  {
+    "clues": [
+      "Granite boulders, pale beaches, and clear Indian Ocean water shape many island landscapes.",
+      "The coco de mer palm produces enormous seeds and grows naturally on only a few islands.",
+      "Its capital is Victoria, the country's main seat of national government.",
+      "Aldabra Atoll shelters giant tortoises and extensive coral reef ecosystems.",
+      "It lies in Eastern Africa and has no land border with another sovereign state.",
+      "The national currency uses the rupee denomination for everyday payments."
+    ],
+    "buzzword": "Ladob",
+    "continent": "Africa",
+    "answer": "Seychelles",
+    "country_code": "sc"
+  },
+  {
+    "clues": [
+      "Freetown was founded as a settlement for formerly enslaved people and freed captives.",
+      "The Tacugama sanctuary near the capital protects rescued chimpanzees.",
+      "Its capital is Freetown, the country's main seat of national government.",
+      "Tiwai Island is a rainforest reserve in the Moa River with rich primate and bird life.",
+      "It lies in Western Africa and shares land borders with 2 neighboring states.",
+      "Its international telephone calling code is +232, a useful clue for geography fans."
+    ],
+    "buzzword": "Groundnut stew",
+    "continent": "Africa",
+    "answer": "Sierra Leone",
+    "country_code": "sl"
+  },
+  {
+    "clues": [
+      "The country has a long coastline along the Indian Ocean and Gulf of Aden.",
+      "Ancient port cities linked the Horn of Africa with Arabia, Persia, and the Indian Ocean world.",
+      "Its capital is Mogadishu, the country's main seat of national government.",
+      "Frankincense and myrrh have been gathered in northern regions for centuries.",
+      "It lies in Eastern Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the shilling denomination for everyday payments."
+    ],
+    "buzzword": "Camel poetry",
+    "continent": "Africa",
+    "answer": "Somalia",
+    "country_code": "so"
+  },
+  {
+    "clues": [
+      "Table Mountain rises above Cape Town with a broad, flat summit.",
+      "Kruger National Park is known for lions, elephants, rhinos, leopards, and buffalo.",
+      "Its capital is Pretoria, the country's main seat of national government.",
+      "Robben Island is closely connected with the struggle against apartheid.",
+      "It lies at the continent's southern tip and shares land borders with six neighboring states.",
+      "The national currency uses the rand denomination for everyday payments."
+    ],
+    "buzzword": "Ubuntu",
+    "continent": "Africa",
+    "answer": "South Africa",
+    "country_code": "za"
+  },
+  {
+    "clues": [
+      "The Sudd is a vast wetland of channels, papyrus, floodplains, and seasonal grasslands.",
+      "Cattle play an important social and cultural role among several communities.",
+      "Its capital is Juba, the country's main seat of national government.",
+      "The White Nile passes through the country on its journey northward.",
+      "It lies in Middle Africa and shares land borders with 6 neighboring states.",
+      "The national currency uses the pound denomination for everyday payments."
+    ],
+    "buzzword": "Dinka cattle",
+    "continent": "Africa",
+    "answer": "South Sudan",
+    "country_code": "ss"
+  },
+  {
+    "clues": [
+      "More ancient pyramids stand around the old Nubian sites near Meroë and neighboring royal centers.",
+      "The Blue Nile and White Nile meet at Khartoum.",
+      "Its capital is Khartoum, the country's main seat of national government.",
+      "Desert landscapes surround archaeological remains of the ancient Kushite kingdoms.",
+      "It lies in Northern Africa and shares land borders with 7 neighboring states.",
+      "The national currency uses the pound denomination for everyday payments."
+    ],
+    "buzzword": "Kisra",
+    "continent": "Africa",
+    "answer": "Sudan",
+    "country_code": "sd"
+  },
+  {
+    "clues": [
+      "Mount Kilimanjaro rises above the plains as a snow-capped volcanic massif.",
+      "The Serengeti is famous for grasslands, predators, and huge seasonal wildlife migrations.",
+      "Its capital is Dodoma, the country's main seat of national government.",
+      "Zanzibar's Stone Town blends Swahili, Arab, Indian, and European architectural influences.",
+      "It lies in Eastern Africa and shares land borders with 8 neighboring states.",
+      "The national currency uses the shilling denomination for everyday payments."
+    ],
+    "buzzword": "Tinga Tinga",
+    "continent": "Africa",
+    "answer": "Tanzania",
+    "country_code": "tz"
+  },
+  {
+    "clues": [
+      "The country forms a narrow north-south strip from the Gulf of Guinea into the interior.",
+      "Koutammakou is known for distinctive mud tower-houses built by the Batammariba people.",
+      "Its capital is Lomé, the country's main seat of national government.",
+      "Lomé's markets are known for colorful textiles, crafts, and regional trade.",
+      "It lies in Western Africa and shares land borders with 3 neighboring states.",
+      "The national currency uses the CFA franc denomination for everyday payments."
+    ],
+    "buzzword": "Kpalimé",
+    "continent": "Africa",
+    "answer": "Togo",
+    "country_code": "tg"
+  },
+  {
+    "clues": [
+      "Carthage preserves ruins from a powerful ancient Mediterranean civilization near modern Tunis.",
+      "El Jem contains a remarkably preserved Roman amphitheater.",
+      "Its capital is Tunis, the country's main seat of national government.",
+      "Blue-and-white buildings overlook the sea in the hilltop village of Sidi Bou Said.",
+      "It lies in Northern Africa and shares land borders with 2 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Harissa",
+    "continent": "Africa",
+    "answer": "Tunisia",
+    "country_code": "tn"
+  },
+  {
+    "clues": [
+      "The source area of the White Nile lies near Jinja at Lake Victoria.",
+      "Bwindi's mountain forests shelter mountain gorillas and many other species.",
+      "Its capital is Kampala, the country's main seat of national government.",
+      "Rwenzori Mountains have jagged peaks, alpine vegetation, and glaciers near the equator.",
+      "It lies in Eastern Africa and shares land borders with 5 neighboring states.",
+      "The national currency uses the shilling denomination for everyday payments."
+    ],
+    "buzzword": "Matoke",
+    "continent": "Africa",
+    "answer": "Uganda",
+    "country_code": "ug"
+  },
+  {
+    "clues": [
+      "Victoria Falls thunders along the Zambezi River at the border with Zimbabwe.",
+      "South Luangwa National Park is known for walking safaris and abundant wildlife.",
+      "Its capital is Lusaka, the country's main seat of national government.",
+      "Kuomboka is a traditional ceremony involving a royal barge moving across seasonal floodwaters.",
+      "It lies in Eastern Africa and shares land borders with 8 neighboring states.",
+      "The national currency uses the (1968–2012) denomination for everyday payments."
+    ],
+    "buzzword": "Copperbelt",
+    "continent": "Africa",
+    "answer": "Zambia",
+    "country_code": "zm"
+  },
+  {
+    "clues": [
+      "A vast medieval stone city preserves walls built without mortar by a powerful inland kingdom.",
+      "Victoria Falls lies on the Zambezi River along the country's northern border.",
+      "Its capital is Harare, the country's main seat of national government.",
+      "Matobo Hills contains dramatic balancing rocks, caves, and ancient rock art.",
+      "It lies in Eastern Africa and shares land borders with 4 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Mbira",
+    "continent": "Africa",
+    "answer": "Zimbabwe",
+    "country_code": "zw"
+  },
+  {
+    "clues": [
+      "The Hindu Kush mountains cut across much of the country with high passes and deep valleys.",
+      "The ancient Buddhas of Bamiyan once stood in huge cliff niches along an old Silk Road route.",
+      "Its capital is Kabul, the country's main seat of national government.",
+      "Blue-glazed tiles cover parts of the famous shrine complex at Mazar-i-Sharif.",
+      "It lies in Southern Asia and shares land borders with 6 neighboring states.",
+      "Its international telephone calling code is +93, a useful clue for geography fans."
+    ],
+    "buzzword": "Buzkashi",
+    "continent": "Asia",
+    "answer": "Afghanistan",
+    "country_code": "af"
+  },
+  {
+    "clues": [
+      "Lake Sevan is a large high-altitude lake surrounded by mountains and historic monasteries.",
+      "Geghard Monastery includes churches partly carved into solid rock.",
+      "Its capital is Yerevan, the country's main seat of national government.",
+      "Traditional lavash flatbread is baked in clay ovens and shared at family meals.",
+      "It lies in Western Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the dram denomination for everyday payments."
+    ],
+    "buzzword": "Khachkar",
+    "continent": "Asia",
+    "answer": "Armenia",
+    "country_code": "am"
+  },
+  {
+    "clues": [
+      "Baku's old city stands beside the Caspian Sea beneath modern flame-shaped towers.",
+      "Mud volcanoes and natural gas flames are common features of the surrounding landscape.",
+      "Its capital is Baku, the country's main seat of national government.",
+      "Carpet weaving has deep traditions, with regional designs using intricate geometric patterns.",
+      "It lies in Western Asia and shares land borders with 5 neighboring states.",
+      "The national currency uses the manat denomination for everyday payments."
+    ],
+    "buzzword": "Gobustan",
+    "continent": "Asia",
+    "answer": "Azerbaijan",
+    "country_code": "az"
+  },
+  {
+    "clues": [
+      "This small island state lies in the Persian Gulf and is connected to Saudi Arabia by a causeway.",
+      "Ancient burial mounds cover parts of the main island and date back to the Dilmun civilization.",
+      "Its capital is Manama, the country's main seat of national government.",
+      "Pearl diving shaped local life and trade long before modern oil development.",
+      "It lies in Western Asia and has no land border with another sovereign state.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Pearls",
+    "continent": "Asia",
+    "answer": "Bahrain",
+    "country_code": "bh"
+  },
+  {
+    "clues": [
+      "The vast Ganges-Brahmaputra delta creates a landscape of rivers, floodplains, and fertile fields.",
+      "The Sundarbans mangrove forest is shared with India and shelters Bengal tigers.",
+      "Its capital is Dhaka, the country's main seat of national government.",
+      "Colorful cycle rickshaws often display hand-painted scenes and decorative patterns.",
+      "It lies in Southern Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the taka denomination for everyday payments."
+    ],
+    "buzzword": "Rickshaw art",
+    "continent": "Asia",
+    "answer": "Bangladesh",
+    "country_code": "bd"
+  },
+  {
+    "clues": [
+      "Tiger's Nest Monastery clings dramatically to a cliff high above the Paro Valley.",
+      "Forested Himalayan mountains, deep valleys, and traditional fortress-monasteries shape the landscape.",
+      "Its capital is Thimphu, the country's main seat of national government.",
+      "Archery is a national sport and is often accompanied by singing and friendly teasing.",
+      "It lies in Southern Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the ngultrum denomination for everyday payments."
+    ],
+    "buzzword": "Gross Happiness",
+    "continent": "Asia",
+    "answer": "Bhutan",
+    "country_code": "bt"
+  },
+  {
+    "clues": [
+      "Omar Ali Saifuddien Mosque stands beside a lagoon with a golden dome in the capital.",
+      "Much of the interior remains covered by tropical rainforest on the island of Borneo.",
+      "Its capital is Bandar Seri Begawan, the country's main seat of national government.",
+      "Kampong Ayer is a historic water settlement of homes and walkways built above a river.",
+      "It lies in South-Eastern Asia and shares a land border with just one neighboring state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Ambuyat",
+    "continent": "Asia",
+    "answer": "Brunei",
+    "country_code": "bn"
+  },
+  {
+    "clues": [
+      "Angkor Wat rises from a vast temple complex built by the Khmer Empire.",
+      "The Tonlé Sap changes its flow direction seasonally as water levels rise and fall.",
+      "Its capital is Phnom Penh, the country's main seat of national government.",
+      "Classical apsara dance uses precise hand gestures, elaborate costumes, and stories from ancient traditions.",
+      "It lies in South-Eastern Asia and shares land borders with 3 neighboring states.",
+      "The national currency uses the riel denomination for everyday payments."
+    ],
+    "buzzword": "Khmer dance",
+    "continent": "Asia",
+    "answer": "Cambodia",
+    "country_code": "kh"
+  },
+  {
+    "clues": [
+      "The Great Wall stretches across northern landscapes through mountains, deserts, and grasslands.",
+      "Giant pandas are native to mountain bamboo forests in the country's southwest.",
+      "Its capital is Beijing, the country's main seat of national government.",
+      "The Terracotta Army guards the tomb complex of an ancient emperor near Xi'an.",
+      "It lies in Eastern Asia and shares land borders with 15 neighboring states.",
+      "The national currency uses the yuan denomination for everyday payments."
+    ],
+    "buzzword": "Forbidden City",
+    "continent": "Asia",
+    "answer": "China",
+    "country_code": "cn"
+  },
+  {
+    "clues": [
+      "This Mediterranean island is associated in ancient mythology with the goddess Aphrodite.",
+      "Troodos Mountain villages preserve painted Byzantine churches and traditional stone houses.",
+      "Its capital is Nicosia, the country's main seat of national government.",
+      "Halloumi cheese is traditionally grilled or fried because it keeps its shape when heated.",
+      "It lies in Southern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Commandaria",
+    "continent": "Asia",
+    "answer": "Cyprus",
+    "country_code": "cy"
+  },
+  {
+    "clues": [
+      "The Caucasus Mountains rise sharply in the north above valleys dotted with stone towers.",
+      "Traditional qvevri winemaking ferments grape juice in large clay vessels buried underground.",
+      "Its capital is Tbilisi, the country's main seat of national government.",
+      "The cave city of Uplistsikhe contains rooms and passages carved into rocky slopes.",
+      "It lies in Western Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the lari denomination for everyday payments."
+    ],
+    "buzzword": "Khachapuri",
+    "continent": "Asia",
+    "answer": "Georgia",
+    "country_code": "ge"
+  },
+  {
+    "clues": [
+      "The Taj Mahal's white marble dome rises beside the Yamuna River in Agra.",
+      "The Himalayas, Thar Desert, tropical coasts, and vast river plains all lie within its borders.",
+      "Its capital is New Delhi, the country's main seat of national government.",
+      "Classical traditions include Bharatanatyam dance, Hindustani music, and intricate temple architecture.",
+      "It lies in Southern Asia and shares land borders with 8 neighboring states.",
+      "The national currency uses the rupee denomination for everyday payments."
+    ],
+    "buzzword": "Diwali",
+    "continent": "Asia",
+    "answer": "India",
+    "country_code": "in"
+  },
+  {
+    "clues": [
+      "This enormous archipelago stretches across thousands of islands between the Indian and Pacific oceans.",
+      "Komodo dragons live naturally on a small group of dry islands in the east.",
+      "Its capital is Jakarta, the country's main seat of national government.",
+      "Borobudur is a vast Buddhist monument covered with carved stone reliefs and bell-shaped stupas.",
+      "It lies in South-Eastern Asia and shares land borders with 3 neighboring states.",
+      "The national currency uses the rupiah denomination for everyday payments."
+    ],
+    "buzzword": "Batik",
+    "continent": "Asia",
+    "answer": "Indonesia",
+    "country_code": "id"
+  },
+  {
+    "clues": [
+      "Persepolis preserves monumental stairways and carved reliefs from the ancient Achaemenid Empire.",
+      "Persian gardens use water channels, shade, and geometric layouts to create calm spaces.",
+      "Its capital is Tehran, the country's main seat of national government.",
+      "Traditional carpets are famous for detailed floral and geometric designs woven by hand.",
+      "It lies in Southern Asia and shares land borders with 7 neighboring states.",
+      "The national currency uses the rial denomination for everyday payments."
+    ],
+    "buzzword": "Nowruz",
+    "continent": "Asia",
+    "answer": "Iran",
+    "country_code": "ir"
+  },
+  {
+    "clues": [
+      "The Tigris and Euphrates rivers cross the country through the historic region of Mesopotamia.",
+      "Ancient cities such as Ur and Babylon shaped early writing, law, and urban civilization.",
+      "Its capital is Baghdad, the country's main seat of national government.",
+      "The marshes of the south contain reed beds, waterways, and traditional boat-building communities.",
+      "It lies in Western Asia and shares land borders with 6 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Ziggurat",
+    "continent": "Asia",
+    "answer": "Iraq",
+    "country_code": "iq"
+  },
+  {
+    "clues": [
+      "Jerusalem's Old City contains sacred places important to Judaism, Christianity, and Islam.",
+      "The Dead Sea lies in a deep desert basin along the eastern edge.",
+      "Its international telephone calling code is +972, a useful clue for geography fans.",
+      "Masada is an ancient fortress built on a high plateau overlooking the desert.",
+      "It lies in Western Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the shekel denomination for everyday payments."
+    ],
+    "buzzword": "Shakshuka",
+    "continent": "Asia",
+    "answer": "Israel",
+    "country_code": "il"
+  },
+  {
+    "clues": [
+      "Mount Fuji's symmetrical volcanic cone is a familiar sight west of Tokyo.",
+      "Shinkansen trains connect major cities at high speed across the main islands.",
+      "Its capital is Tokyo, the country's main seat of national government.",
+      "Traditional arts include tea ceremony, kabuki theater, origami, and woodblock printing.",
+      "It lies in Eastern Asia and has no land border with another sovereign state.",
+      "The national currency uses the yen denomination for everyday payments."
+    ],
+    "buzzword": "Sakura",
+    "continent": "Asia",
+    "answer": "Japan",
+    "country_code": "jp"
+  },
+  {
+    "clues": [
+      "Petra is carved into rose-colored sandstone cliffs and reached through a narrow gorge.",
+      "The Dead Sea lies along the country's western edge below surrounding desert plateaus.",
+      "Its capital is Amman, the country's main seat of national government.",
+      "Wadi Rum is a desert of sandstone mountains, red sand, and natural arches.",
+      "It lies in Western Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Mansaf",
+    "continent": "Asia",
+    "answer": "Jordan",
+    "country_code": "jo"
+  },
+  {
+    "clues": [
+      "Vast steppe grasslands stretch across much of this large Central Asian country.",
+      "Baikonur Cosmodrome has launched many famous spacecraft and human space missions.",
+      "Its capital is Astana, the country's main seat of national government.",
+      "Charyn Canyon contains colorful rock formations cut by a river through dry highlands.",
+      "It lies in Central Asia and shares land borders with 5 neighboring states.",
+      "The national currency uses the tenge denomination for everyday payments."
+    ],
+    "buzzword": "Dombra",
+    "continent": "Asia",
+    "answer": "Kazakhstan",
+    "country_code": "kz"
+  },
+  {
+    "clues": [
+      "This small Gulf state has a long maritime tradition linked to dhow sailing and pearl diving.",
+      "Three distinctive towers with spherical sections rise beside the capital's Gulf waterfront.",
+      "Its international telephone calling code is +965, a useful clue for geography fans.",
+      "Traditional diwaniya gatherings provide spaces for conversation, hospitality, and community life.",
+      "It lies in Western Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Machboos",
+    "continent": "Asia",
+    "answer": "Kuwait",
+    "country_code": "kw"
+  },
+  {
+    "clues": [
+      "Lake Issyk-Kul lies among high mountains and remains unfrozen through most winters.",
+      "Yurts are still used in summer pastures by families following pastoral traditions.",
+      "Its capital is Bishkek, the country's main seat of national government.",
+      "Traditional horseback games remain an important part of festivals and rural culture.",
+      "It lies in Central Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the som denomination for everyday payments."
+    ],
+    "buzzword": "Kok-boru",
+    "continent": "Asia",
+    "answer": "Kyrgyzstan",
+    "country_code": "kg"
+  },
+  {
+    "clues": [
+      "This landlocked Southeast Asian country is crossed by the Mekong River from north to south.",
+      "Luang Prabang is known for gilded temples, monasteries, and traditional wooden buildings.",
+      "Its capital is Vientiane, the country's main seat of national government.",
+      "The Plain of Jars contains thousands of ancient stone vessels scattered across upland fields.",
+      "It lies in South-Eastern Asia and shares land borders with 5 neighboring states.",
+      "The national currency uses the kip denomination for everyday payments."
+    ],
+    "buzzword": "Sticky rice",
+    "continent": "Asia",
+    "answer": "Laos",
+    "country_code": "la"
+  },
+  {
+    "clues": [
+      "Ancient cedar trees survive in mountain reserves and carry deep cultural significance.",
+      "Baalbek contains enormous Roman temple ruins built on an ancient sacred site.",
+      "Its capital is Beirut, the country's main seat of national government.",
+      "Beirut faces the Mediterranean and has long served as a major port and cultural center.",
+      "It lies in Western Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the pound denomination for everyday payments."
+    ],
+    "buzzword": "Tabbouleh",
+    "continent": "Asia",
+    "answer": "Lebanon",
+    "country_code": "lb"
+  },
+  {
+    "clues": [
+      "The Petronas Towers rise above Kuala Lumpur with a skybridge linking their upper levels.",
+      "Tropical rainforests cover parts of the peninsula and the northern island of Borneo.",
+      "Its capital is Kuala Lumpur, the country's main seat of national government.",
+      "George Town is known for historic shophouses, street food, temples, mosques, and street art.",
+      "It lies in South-Eastern Asia and shares land borders with 3 neighboring states.",
+      "The national currency uses the ringgit denomination for everyday payments."
+    ],
+    "buzzword": "Nasi lemak",
+    "continent": "Asia",
+    "answer": "Malaysia",
+    "country_code": "my"
+  },
+  {
+    "clues": [
+      "This Indian Ocean nation is made of low coral islands grouped into ring-shaped atolls.",
+      "Clear lagoons, coral reefs, and over-water structures are common features of many inhabited islands.",
+      "Its capital is Malé, the country's main seat of national government.",
+      "Traditional dhoni boats are used for fishing and travel between islands.",
+      "It lies in Southern Asia and has no land border with another sovereign state.",
+      "The national currency uses the rufiyaa denomination for everyday payments."
+    ],
+    "buzzword": "Mas huni",
+    "continent": "Asia",
+    "answer": "Maldives",
+    "country_code": "mv"
+  },
+  {
+    "clues": [
+      "The Gobi Desert spreads across the south with dunes, rocky plains, and dinosaur fossil sites.",
+      "Nomadic families traditionally live in round felt homes called gers.",
+      "Its capital is Ulan Bator, the country's main seat of national government.",
+      "Naadam festivals feature wrestling, horse racing, and archery.",
+      "It lies in Eastern Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the tögrög denomination for everyday payments."
+    ],
+    "buzzword": "Morin khuur",
+    "continent": "Asia",
+    "answer": "Mongolia",
+    "country_code": "mn"
+  },
+  {
+    "clues": [
+      "Bagan's plains are covered with thousands of historic Buddhist temples and pagodas.",
+      "Inle Lake is known for floating gardens and fishers who row using one leg.",
+      "Its capital is Naypyidaw, the country's main seat of national government.",
+      "The long teak U Bein Bridge crosses shallow water near Mandalay.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the kyat denomination for everyday payments."
+    ],
+    "buzzword": "Thanaka",
+    "continent": "Asia",
+    "answer": "Myanmar",
+    "country_code": "mm"
+  },
+  {
+    "clues": [
+      "Mount Everest rises on the northern border within the Himalayas.",
+      "Kathmandu Valley contains old palace squares, temples, stupas, and carved wooden architecture.",
+      "Its capital is Kathmandu, the country's main seat of national government.",
+      "Lumbini is traditionally recognized as the birthplace of Siddhartha Gautama.",
+      "It lies in Southern Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the rupee denomination for everyday payments."
+    ],
+    "buzzword": "Sherpa",
+    "continent": "Asia",
+    "answer": "Nepal",
+    "country_code": "np"
+  },
+  {
+    "clues": [
+      "Mount Paektu is a volcanic mountain with a crater lake near the northern border.",
+      "Pyongyang contains monumental avenues, large public squares, and distinctive civic architecture.",
+      "Its capital is Pyongyang, the country's main seat of national government.",
+      "Traditional cuisine here includes cold naengmyeon noodles strongly associated with the capital.",
+      "It lies in Eastern Asia and shares land borders with 3 neighboring states.",
+      "The national currency uses the won denomination for everyday payments."
+    ],
+    "buzzword": "Juche Tower",
+    "continent": "Asia",
+    "answer": "North Korea",
+    "country_code": "kp"
+  },
+  {
+    "clues": [
+      "Muscat sits between rugged brown mountains and a sheltered gulf opening toward the Arabian Sea.",
+      "Ancient aflaj irrigation channels carry water through villages and date back many centuries.",
+      "Its capital is Muscat, the country's main seat of national government.",
+      "Frankincense trees grow in the southern Dhofar region, long linked to historic trade routes.",
+      "It lies in Western Asia and shares land borders with 3 neighboring states.",
+      "The national currency uses the rial denomination for everyday payments."
+    ],
+    "buzzword": "Khanjar",
+    "continent": "Asia",
+    "answer": "Oman",
+    "country_code": "om"
+  },
+  {
+    "clues": [
+      "The Indus River runs through the country from the high mountains toward the Arabian Sea.",
+      "Mohenjo-daro preserves the planned streets and brick buildings of the ancient Indus civilization.",
+      "Its capital is Islamabad, the country's main seat of national government.",
+      "The northern mountains include dramatic Karakoram peaks and the famous K2.",
+      "It lies in Southern Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the rupee denomination for everyday payments."
+    ],
+    "buzzword": "Truck art",
+    "continent": "Asia",
+    "answer": "Pakistan",
+    "country_code": "pk"
+  },
+  {
+    "clues": [
+      "Bethlehem's Church of the Nativity is a major Christian pilgrimage site.",
+      "Jericho is an ancient oasis settlement near the Jordan Valley and Dead Sea.",
+      "Its international telephone calling code is +970, a useful clue for geography fans.",
+      "Traditional olive cultivation, embroidery, and dabke dance remain important cultural practices.",
+      "It lies in Western Asia and shares land borders with 2 neighboring states.",
+      "The shekel is widely used for everyday payments, alongside other currencies in some areas."
+    ],
+    "buzzword": "Tatreez",
+    "continent": "Asia",
+    "answer": "Palestine",
+    "country_code": "ps"
+  },
+  {
+    "clues": [
+      "This Southeast Asian archipelago contains thousands of islands between the South China Sea and Pacific Ocean.",
+      "The rice terraces of the Cordillera mountains were carved into steep slopes over generations.",
+      "Its capital is Manila, the country's main seat of national government.",
+      "Jeepneys are brightly decorated vehicles adapted from military jeeps and used for public transport.",
+      "It lies in South-Eastern Asia and has no land border with another sovereign state.",
+      "The national currency uses the peso denomination for everyday payments."
+    ],
+    "buzzword": "Adobo",
+    "continent": "Asia",
+    "answer": "Philippines",
+    "country_code": "ph"
+  },
+  {
+    "clues": [
+      "This small peninsula projects into the Persian Gulf from the Arabian Peninsula.",
+      "Doha's Museum of Islamic Art stands on the waterfront with geometric modern architecture.",
+      "Its capital is Doha, the country's main seat of national government.",
+      "Falconry and dhow sailing remain visible parts of traditional Gulf culture.",
+      "It lies in Western Asia and shares a land border with just one neighboring state.",
+      "The national currency uses the riyal denomination for everyday payments."
+    ],
+    "buzzword": "Souq Waqif",
+    "continent": "Asia",
+    "answer": "Qatar",
+    "country_code": "qa"
+  },
+  {
+    "clues": [
+      "Mecca and Medina are the holiest cities in Islam and receive Muslim pilgrims from around the world.",
+      "Much of the country is desert, including the vast sand sea called the Empty Quarter.",
+      "Its capital is Riyadh, the country's main seat of national government.",
+      "AlUla contains sandstone tombs and monuments built by the ancient Nabataean civilization.",
+      "It lies in Western Asia and shares land borders with 7 neighboring states.",
+      "The national currency uses the riyal denomination for everyday payments."
+    ],
+    "buzzword": "Kaaba",
+    "continent": "Asia",
+    "answer": "Saudi Arabia",
+    "country_code": "sa"
+  },
+  {
+    "clues": [
+      "This city-state sits near the southern tip of the Malay Peninsula beside one of the world's busiest sea routes.",
+      "Gardens by the Bay features giant tree-like structures and climate-controlled conservatories.",
+      "Its international telephone calling code is +65, a useful clue for geography fans.",
+      "Hawker centers bring together dishes influenced by Chinese, Malay, Indian, and other traditions.",
+      "It lies in South-Eastern Asia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Merlion",
+    "continent": "Asia",
+    "answer": "Singapore",
+    "country_code": "sg"
+  },
+  {
+    "clues": [
+      "Seoul combines royal palaces, dense modern neighborhoods, mountains, and the Han River.",
+      "K-pop and television dramas from this country have gained large audiences around the world.",
+      "Its capital is Seoul, the country's main seat of national government.",
+      "Jeju Island is volcanic, with lava tubes, waterfalls, and a large central mountain.",
+      "It lies in Eastern Asia and shares a land border with just one neighboring state.",
+      "The national currency uses the won denomination for everyday payments."
+    ],
+    "buzzword": "Hanbok",
+    "continent": "Asia",
+    "answer": "South Korea",
+    "country_code": "kr"
+  },
+  {
+    "clues": [
+      "This teardrop-shaped island lies just southeast of India in the Indian Ocean.",
+      "Sigiriya is a dramatic rock fortress rising above gardens and ancient ruins.",
+      "Its capital is Colombo, the country's main seat of national government.",
+      "Tea estates cover green hills around the central highlands and old railway towns.",
+      "It lies in Southern Asia and shares a land border with just one neighboring state.",
+      "The national currency uses the rupee denomination for everyday payments."
+    ],
+    "buzzword": "Ceylon tea",
+    "continent": "Asia",
+    "answer": "Sri Lanka",
+    "country_code": "lk"
+  },
+  {
+    "clues": [
+      "Damascus contains ancient markets, courtyards, mosques, churches, and streets shaped by many eras.",
+      "Palmyra's ruins stand in a desert oasis once important to caravan trade.",
+      "Its capital is Damascus, the country's main seat of national government.",
+      "The country lies between the Mediterranean coast and broad inland desert landscapes.",
+      "It lies in Western Asia and shares land borders with 5 neighboring states.",
+      "The national currency uses the pound denomination for everyday payments."
+    ],
+    "buzzword": "Aleppo soap",
+    "continent": "Asia",
+    "answer": "Syria",
+    "country_code": "sy"
+  },
+  {
+    "clues": [
+      "The Pamir Mountains dominate the east with high plateaus, deep valleys, and remote roads.",
+      "The ancient city of Panjakent preserves remains linked to the Sogdian civilization.",
+      "Its capital is Dushanbe, the country's main seat of national government.",
+      "Traditional embroidered textiles and patterned skullcaps are common forms of folk art.",
+      "It lies in Central Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the somoni denomination for everyday payments."
+    ],
+    "buzzword": "Nowruz",
+    "continent": "Asia",
+    "answer": "Tajikistan",
+    "country_code": "tj"
+  },
+  {
+    "clues": [
+      "Bangkok is known for gilded temples, busy waterways, street food, and royal palaces.",
+      "Elephants have long held cultural importance and appear in art, stories, and ceremonies.",
+      "Its capital is Bangkok, the country's main seat of national government.",
+      "Historic Ayutthaya contains ruined temples and Buddha images from a former royal capital.",
+      "It lies in South-Eastern Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the baht denomination for everyday payments."
+    ],
+    "buzzword": "Songkran",
+    "continent": "Asia",
+    "answer": "Thailand",
+    "country_code": "th"
+  },
+  {
+    "clues": [
+      "This young Southeast Asian state occupies the eastern half of a large island and nearby islets.",
+      "Mountainous interiors descend toward coral reefs and a narrow tropical coastline.",
+      "Its capital is Dili, the country's main seat of national government.",
+      "Traditional tais cloth is handwoven in colorful patterns for clothing, ceremonies, and gifts.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Coffee",
+    "continent": "Asia",
+    "answer": "Timor-Leste",
+    "country_code": "tl"
+  },
+  {
+    "clues": [
+      "Istanbul straddles the Bosporus, where Europe and Asia meet across a narrow waterway.",
+      "Cappadocia is famous for soft-rock valleys, cave dwellings, and tall fairy-chimney formations.",
+      "Its capital is Ankara, the country's main seat of national government.",
+      "Ancient Ephesus preserves a marble street, theater, and grand library facade.",
+      "It lies in Western Asia and shares land borders with 8 neighboring states.",
+      "The national currency uses the lira denomination for everyday payments."
+    ],
+    "buzzword": "Baklava",
+    "continent": "Asia",
+    "answer": "Turkey",
+    "country_code": "tr"
+  },
+  {
+    "clues": [
+      "The Karakum Desert covers much of this Central Asian country.",
+      "Ashgabat is known for broad avenues and many white marble buildings.",
+      "Its capital is Ashgabat, the country's main seat of national government.",
+      "Traditional carpets feature complex geometric patterns associated with different tribal groups.",
+      "It lies in Central Asia and shares land borders with 4 neighboring states.",
+      "The national currency uses the manat denomination for everyday payments."
+    ],
+    "buzzword": "Akhal-Teke",
+    "continent": "Asia",
+    "answer": "Turkmenistan",
+    "country_code": "tm"
+  },
+  {
+    "clues": [
+      "Dubai's Burj Khalifa rises far above a skyline built beside the Arabian Gulf.",
+      "Abu Dhabi's Sheikh Zayed Grand Mosque has vast courtyards, domes, and intricate decoration.",
+      "Its capital is Abu Dhabi, the country's main seat of national government.",
+      "Traditional desert culture includes falconry, camel racing, pearl diving, and dhow sailing.",
+      "It lies in Western Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the dirham denomination for everyday payments."
+    ],
+    "buzzword": "Luqaimat",
+    "continent": "Asia",
+    "answer": "United Arab Emirates",
+    "country_code": "ae"
+  },
+  {
+    "clues": [
+      "Samarkand's Registan is framed by monumental madrasas covered in blue tilework.",
+      "Bukhara preserves old mosques, trading domes, caravanserais, and narrow historic streets.",
+      "Its capital is Tashkent, the country's main seat of national government.",
+      "The country sits on ancient Silk Road routes that linked East Asia, Persia, and Europe.",
+      "It lies in Central Asia and shares land borders with 5 neighboring states.",
+      "The national currency uses the sum denomination for everyday payments."
+    ],
+    "buzzword": "Plov",
+    "continent": "Asia",
+    "answer": "Uzbekistan",
+    "country_code": "uz"
+  },
+  {
+    "clues": [
+      "Ha Long Bay contains thousands of limestone islands rising steeply from green water.",
+      "Long narrow geography stretches from the Red River Delta to the Mekong Delta.",
+      "Its capital is Hanoi, the country's main seat of national government.",
+      "Traditional water puppetry developed in rice-growing villages of the northern plains.",
+      "It lies in South-Eastern Asia and shares land borders with 3 neighboring states.",
+      "The national currency uses the dong denomination for everyday payments."
+    ],
+    "buzzword": "Pho",
+    "continent": "Asia",
+    "answer": "Vietnam",
+    "country_code": "vn"
+  },
+  {
+    "clues": [
+      "Sana'a's old city is known for tall earth-and-brick tower houses decorated with white patterns.",
+      "Socotra Island has unusual dragon's blood trees with umbrella-shaped crowns.",
+      "Its capital is Sana'a, the country's main seat of national government.",
+      "Shibam is famous for closely packed multi-story mud-brick buildings rising from the desert.",
+      "It lies in Western Asia and shares land borders with 2 neighboring states.",
+      "The national currency uses the rial denomination for everyday payments."
+    ],
+    "buzzword": "Mocha",
+    "continent": "Asia",
+    "answer": "Yemen",
+    "country_code": "ye"
+  },
+  {
+    "clues": [
+      "Sharp limestone peaks rise in the north above deep valleys and traditional stone villages.",
+      "Thousands of small concrete bunkers remain scattered across towns, hillsides, and beaches from the communist era.",
+      "Its capital is Tirana, the country's main seat of national government.",
+      "Berat is known for white Ottoman-era houses climbing a steep hillside beneath a castle.",
+      "It lies in Southern Europe and shares land borders with 4 neighboring states.",
+      "The national currency uses the lek denomination for everyday payments."
+    ],
+    "buzzword": "Besa",
+    "continent": "Europe",
+    "answer": "Albania",
+    "country_code": "al"
+  },
+  {
+    "clues": [
+      "This tiny mountain state sits high in the Pyrenees between France and Spain.",
+      "Romanesque stone churches with small bell towers are scattered through its valleys.",
+      "Its international telephone calling code is +376, a useful clue for geography fans.",
+      "Traditional winter life and modern ski resorts share the same steep mountain landscape.",
+      "It lies in Southern Europe and shares land borders with 2 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Escudella",
+    "continent": "Europe",
+    "answer": "Andorra",
+    "country_code": "ad"
+  },
+  {
+    "clues": [
+      "Vienna is associated with composers such as Mozart, Beethoven, Schubert, and the classical concert tradition.",
+      "The Alps cover much of the west with mountain villages, lakes, and ski slopes.",
+      "Its capital is Vienna, the country's main seat of national government.",
+      "Salzburg's old town is known for baroque churches, fortress walls, and musical heritage.",
+      "It lies in Western Europe and shares land borders with 8 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Waltz",
+    "continent": "Europe",
+    "answer": "Austria",
+    "country_code": "at"
+  },
+  {
+    "clues": [
+      "Large forests and wetlands cover much of the country, including part of ancient Białowieża Forest.",
+      "Mir Castle combines Gothic, Renaissance, and Baroque architectural elements.",
+      "Its capital is Minsk, the country's main seat of national government.",
+      "Traditional crafts include woven linen, straw ornaments, and decorated Easter eggs.",
+      "It lies in Eastern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the (2000–2016) denomination for everyday payments."
+    ],
+    "buzzword": "Bison",
+    "continent": "Europe",
+    "answer": "Belarus",
+    "country_code": "by"
+  },
+  {
+    "clues": [
+      "Brussels' Grand Place is surrounded by ornate guildhalls and a tall Gothic town hall.",
+      "Chocolate, waffles, fries, and many styles of beer are strong culinary associations.",
+      "Its capital is Brussels, the country's main seat of national government.",
+      "Medieval canals and stepped-gable buildings shape the historic center of Bruges.",
+      "It lies in Western Europe and shares land borders with 4 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Speculoos",
+    "continent": "Europe",
+    "answer": "Belgium",
+    "country_code": "be"
+  },
+  {
+    "clues": [
+      "Mostar's rebuilt stone bridge arches over the turquoise Neretva River.",
+      "Sarajevo contains mosques, churches, synagogues, markets, and architecture from several empires.",
+      "Its capital is Sarajevo, the country's main seat of national government.",
+      "Stećci are distinctive medieval stone tombstones found across the countryside.",
+      "It lies in Southern Europe and shares land borders with 3 neighboring states.",
+      "The national currency uses the convertible mark denomination for everyday payments."
+    ],
+    "buzzword": "Ćevapi",
+    "continent": "Europe",
+    "answer": "Bosnia and Herzegovina",
+    "country_code": "ba"
+  },
+  {
+    "clues": [
+      "Rila Monastery sits in forested mountains with striped arches and colorful frescoes.",
+      "The Rose Valley is famous for fragrant oil roses harvested for perfume making.",
+      "Its capital is Sofia, the country's main seat of national government.",
+      "Ancient Thracian tombs preserve murals and artifacts from pre-Roman cultures.",
+      "It lies in Eastern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the lev denomination for everyday payments."
+    ],
+    "buzzword": "Rose oil",
+    "continent": "Europe",
+    "answer": "Bulgaria",
+    "country_code": "bg"
+  },
+  {
+    "clues": [
+      "Dubrovnik's stone walls surround a historic city beside the Adriatic Sea.",
+      "The long coastline includes many islands, coves, and old port towns.",
+      "Its capital is Zagreb, the country's main seat of national government.",
+      "Plitvice Lakes is known for turquoise lakes connected by waterfalls through forested limestone.",
+      "It lies in Southern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Dalmatia",
+    "continent": "Europe",
+    "answer": "Croatia",
+    "country_code": "hr"
+  },
+  {
+    "clues": [
+      "Prague is known for a medieval astronomical clock, castle complex, and bridges over the Vltava.",
+      "Bohemian glass and crystal have a long tradition of skilled decorative craftsmanship.",
+      "Its capital is Prague, the country's main seat of national government.",
+      "Český Krumlov preserves a winding old town below a large castle.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the koruna denomination for everyday payments."
+    ],
+    "buzzword": "Prague Castle",
+    "continent": "Europe",
+    "answer": "Czechia",
+    "country_code": "cz"
+  },
+  {
+    "clues": [
+      "Copenhagen's harbor, colorful Nyhavn houses, bicycles, and royal palaces are familiar sights.",
+      "LEGO was created in the small town of Billund.",
+      "Its capital is Copenhagen, the country's main seat of national government.",
+      "Viking history is preserved in longships, burial sites, rune stones, and reconstructed settlements.",
+      "It lies in Northern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the krone denomination for everyday payments."
+    ],
+    "buzzword": "Hygge",
+    "continent": "Europe",
+    "answer": "Denmark",
+    "country_code": "dk"
+  },
+  {
+    "clues": [
+      "Tallinn's old town preserves medieval walls, towers, cobbled streets, and merchant houses.",
+      "Large areas of bogs and forests can be crossed on wooden boardwalks.",
+      "Its capital is Tallinn, the country's main seat of national government.",
+      "Traditional song festivals bring enormous choirs together in a major cultural celebration.",
+      "It lies in Northern Europe and shares land borders with 2 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Sauna",
+    "continent": "Europe",
+    "answer": "Estonia",
+    "country_code": "ee"
+  },
+  {
+    "clues": [
+      "Saunas are deeply woven into everyday life, from homes and cottages to lakeside cabins.",
+      "Thousands of lakes and extensive forests shape much of the landscape.",
+      "Its capital is Helsinki, the country's main seat of national government.",
+      "Rovaniemi lies near the Arctic Circle and is strongly associated with Santa Claus tourism.",
+      "It lies in Northern Europe and shares land borders with 3 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Sisu",
+    "continent": "Europe",
+    "answer": "Finland",
+    "country_code": "fi"
+  },
+  {
+    "clues": [
+      "The Eiffel Tower rises above Paris beside the River Seine.",
+      "Regional foods range from croissants and cheeses to crêpes, bouillabaisse, and many breads.",
+      "Its capital is Paris, the country's main seat of national government.",
+      "Mont-Saint-Michel stands on a tidal island crowned by a medieval abbey.",
+      "It lies in Western Europe and shares land borders with 8 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Baguette",
+    "continent": "Europe",
+    "answer": "France",
+    "country_code": "fr"
+  },
+  {
+    "clues": [
+      "Neuschwanstein Castle rises dramatically above forested foothills in Bavaria.",
+      "Berlin's Brandenburg Gate and remaining sections of the Berlin Wall reflect modern European history.",
+      "Its capital is Berlin, the country's main seat of national government.",
+      "Traditional Christmas markets fill many town squares with lights, crafts, and seasonal foods.",
+      "It lies in Western Europe and shares land borders with 9 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Oktoberfest",
+    "continent": "Europe",
+    "answer": "Germany",
+    "country_code": "de"
+  },
+  {
+    "clues": [
+      "The Acropolis of Athens contains the Parthenon and other temples from classical antiquity.",
+      "Thousands of islands dot the Aegean and Ionian seas, many with whitewashed villages.",
+      "Its capital is Athens, the country's main seat of national government.",
+      "Meteora's monasteries stand on tall sandstone pillars above the plains of Thessaly.",
+      "It lies in Southern Europe and shares land borders with 4 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Olives",
+    "continent": "Europe",
+    "answer": "Greece",
+    "country_code": "gr"
+  },
+  {
+    "clues": [
+      "Budapest is split by the Danube, with grand bridges linking Buda and Pest.",
+      "Thermal baths are a long-standing part of city life and spa culture.",
+      "Its capital is Budapest, the country's main seat of national government.",
+      "Paprika flavors many traditional dishes, including goulash and stews.",
+      "It lies in Eastern Europe and shares land borders with 7 neighboring states.",
+      "The national currency uses the forint denomination for everyday payments."
+    ],
+    "buzzword": "Rubik's Cube",
+    "continent": "Europe",
+    "answer": "Hungary",
+    "country_code": "hu"
+  },
+  {
+    "clues": [
+      "Volcanoes, glaciers, geysers, lava fields, and hot springs shape this North Atlantic island.",
+      "Reykjavík uses abundant geothermal energy for heating buildings and water.",
+      "Its capital is Reykjavik, the country's main seat of national government.",
+      "Old Norse sagas preserve stories of settlement, family feuds, voyages, and legendary heroes.",
+      "It lies in Northern Europe and has no land border with another sovereign state.",
+      "The national currency uses the króna denomination for everyday payments."
+    ],
+    "buzzword": "Geysir",
+    "continent": "Europe",
+    "answer": "Iceland",
+    "country_code": "is"
+  },
+  {
+    "clues": [
+      "Green fields, stone walls, rugged Atlantic cliffs, and small coastal villages shape much of the countryside.",
+      "Traditional music commonly features fiddle, tin whistle, flute, bodhrán, and uilleann pipes.",
+      "Its capital is Dublin, the country's main seat of national government.",
+      "Newgrange is a prehistoric passage tomb aligned with the winter solstice sunrise.",
+      "It lies in Northern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Shamrock",
+    "continent": "Europe",
+    "answer": "Ireland",
+    "country_code": "ie"
+  },
+  {
+    "clues": [
+      "Rome contains the Colosseum, Roman Forum, fountains, and ruins from the ancient empire.",
+      "Pizza, pasta, gelato, and espresso are strongly associated with different regional food traditions.",
+      "Its capital is Rome, the country's main seat of national government.",
+      "Venice is built around canals, bridges, islands, and narrow pedestrian streets.",
+      "It lies in Southern Europe and shares land borders with 6 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Renaissance",
+    "continent": "Europe",
+    "answer": "Italy",
+    "country_code": "it"
+  },
+  {
+    "clues": [
+      "Riga is known for an old town and a remarkable concentration of Art Nouveau architecture.",
+      "Long sandy Baltic beaches stretch beside pine forests and dunes.",
+      "Its capital is Riga, the country's main seat of national government.",
+      "Traditional midsummer celebrations include bonfires, flower crowns, songs, and special foods.",
+      "It lies in Northern Europe and shares land borders with 4 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Dainas",
+    "continent": "Europe",
+    "answer": "Latvia",
+    "country_code": "lv"
+  },
+  {
+    "clues": [
+      "This tiny Alpine principality lies between Switzerland and Austria along the Rhine Valley.",
+      "Vaduz Castle stands above the capital and remains the residence of the princely family.",
+      "Its capital is Vaduz, the country's main seat of national government.",
+      "Mountain trails climb quickly from vineyards and villages into rugged Alpine scenery.",
+      "It lies in Western Europe and shares land borders with 2 neighboring states.",
+      "The national currency uses the franc denomination for everyday payments."
+    ],
+    "buzzword": "Käsknöpfle",
+    "continent": "Europe",
+    "answer": "Liechtenstein",
+    "country_code": "li"
+  },
+  {
+    "clues": [
+      "Vilnius has a baroque old town filled with churches, courtyards, and narrow streets.",
+      "The Hill of Crosses is covered by crosses placed by visitors over many generations.",
+      "Its capital is Vilnius, the country's main seat of national government.",
+      "Amber from the Baltic region appears in jewelry, crafts, and museum collections.",
+      "It lies in Northern Europe and shares land borders with 4 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Cepelinai",
+    "continent": "Europe",
+    "answer": "Lithuania",
+    "country_code": "lt"
+  },
+  {
+    "clues": [
+      "The capital's old fortifications rise above deep river valleys and dramatic stone cliffs.",
+      "The country is a grand duchy rather than a kingdom or republic.",
+      "Its international telephone calling code is +352, a useful clue for geography fans.",
+      "Castles, forests, and small villages fill the hilly Ardennes region in the north.",
+      "It lies in Western Europe and shares land borders with 3 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Casemates",
+    "continent": "Europe",
+    "answer": "Luxembourg",
+    "country_code": "lu"
+  },
+  {
+    "clues": [
+      "Valletta is a walled harbor city built of honey-colored limestone.",
+      "Prehistoric megalithic temples stand on the islands and predate many famous ancient monuments.",
+      "Its capital is Valletta, the country's main seat of national government.",
+      "Traditional colorful fishing boats called luzzus are commonly seen in coastal harbors.",
+      "It lies in Southern Europe and has no land border with another sovereign state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Pastizzi",
+    "continent": "Europe",
+    "answer": "Malta",
+    "country_code": "mt"
+  },
+  {
+    "clues": [
+      "Underground wine cellars form vast tunnel networks beneath parts of the countryside.",
+      "Orheiul Vechi combines cave monasteries, limestone cliffs, and archaeological remains above a river.",
+      "Its capital is Chișinău, the country's main seat of national government.",
+      "Traditional embroidered shirts, woven carpets, and folk dance remain important cultural arts.",
+      "It lies in Eastern Europe and shares land borders with 2 neighboring states.",
+      "The national currency uses the leu denomination for everyday payments."
+    ],
+    "buzzword": "Cricova",
+    "continent": "Europe",
+    "answer": "Moldova",
+    "country_code": "md"
+  },
+  {
+    "clues": [
+      "This tiny Mediterranean principality is built on steep hills beside the French Riviera.",
+      "Monte Carlo is known for its historic casino and grand Belle Époque architecture.",
+      "Its international telephone calling code is +377, a useful clue for geography fans.",
+      "The annual motor race winds through city streets, tunnels, and the harbor area.",
+      "It lies in Western Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Grand Prix",
+    "continent": "Europe",
+    "answer": "Monaco",
+    "country_code": "mc"
+  },
+  {
+    "clues": [
+      "The Bay of Kotor cuts deeply into rugged mountains along the Adriatic coast.",
+      "Durmitor National Park contains glacial lakes, limestone peaks, and the Tara River canyon.",
+      "Its capital is Podgorica, the country's main seat of national government.",
+      "Kotor's fortified old town sits beneath steep slopes and winding defensive walls.",
+      "It lies in Southern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Njeguški pršut",
+    "continent": "Europe",
+    "answer": "Montenegro",
+    "country_code": "me"
+  },
+  {
+    "clues": [
+      "Canals, bicycles, windmills, and narrow gabled houses are familiar features of many towns.",
+      "Large areas of low-lying land are protected by dikes and managed with sophisticated waterworks.",
+      "Its capital is Amsterdam, the country's main seat of national government.",
+      "Keukenhof and surrounding fields are famous for spring displays of tulips and other bulbs.",
+      "It lies in Western Europe and shares land borders with 2 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Stroopwafel",
+    "continent": "Europe",
+    "answer": "Netherlands",
+    "country_code": "nl"
+  },
+  {
+    "clues": [
+      "Lake Ohrid is an ancient deep lake shared with Albania and surrounded by historic churches.",
+      "Skopje's old bazaar preserves Ottoman-era lanes, shops, baths, and mosques.",
+      "Its capital is Skopje, the country's main seat of national government.",
+      "Traditional shopska salad combines tomatoes, cucumbers, peppers, onions, and white cheese.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the denar denomination for everyday payments."
+    ],
+    "buzzword": "Ajvar",
+    "continent": "Europe",
+    "answer": "North Macedonia",
+    "country_code": "mk"
+  },
+  {
+    "clues": [
+      "Deep fjords cut between steep mountains along much of the western coast.",
+      "Northern regions experience midnight sun in summer and dark polar nights in winter.",
+      "Its capital is Oslo, the country's main seat of national government.",
+      "Viking ships and carved wooden stave churches preserve important parts of medieval heritage.",
+      "It lies in Northern Europe and shares land borders with 3 neighboring states.",
+      "The national currency uses the krone denomination for everyday payments."
+    ],
+    "buzzword": "Brunost",
+    "continent": "Europe",
+    "answer": "Norway",
+    "country_code": "no"
+  },
+  {
+    "clues": [
+      "Kraków's old town centers on a huge medieval market square beneath Wawel Castle.",
+      "Wieliczka Salt Mine contains underground chapels, chambers, and sculptures carved from salt.",
+      "Its capital is Warsaw, the country's main seat of national government.",
+      "The Białowieża Forest preserves ancient woodland and European bison near the eastern border.",
+      "It lies in Eastern Europe and shares land borders with 7 neighboring states.",
+      "The national currency uses the złoty denomination for everyday payments."
+    ],
+    "buzzword": "Pierogi",
+    "continent": "Europe",
+    "answer": "Poland",
+    "country_code": "pl"
+  },
+  {
+    "clues": [
+      "Lisbon's steep streets are crossed by yellow trams and overlook the Tagus estuary.",
+      "Traditional azulejo tiles decorate churches, stations, houses, and public buildings.",
+      "Its capital is Lisbon, the country's main seat of national government.",
+      "Pastéis de nata are small custard tarts with crisp pastry and caramelized tops.",
+      "It lies in Southern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Fado",
+    "continent": "Europe",
+    "answer": "Portugal",
+    "country_code": "pt"
+  },
+  {
+    "clues": [
+      "Transylvania contains forested mountains, medieval towns, fortified churches, and castles.",
+      "The Danube Delta spreads into reed beds, lakes, and channels rich in birdlife.",
+      "Its capital is Bucharest, the country's main seat of national government.",
+      "Painted monasteries in Bukovina have colorful religious frescoes covering their exterior walls.",
+      "It lies in Eastern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the leu denomination for everyday payments."
+    ],
+    "buzzword": "Mărțișor",
+    "continent": "Europe",
+    "answer": "Romania",
+    "country_code": "ro"
+  },
+  {
+    "clues": [
+      "Red Square and the colorful domes of Saint Basil's Cathedral are iconic sights in Moscow.",
+      "The Trans-Siberian Railway crosses vast forests, plains, mountains, and remote settlements.",
+      "Its capital is Moscow, the country's main seat of national government.",
+      "Lake Baikal is an exceptionally deep freshwater lake surrounded by Siberian landscapes.",
+      "It lies in Eastern Europe and shares land borders with 14 neighboring states.",
+      "The national currency uses the ruble denomination for everyday payments."
+    ],
+    "buzzword": "Matryoshka",
+    "continent": "Europe",
+    "answer": "Russia",
+    "country_code": "ru"
+  },
+  {
+    "clues": [
+      "This tiny republic sits on the slopes of Mount Titano within Italy.",
+      "Three stone towers crown the mountain ridge above the old town.",
+      "Its international telephone calling code is +378, a useful clue for geography fans.",
+      "Medieval walls, narrow lanes, and hilltop views define its compact historic center.",
+      "It lies in Southern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Guaita",
+    "continent": "Europe",
+    "answer": "San Marino",
+    "country_code": "sm"
+  },
+  {
+    "clues": [
+      "Belgrade stands where the Sava and Danube rivers meet beneath an old fortress.",
+      "Traditional brass bands are a lively part of festivals and celebrations.",
+      "Its capital is Belgrade, the country's main seat of national government.",
+      "Studenica Monastery preserves medieval churches and important Byzantine-style frescoes.",
+      "It lies in Eastern Europe and shares land borders with 9 neighboring states.",
+      "The national currency uses the dinar denomination for everyday payments."
+    ],
+    "buzzword": "Slava",
+    "continent": "Europe",
+    "answer": "Serbia",
+    "country_code": "rs"
+  },
+  {
+    "clues": [
+      "Bratislava sits on the Danube near the borders with Austria and Hungary.",
+      "High Tatra peaks rise above forests, alpine lakes, and mountain towns.",
+      "Its capital is Bratislava, the country's main seat of national government.",
+      "Spiš Castle forms a vast ruined stone complex on a hill above the countryside.",
+      "It lies in Eastern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Tatras",
+    "continent": "Europe",
+    "answer": "Slovakia",
+    "country_code": "sk"
+  },
+  {
+    "clues": [
+      "Lake Bled is known for a small island church, cliff-top castle, and Alpine backdrop.",
+      "Postojna and Škocjan caves contain huge limestone chambers, underground rivers, and formations.",
+      "Its capital is Ljubljana, the country's main seat of national government.",
+      "Ljubljana's riverfront is lined with bridges, cafés, and architecture by Jože Plečnik.",
+      "It lies in Southern Europe and shares land borders with 4 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Carniolan bee",
+    "continent": "Europe",
+    "answer": "Slovenia",
+    "country_code": "si"
+  },
+  {
+    "clues": [
+      "Barcelona's Sagrada Família has towering spires and imaginative architecture by Antoni Gaudí.",
+      "Flamenco combines singing, guitar, handclaps, and expressive dance, especially in the south.",
+      "Its capital is Madrid, the country's main seat of national government.",
+      "The Alhambra in Granada contains ornate Islamic palaces, courtyards, gardens, and fountains.",
+      "It lies in Southern Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Paella",
+    "continent": "Europe",
+    "answer": "Spain",
+    "country_code": "es"
+  },
+  {
+    "clues": [
+      "Stockholm spreads across islands connected by bridges between Lake Mälaren and the Baltic Sea.",
+      "The Nobel Prize ceremonies in several fields are held in the capital each December.",
+      "Its capital is Stockholm, the country's main seat of national government.",
+      "Traditional midsummer celebrations often include flower crowns, dancing, and long daylight evenings.",
+      "It lies in Northern Europe and shares land borders with 2 neighboring states.",
+      "The national currency uses the krona denomination for everyday payments."
+    ],
+    "buzzword": "Fika",
+    "continent": "Europe",
+    "answer": "Sweden",
+    "country_code": "se"
+  },
+  {
+    "clues": [
+      "The Alps dominate much of the landscape with high peaks, glaciers, valleys, and mountain railways.",
+      "Chocolate, cheese fondue, watches, and precise clockmaking are strong cultural associations.",
+      "Its capital is Bern, the country's main seat of national government.",
+      "The Matterhorn's sharp pyramid shape rises above the resort town of Zermatt.",
+      "It lies in Western Europe and shares land borders with 5 neighboring states.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Alphorn",
+    "continent": "Europe",
+    "answer": "Switzerland",
+    "country_code": "ch"
+  },
+  {
+    "clues": [
+      "Kyiv's Saint Sophia Cathedral and Pechersk Lavra are major landmarks of medieval Eastern Christianity.",
+      "Traditional pysanky eggs are decorated with intricate wax-resist patterns.",
+      "Its capital is Kiev, the country's main seat of national government.",
+      "The Carpathian Mountains in the west contain forests, high meadows, and distinctive wooden churches.",
+      "It lies in Eastern Europe and shares land borders with 7 neighboring states.",
+      "The national currency uses the hryvnia denomination for everyday payments."
+    ],
+    "buzzword": "Borshch",
+    "continent": "Europe",
+    "answer": "Ukraine",
+    "country_code": "ua"
+  },
+  {
+    "clues": [
+      "London landmarks include Big Ben, Tower Bridge, Buckingham Palace, and the red double-decker bus.",
+      "Stonehenge is a prehistoric stone circle standing on Salisbury Plain.",
+      "Its capital is London, the country's main seat of national government.",
+      "Literary traditions include writers such as Shakespeare, Austen, Dickens, and many modern authors.",
+      "It lies in Northern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the pound denomination for everyday payments."
+    ],
+    "buzzword": "Afternoon tea",
+    "continent": "Europe",
+    "answer": "United Kingdom",
+    "country_code": "gb"
+  },
+  {
+    "clues": [
+      "St. Peter's Basilica and its vast square form the heart of this tiny walled state.",
+      "The Sistine Chapel ceiling contains famous frescoes painted by Michelangelo.",
+      "Its international telephone calling code is +379, a useful clue for geography fans.",
+      "Its museums hold major collections of classical sculpture, Renaissance art, and historic maps.",
+      "It lies in Southern Europe and shares a land border with just one neighboring state.",
+      "The national currency uses the euro denomination for everyday payments."
+    ],
+    "buzzword": "Swiss Guard",
+    "continent": "Europe",
+    "answer": "Vatican City",
+    "country_code": "va"
+  },
+  {
+    "clues": [
+      "This Caribbean state centers on two main islands with many sheltered bays and sandy beaches.",
+      "Nelson's Dockyard preserves a restored Georgian-era naval base beside a natural harbor.",
+      "Its capital is Saint John's, the country's main seat of national government.",
+      "Traditional sailing remains important, especially during the annual regatta season.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Fungee",
+    "continent": "North America",
+    "answer": "Antigua and Barbuda",
+    "country_code": "ag"
+  },
+  {
+    "clues": [
+      "This Atlantic archipelago consists of low coral and limestone islands surrounded by clear shallow seas.",
+      "Exuma is known for bright turquoise water, cays, reefs, and swimming pigs on one small island.",
+      "Its capital is Nassau, the country's main seat of national government.",
+      "Junkanoo parades feature elaborate costumes, goatskin drums, cowbells, and dancing.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Conch",
+    "continent": "North America",
+    "answer": "Bahamas",
+    "country_code": "bs"
+  },
+  {
+    "clues": [
+      "This eastern Caribbean island is strongly associated with cricket, calypso, and rum traditions.",
+      "Bridgetown's historic center reflects centuries of British colonial architecture and trade.",
+      "Its capital is Bridgetown, the country's main seat of national government.",
+      "Harrison's Cave contains underground streams, stalactites, and large limestone chambers.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Flying fish",
+    "continent": "North America",
+    "answer": "Barbados",
+    "country_code": "bb"
+  },
+  {
+    "clues": [
+      "A vast coral reef system runs along the Caribbean coast with islands and marine reserves.",
+      "Ancient Maya sites such as Caracol and Xunantunich rise from tropical forest.",
+      "Its capital is Belmopan, the country's main seat of national government.",
+      "The Great Blue Hole is a circular marine sinkhole popular with divers.",
+      "It lies in Central America and shares land borders with 2 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Garifuna",
+    "continent": "North America",
+    "answer": "Belize",
+    "country_code": "bz"
+  },
+  {
+    "clues": [
+      "Rocky Mountain parks contain turquoise lakes, glaciers, forests, and dramatic peaks.",
+      "Niagara Falls forms a powerful horseshoe-shaped waterfall along the border with the United States.",
+      "Its capital is Ottawa, the country's main seat of national government.",
+      "Maple syrup, ice hockey, and vast northern wilderness are strong cultural associations.",
+      "It lies in Northern America and shares a land border with just one neighboring state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Poutine",
+    "continent": "North America",
+    "answer": "Canada",
+    "country_code": "ca"
+  },
+  {
+    "clues": [
+      "Cloud forests, volcanoes, rainforests, and beaches support remarkable tropical wildlife.",
+      "Sloths, toucans, monkeys, and colorful frogs are commonly associated with protected forests.",
+      "Its capital is San José, the country's main seat of national government.",
+      "Traditional oxcarts are brightly painted with intricate geometric and floral designs.",
+      "It lies in Central America and shares land borders with 2 neighboring states.",
+      "The national currency uses the colón denomination for everyday payments."
+    ],
+    "buzzword": "Pura vida",
+    "continent": "North America",
+    "answer": "Costa Rica",
+    "country_code": "cr"
+  },
+  {
+    "clues": [
+      "Havana is known for colorful colonial buildings, classic cars, music, and a broad seaside promenade.",
+      "Salsa, son, and other musical traditions are central to social life and performance.",
+      "Its capital is Havana, the country's main seat of national government.",
+      "Viñales Valley has limestone hills rising above tobacco farms and rural villages.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the peso denomination for everyday payments."
+    ],
+    "buzzword": "Mojito",
+    "continent": "North America",
+    "answer": "Cuba",
+    "country_code": "cu"
+  },
+  {
+    "clues": [
+      "This mountainous Caribbean island is covered by rainforest, rivers, waterfalls, and volcanic features.",
+      "Boiling Lake is a steaming flooded fumarole reached by a demanding rainforest hike.",
+      "Its capital is Roseau, the country's main seat of national government.",
+      "Traditional Kalinago culture remains visible in the island's eastern territory.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Morne Trois Pitons",
+    "continent": "North America",
+    "answer": "Dominica",
+    "country_code": "dm"
+  },
+  {
+    "clues": [
+      "This country shares the island of Hispaniola with Haiti.",
+      "Santo Domingo's colonial zone contains early Spanish churches, fortifications, and stone streets.",
+      "Its capital is Santo Domingo, the country's main seat of national government.",
+      "Merengue and bachata are major dance and music traditions associated with the country.",
+      "It lies in Caribbean and shares a land border with just one neighboring state.",
+      "The national currency uses the peso denomination for everyday payments."
+    ],
+    "buzzword": "Mangú",
+    "continent": "North America",
+    "answer": "Dominican Republic",
+    "country_code": "do"
+  },
+  {
+    "clues": [
+      "This compact Central American country has a Pacific coast lined with volcanic beaches.",
+      "Volcanoes rise close to cities, coffee-growing highlands, and crater lakes.",
+      "Its international telephone calling code is +503, a useful clue for geography fans.",
+      "Joya de Cerén preserves a Maya farming village buried by volcanic ash.",
+      "It lies in Central America and shares land borders with 2 neighboring states.",
+      "The national currency uses the colón denomination for everyday payments."
+    ],
+    "buzzword": "Pupusa",
+    "continent": "North America",
+    "answer": "El Salvador",
+    "country_code": "sv"
+  },
+  {
+    "clues": [
+      "This Caribbean island state is known for fragrant nutmeg, mace, cinnamon, and cocoa.",
+      "St. George's curves around a horseshoe-shaped harbor beneath green hills.",
+      "Its capital is St. George's, the country's main seat of national government.",
+      "Underwater sculptures near the coast form an unusual marine art site.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Spice Isle",
+    "continent": "North America",
+    "answer": "Grenada",
+    "country_code": "gd"
+  },
+  {
+    "clues": [
+      "Tikal's ancient Maya temples rise above dense rainforest in the northern lowlands.",
+      "Lake Atitlán lies beneath volcanoes and is surrounded by highland villages.",
+      "Its international telephone calling code is +502, a useful clue for geography fans.",
+      "Colorful woven textiles often use patterns linked with particular Maya communities.",
+      "It lies in Central America and shares land borders with 4 neighboring states.",
+      "The national currency uses the quetzal denomination for everyday payments."
+    ],
+    "buzzword": "Pepián",
+    "continent": "North America",
+    "answer": "Guatemala",
+    "country_code": "gt"
+  },
+  {
+    "clues": [
+      "This country occupies the western part of Hispaniola in the Caribbean.",
+      "Citadelle Laferrière is a massive mountaintop fortress built after independence.",
+      "Its capital is Port-au-Prince, the country's main seat of national government.",
+      "Distinctive painting, metal sculpture, rara music, and Vodou traditions shape artistic life.",
+      "It lies in Caribbean and shares a land border with just one neighboring state.",
+      "The national currency uses the gourde denomination for everyday payments."
+    ],
+    "buzzword": "Kompa",
+    "continent": "North America",
+    "answer": "Haiti",
+    "country_code": "ht"
+  },
+  {
+    "clues": [
+      "Copán preserves elaborate Maya stelae, stairways, plazas, and carved monuments.",
+      "The Bay Islands lie beside coral reefs in the Caribbean Sea.",
+      "Its capital is Tegucigalpa, the country's main seat of national government.",
+      "Mountain forests shelter colorful scarlet macaws, the national bird.",
+      "It lies in Central America and shares land borders with 3 neighboring states.",
+      "The national currency uses the lempira denomination for everyday payments."
+    ],
+    "buzzword": "Baleada",
+    "continent": "North America",
+    "answer": "Honduras",
+    "country_code": "hn"
+  },
+  {
+    "clues": [
+      "Reggae music developed here and became internationally associated with Bob Marley.",
+      "Blue Mountain slopes rise above Kingston and are famous for coffee cultivation.",
+      "Its capital is Kingston, the country's main seat of national government.",
+      "Jerk cooking uses spicy seasoning and slow cooking over wood or charcoal.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Ackee",
+    "continent": "North America",
+    "answer": "Jamaica",
+    "country_code": "jm"
+  },
+  {
+    "clues": [
+      "Chichén Itzá contains a famous stepped pyramid built by the ancient Maya.",
+      "Tacos, mole, tamales, and regional salsas reflect many local culinary traditions.",
+      "Its international telephone calling code is +52, a useful clue for geography fans.",
+      "Day of the Dead traditions honor deceased relatives with altars, marigolds, food, and decorated skull imagery.",
+      "It lies in Central America and shares land borders with 3 neighboring states.",
+      "The national currency uses the peso denomination for everyday payments."
+    ],
+    "buzzword": "Mariachi",
+    "continent": "North America",
+    "answer": "Mexico",
+    "country_code": "mx"
+  },
+  {
+    "clues": [
+      "Large freshwater lakes, active volcanoes, and Pacific beaches shape much of the country's scenery.",
+      "Ometepe Island rises from a huge freshwater lake with two prominent volcanoes.",
+      "Its capital is Managua, the country's main seat of national government.",
+      "León and Granada preserve colorful colonial streets, churches, and courtyards.",
+      "It lies in Central America and shares land borders with 2 neighboring states.",
+      "The national currency uses the córdoba denomination for everyday payments."
+    ],
+    "buzzword": "Gallo pinto",
+    "continent": "North America",
+    "answer": "Nicaragua",
+    "country_code": "ni"
+  },
+  {
+    "clues": [
+      "A famous canal cuts across the isthmus, linking the Atlantic and Pacific oceans.",
+      "The capital combines a modern skyline with the historic streets of Casco Viejo.",
+      "Its international telephone calling code is +507, a useful clue for geography fans.",
+      "Guna communities are known for colorful layered textile panels called molas.",
+      "It lies in Central America and shares land borders with 2 neighboring states.",
+      "The national currency uses the balboa denomination for everyday payments."
+    ],
+    "buzzword": "Pollera",
+    "continent": "North America",
+    "answer": "Panama",
+    "country_code": "pa"
+  },
+  {
+    "clues": [
+      "This two-island Caribbean federation has volcanic peaks, beaches, and former sugar estates.",
+      "Brimstone Hill Fortress stands high above the sea on a steep volcanic slope.",
+      "Its capital is Basseterre, the country's main seat of national government.",
+      "A narrow channel called The Narrows separates the two main islands.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Sugar train",
+    "continent": "North America",
+    "answer": "Saint Kitts and Nevis",
+    "country_code": "kn"
+  },
+  {
+    "clues": [
+      "The twin Pitons rise steeply from the Caribbean coast as dramatic volcanic landmarks.",
+      "Rainforest interiors contain waterfalls, hot springs, and the Sulphur Springs volcanic area.",
+      "Its capital is Castries, the country's main seat of national government.",
+      "Traditional Creole culture blends African, French, and Caribbean influences in food and music.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Creole Day",
+    "continent": "North America",
+    "answer": "Saint Lucia",
+    "country_code": "lc"
+  },
+  {
+    "clues": [
+      "This island state stretches from a mountainous main island through a chain of smaller Grenadine islands.",
+      "La Soufrière is an active volcano dominating the northern end of the main island.",
+      "Its capital is Kingstown, the country's main seat of national government.",
+      "Bequia has a long tradition of boatbuilding and seafaring.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Breadfruit",
+    "continent": "North America",
+    "answer": "Saint Vincent and the Grenadines",
+    "country_code": "vc"
+  },
+  {
+    "clues": [
+      "This two-island Caribbean state lies just off the northeastern coast of South America.",
+      "Steelpan music developed here from tuned metal drums and is central to Carnival.",
+      "Its capital is Port of Spain, the country's main seat of national government.",
+      "Pitch Lake is a large natural asphalt deposit near the southwest coast.",
+      "It lies in Caribbean and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Calypso",
+    "continent": "North America",
+    "answer": "Trinidad and Tobago",
+    "country_code": "tt"
+  },
+  {
+    "clues": [
+      "The Grand Canyon cuts deeply through layered rock in the desert Southwest.",
+      "New York City, Hollywood, jazz, and national parks are widely recognized cultural associations.",
+      "Its capital is Washington D.C., the country's main seat of national government.",
+      "Yellowstone contains geysers, hot springs, wildlife, and a vast volcanic caldera.",
+      "It lies in Northern America and shares land borders with 2 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Route 66",
+    "continent": "North America",
+    "answer": "United States",
+    "country_code": "us"
+  },
+  {
+    "clues": [
+      "Buenos Aires is strongly associated with tango music, dance halls, cafés, and grand avenues.",
+      "Patagonia stretches across the south with glaciers, windswept plains, mountains, and Atlantic wildlife.",
+      "Its capital is Buenos Aires, the country's main seat of national government.",
+      "Iguazú Falls forms a vast system of waterfalls amid subtropical forest on the northern border.",
+      "It lies in South America and shares land borders with 5 neighboring states.",
+      "The national currency uses the peso denomination for everyday payments."
+    ],
+    "buzzword": "Gaucho",
+    "continent": "South America",
+    "answer": "Argentina",
+    "country_code": "ar"
+  },
+  {
+    "clues": [
+      "Salar de Uyuni is a vast salt flat that becomes mirror-like after rain.",
+      "Lake Titicaca lies high in the Andes and is shared with Peru.",
+      "Its capital is Sucre, the country's main seat of national government.",
+      "Tiwanaku preserves monumental stone gateways and ruins from an influential pre-Inca civilization.",
+      "It lies in South America and shares land borders with 5 neighboring states.",
+      "Its international telephone calling code is +591, a useful clue for geography fans."
+    ],
+    "buzzword": "Charango",
+    "continent": "South America",
+    "answer": "Bolivia",
+    "country_code": "bo"
+  },
+  {
+    "clues": [
+      "The Amazon rainforest and river system cover a huge part of the country's north.",
+      "Rio de Janeiro is known for Sugarloaf Mountain, Copacabana, samba, and Christ the Redeemer.",
+      "Its capital is Brasília, the country's main seat of national government.",
+      "Capoeira blends martial movement, music, rhythm, and acrobatics.",
+      "It lies in South America and shares land borders with 10 neighboring states.",
+      "The national currency uses the real denomination for everyday payments."
+    ],
+    "buzzword": "Carnival",
+    "continent": "South America",
+    "answer": "Brazil",
+    "country_code": "br"
+  },
+  {
+    "clues": [
+      "The Atacama Desert contains salt flats, volcanoes, geysers, and exceptionally dry landscapes.",
+      "The country forms a long narrow strip between the Andes and Pacific Ocean.",
+      "Its capital is Santiago, the country's main seat of national government.",
+      "Rapa Nui is famous for monumental stone moai carved by Polynesian islanders.",
+      "It lies in South America and shares land borders with 3 neighboring states.",
+      "The national currency uses the (uf) denomination for everyday payments."
+    ],
+    "buzzword": "Cueca",
+    "continent": "South America",
+    "answer": "Chile",
+    "country_code": "cl"
+  },
+  {
+    "clues": [
+      "Cartagena's walled old city has colorful colonial buildings beside the Caribbean Sea.",
+      "Coffee grows in green Andean highlands dotted with farms and small towns.",
+      "Its capital is Bogotá, the country's main seat of national government.",
+      "The goldwork of ancient cultures is displayed in Bogotá's famous Gold Museum.",
+      "It lies in South America and shares land borders with 5 neighboring states.",
+      "The national currency uses the peso denomination for everyday payments."
+    ],
+    "buzzword": "Arepas",
+    "continent": "South America",
+    "answer": "Colombia",
+    "country_code": "co"
+  },
+  {
+    "clues": [
+      "The Galápagos Islands are famous for giant tortoises, marine iguanas, and unusual finches.",
+      "The Andes cross the mainland through a chain of high volcanoes and mountain valleys.",
+      "Its capital is Quito, the country's main seat of national government.",
+      "Quito's historic center contains richly decorated churches and colonial plazas high in the mountains.",
+      "It lies in South America and shares land borders with 2 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Panama hat",
+    "continent": "South America",
+    "answer": "Ecuador",
+    "country_code": "ec"
+  },
+  {
+    "clues": [
+      "Kaieteur Falls drops from a sandstone plateau into dense rainforest.",
+      "English is the official language, unlike most neighboring mainland countries.",
+      "Its capital is Georgetown, the country's main seat of national government.",
+      "Much of the interior is covered by rainforest, rivers, and remote savanna.",
+      "It lies in South America and shares land borders with 3 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Pepperpot",
+    "continent": "South America",
+    "answer": "Guyana",
+    "country_code": "gy"
+  },
+  {
+    "clues": [
+      "A major river divides this landlocked country into greener eastern and drier western regions.",
+      "Guaraní is widely spoken alongside Spanish in daily life.",
+      "Its capital is Asunción, the country's main seat of national government.",
+      "The Jesuit missions of Trinidad and Jesús preserve stone ruins from colonial settlements.",
+      "It lies in South America and shares land borders with 3 neighboring states.",
+      "The national currency uses the guaraní denomination for everyday payments."
+    ],
+    "buzzword": "Tereré",
+    "continent": "South America",
+    "answer": "Paraguay",
+    "country_code": "py"
+  },
+  {
+    "clues": [
+      "Machu Picchu sits high in the Andes among steep green mountains.",
+      "The ancient Nazca Lines form giant shapes and straight lines across a desert plateau.",
+      "Its capital is Lima, the country's main seat of national government.",
+      "Traditional foods include ceviche, potatoes, corn, and dishes shaped by Andean and coastal ingredients.",
+      "It lies in South America and shares land borders with 5 neighboring states.",
+      "The national currency uses the sol denomination for everyday payments."
+    ],
+    "buzzword": "Quipu",
+    "continent": "South America",
+    "answer": "Peru",
+    "country_code": "pe"
+  },
+  {
+    "clues": [
+      "Paramaribo is known for wooden colonial buildings, broad streets, and religious diversity.",
+      "Most of the interior is covered by tropical rainforest and large river systems.",
+      "Its capital is Paramaribo, the country's main seat of national government.",
+      "Javanese, Hindustani, Maroon, Indigenous, Chinese, and Creole traditions all influence local food.",
+      "It lies in South America and shares land borders with 4 neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Roti",
+    "continent": "South America",
+    "answer": "Suriname",
+    "country_code": "sr"
+  },
+  {
+    "clues": [
+      "Montevideo faces the Río de la Plata with long beaches and a broad waterfront promenade.",
+      "Mate tea is commonly shared from a gourd through a metal straw.",
+      "Its capital is Montevideo, the country's main seat of national government.",
+      "Candombe music features groups of drums and has deep roots in communities of African descent.",
+      "It lies in South America and shares land borders with 2 neighboring states.",
+      "The national currency uses the units) denomination for everyday payments."
+    ],
+    "buzzword": "Chivito",
+    "continent": "South America",
+    "answer": "Uruguay",
+    "country_code": "uy"
+  },
+  {
+    "clues": [
+      "Angel Falls plunges from a flat-topped tepui in the Guiana Highlands.",
+      "Tabletop mountains called tepuis rise above rainforest and savanna in the southeast.",
+      "Its capital is Caracas, the country's main seat of national government.",
+      "Traditional arepas are round corn cakes filled with meats, cheeses, beans, or other ingredients.",
+      "It lies in South America and shares land borders with 3 neighboring states.",
+      "The national currency uses the (2008–2018) denomination for everyday payments."
+    ],
+    "buzzword": "Orinoco",
+    "continent": "South America",
+    "answer": "Venezuela",
+    "country_code": "ve"
+  },
+  {
+    "clues": [
+      "The Great Barrier Reef stretches along the northeast coast with coral reefs and tropical marine life.",
+      "Kangaroos, koalas, wombats, and platypuses are animals strongly associated with this continent-country.",
+      "Its capital is Canberra, the country's main seat of national government.",
+      "Uluru rises as a huge sandstone monolith from the central desert.",
+      "It occupies its own continent between the Indian and Pacific oceans, with no land borders.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Boomerang",
+    "continent": "Oceania",
+    "answer": "Australia",
+    "country_code": "au"
+  },
+  {
+    "clues": [
+      "This South Pacific island country has volcanic mountains, coral reefs, and many tropical islands.",
+      "Kava is traditionally prepared from a root and shared during ceremonies and gatherings.",
+      "Its capital is Suva, the country's main seat of national government.",
+      "Traditional meke performances combine singing, storytelling, dance, and rhythmic movement.",
+      "It lies in Melanesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Lovo",
+    "continent": "Oceania",
+    "answer": "Fiji",
+    "country_code": "fj"
+  },
+  {
+    "clues": [
+      "This Pacific nation is made of low coral atolls spread across a vast area of ocean.",
+      "South Tarawa is a narrow chain of islets linked by causeways.",
+      "Its capital is South Tarawa, the country's main seat of national government.",
+      "Traditional maneaba meeting houses serve as important centers for community gatherings.",
+      "It lies in Micronesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Frigatebird",
+    "continent": "Oceania",
+    "answer": "Kiribati",
+    "country_code": "ki"
+  },
+  {
+    "clues": [
+      "This Pacific country consists mainly of low coral atolls arranged around bright lagoons.",
+      "Bikini Atoll is known historically for twentieth-century nuclear tests.",
+      "Its capital is Majuro, the country's main seat of national government.",
+      "Traditional stick charts were used to teach patterns of ocean swells and island locations.",
+      "It lies in Micronesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Outrigger",
+    "continent": "Oceania",
+    "answer": "Marshall Islands",
+    "country_code": "mh"
+  },
+  {
+    "clues": [
+      "This Pacific federation is spread across hundreds of islands in the western Pacific.",
+      "Nan Madol is a ruined ceremonial city built on artificial islets of stacked basalt.",
+      "Its capital is Palikir, the country's main seat of national government.",
+      "Traditional navigation uses stars, swells, winds, birds, and other natural signs.",
+      "It lies in None and shares land borders with None neighboring states.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Wayfinding",
+    "continent": "Oceania",
+    "answer": "Micronesia",
+    "country_code": "fm"
+  },
+  {
+    "clues": [
+      "This tiny Pacific island is a raised coral island with a rugged phosphate-mined interior.",
+      "A coastal road circles the island, linking its settlements around the edge.",
+      "Its capital is Yaren, the country's main seat of national government.",
+      "Buada Lagoon is a small inland freshwater lagoon surrounded by vegetation.",
+      "It lies in Micronesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Anibare",
+    "continent": "Oceania",
+    "answer": "Nauru",
+    "country_code": "nr"
+  },
+  {
+    "clues": [
+      "Fiords, glaciers, volcanoes, beaches, and Southern Alps shape its two main islands.",
+      "Māori culture includes haka performance, carving, weaving, and marae gathering places.",
+      "Its capital is Wellington, the country's main seat of national government.",
+      "Kiwi birds are flightless, nocturnal, and native to these islands.",
+      "It lies in the southwestern Pacific and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Pounamu",
+    "continent": "Oceania",
+    "answer": "New Zealand",
+    "country_code": "nz"
+  },
+  {
+    "clues": [
+      "Rock Islands form a maze of mushroom-shaped limestone islets surrounded by turquoise lagoons.",
+      "Jellyfish Lake is famous for large numbers of mostly stingless golden jellyfish.",
+      "Its capital is Ngerulmud, the country's main seat of national government.",
+      "Traditional bai meeting houses are decorated with carved and painted story panels.",
+      "It lies in Micronesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Taro",
+    "continent": "Oceania",
+    "answer": "Palau",
+    "country_code": "pw"
+  },
+  {
+    "clues": [
+      "Birds-of-paradise live in tropical forests and feature strongly in ceremonial decoration.",
+      "More than eight hundred languages are spoken across its mountains, valleys, islands, and coasts.",
+      "Its capital is Port Moresby, the country's main seat of national government.",
+      "Highland sing-sings bring communities together in elaborate body paint, feathers, music, and dance.",
+      "It lies in Melanesia and shares a land border with just one neighboring state.",
+      "The national currency uses the kina denomination for everyday payments."
+    ],
+    "buzzword": "Bird-of-paradise",
+    "continent": "Oceania",
+    "answer": "Papua New Guinea",
+    "country_code": "pg"
+  },
+  {
+    "clues": [
+      "Traditional fale houses have open sides, large roofs, and posts arranged around a raised floor.",
+      "A customary way of life emphasizes family, village responsibilities, respect, and ceremony.",
+      "Its capital is Apia, the country's main seat of national government.",
+      "To Sua Ocean Trench is a deep natural swimming hole reached by a long ladder.",
+      "It lies in Polynesia and has no land border with another sovereign state.",
+      "The national currency uses the tala denomination for everyday payments."
+    ],
+    "buzzword": "Tatau",
+    "continent": "Oceania",
+    "answer": "Samoa",
+    "country_code": "ws"
+  },
+  {
+    "clues": [
+      "This Melanesian nation stretches across mountainous tropical islands east of Papua New Guinea.",
+      "World War II shipwrecks and aircraft remain in waters around Guadalcanal.",
+      "Its capital is Honiara, the country's main seat of national government.",
+      "Traditional shell money is still used ceremonially in parts of the islands.",
+      "It lies in Melanesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Panpipe",
+    "continent": "Oceania",
+    "answer": "Solomon Islands",
+    "country_code": "sb"
+  },
+  {
+    "clues": [
+      "This Polynesian kingdom consists of many islands spread across the South Pacific.",
+      "Traditional tapa cloth is made from beaten bark and decorated with geometric designs.",
+      "Its capital is Nuku'alofa, the country's main seat of national government.",
+      "Humpback whales migrate through surrounding waters during part of the year.",
+      "It lies in Polynesia and has no land border with another sovereign state.",
+      "The national currency uses the paʻanga denomination for everyday payments."
+    ],
+    "buzzword": "Haʻamonga",
+    "continent": "Oceania",
+    "answer": "Tonga",
+    "country_code": "to"
+  },
+  {
+    "clues": [
+      "This Polynesian state consists of low coral islands and atolls spread across the Pacific.",
+      "Funafuti Atoll surrounds a broad lagoon used for fishing, travel, and recreation.",
+      "Its capital is Funafuti, the country's main seat of national government.",
+      "Traditional fatele combines group singing, rhythmic clapping, and energetic dance.",
+      "It lies in Polynesia and has no land border with another sovereign state.",
+      "The national currency uses the dollar denomination for everyday payments."
+    ],
+    "buzzword": "Pulaka",
+    "continent": "Oceania",
+    "answer": "Tuvalu",
+    "country_code": "tv"
+  },
+  {
+    "clues": [
+      "This Melanesian island nation has active volcanoes, tropical forests, reefs, and many languages.",
+      "Mount Yasur on Tanna is famous for frequent visible volcanic activity.",
+      "Its capital is Port Vila, the country's main seat of national government.",
+      "Land diving on Pentecost Island involves jumping from wooden towers with vines tied to the ankles.",
+      "It lies in Melanesia and has no land border with another sovereign state.",
+      "The national currency uses the vatu denomination for everyday payments."
+    ],
+    "buzzword": "Kava",
+    "continent": "Oceania",
+    "answer": "Vanuatu",
+    "country_code": "vu"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "short_name": "Scout It Out",
+  "name": "Scout It Out Country Guessing Game",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#16443a",
+  "background_color": "#f3f0e8"
+}

@@ -1,0 +1,196 @@
+.lobbyContainer {
+  position: relative;
+  z-index: 1;
+  width: min(760px, calc(100% - 2rem));
+  min-height: 560px;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  margin: clamp(1rem, 4vh, 3rem) auto 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 36px;
+  background: rgba(255, 253, 247, 0.76);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(22px);
+}
+
+.lobbyIntro {
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
+.lobbyIntro h2 {
+  max-width: 480px;
+  margin: 0.4rem 0 0.75rem;
+  color: var(--forest);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(2.1rem, 6vw, 4rem);
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+}
+
+.lobbyIntro p,
+.emptyPlayers {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.playerInput {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 26px rgba(32, 37, 31, 0.07);
+}
+
+.playerNameInput {
+  min-width: 0;
+  padding: 0.85rem 1rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.playerNameInput::placeholder {
+  color: #979b93;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.75rem 1.15rem;
+  border: 0;
+  border-radius: 14px;
+  background: var(--forest);
+  color: var(--on-forest);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.addButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(22, 68, 58, 0.2);
+}
+
+.playerListHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 0 0.8rem;
+}
+
+.playerListHeader h3 {
+  margin: 0;
+  font:
+    700 0.9rem "Manrope",
+    sans-serif;
+}
+
+.playerListHeader span {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.playerList {
+  display: flex;
+  min-height: 122px;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.emptyPlayers {
+  width: 100%;
+  padding: 2.1rem;
+  border: 1px dashed rgba(22, 68, 58, 0.22);
+  border-radius: 18px;
+  text-align: center;
+}
+
+.playerListItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  height: 42px;
+  padding: 0.35rem 0.4rem 0.35rem 0.9rem;
+  border: 1px solid rgba(22, 68, 58, 0.12);
+  border-radius: 999px;
+  background: #edf3e7;
+  color: var(--forest);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.removeButton {
+  display: grid;
+  width: 32px;
+  min-height: 32px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(22, 68, 58, 0.09);
+  color: var(--forest);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.startGameButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+  border: 0;
+  border-radius: 18px;
+  background: var(--orange);
+  color: #291b13;
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255, 122, 69, 0.25);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.startGameButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(255, 122, 69, 0.32);
+}
+
+.startGameButton:disabled,
+.addButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+@media (max-width: 540px) {
+  .lobbyContainer {
+    min-height: calc(100vh - 92px);
+    padding: 1.35rem;
+    margin: 0 auto;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .addButtonLabel {
+    display: none;
+  }
+
+  .addButton {
+    width: 48px;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+}
