@@ -20,6 +20,9 @@ const startGame = async (page, target = "7") => {
 test("players can end an Endless game", async ({ page }) => {
   await startGame(page, "Endless");
 
+  await page.getByRole("combobox").selectOption("Ada");
+  await page.getByRole("button", { name: /award point/i }).click();
+
   await page.getByRole("button", { name: "End game" }).click();
   const confirmation = page.getByRole("dialog");
   await expect(confirmation.getByText("End this Endless game?")).toBeVisible();
@@ -31,7 +34,19 @@ test("players can end an Endless game", async ({ page }) => {
     .getByRole("dialog")
     .getByRole("button", { name: "End game" })
     .click();
-  await expect(page.getByText("Great scouting!")).toBeVisible();
+  await expect(page.getByText(/Ada wins/i)).toBeVisible();
+});
+
+test("players can quit without declaring a winner", async ({ page }) => {
+  await startGame(page, "3");
+  await expect(page.getByRole("button", { name: "End game" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Quit game" }).click();
+  const confirmation = page.getByRole("dialog");
+  await expect(
+    confirmation.getByText("No winner will be declared."),
+  ).toBeVisible();
+  await confirmation.getByRole("button", { name: "Quit game" }).click();
+  await expect(page.getByText("Build your scout crew")).toBeVisible();
 });
 
 test("flag reveal does not disclose the answer", async ({ page }) => {

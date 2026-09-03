@@ -7,6 +7,12 @@ import Player from "../model/Player";
 
 const WorldMap = lazy(() => import("./WorldMap"));
 
+const formatWinners = (names) => {
+  if (names.length === 1) return `${names[0]} wins!`;
+  if (names.length === 2) return `${names[0]} & ${names[1]} win!`;
+  return `${names.slice(0, -1).join(", ")} & ${names.at(-1)} win!`;
+};
+
 const CardCarousel = ({
   items,
   players,
@@ -19,9 +25,9 @@ const CardCarousel = ({
   const [isFlagMode, setIsFlagMode] = useState(false);
   const [disableNext, setDisableNext] = useState(true);
   const [winner, setWinner] = useState("");
-  const [showQuitConfirmation, setShowQuitConfirmation] = useState(false);
+  const [confirmationAction, setConfirmationAction] = useState(null);
   const [showWorldMap, setShowWorldMap] = useState(false);
-  const [gameEnded, setGameEnded] = useState(false);
+  const [endlessWinners, setEndlessWinners] = useState([]);
   const isEndless = winTarget === null;
 
   const handleNextCard = () => {
@@ -45,16 +51,25 @@ const CardCarousel = ({
     setDisableNext(false);
   };
 
-  if (winner || gameEnded) {
+  const endEndlessGame = () => {
+    const highestScore = Math.max(
+      ...players.map((player) => player.getScore()),
+    );
+    setEndlessWinners(
+      players
+        .filter((player) => player.getScore() === highestScore)
+        .map((player) => player.getName()),
+    );
+    setConfirmationAction(null);
+  };
+
+  if (winner || endlessWinners.length > 0) {
+    const winnerNames = winner ? [winner] : endlessWinners;
     return (
       <Overlay showOverlay>
         <section className="winningOverlay">
-          <span className="section-kicker">
-            {winner ? "Trail completed" : "Game completed"}
-          </span>
-          <h1 className="winnerMessage">
-            {winner ? `🎉 ${winner} wins! 🎊` : "Great scouting!"}
-          </h1>
+          <span className="section-kicker">Trail completed</span>
+          <h1 className="winnerMessage">🎉 {formatWinners(winnerNames)} 🎊</h1>
           <h2>Final scores</h2>
           {players.map((player) => (
             <h4 key={player.getName()}>
@@ -71,31 +86,42 @@ const CardCarousel = ({
 
   return (
     <div className="card-assembly">
-      {showQuitConfirmation && (
+      {confirmationAction && (
         <Overlay showOverlay>
           <section className="quitOverlay" aria-labelledby="quit-title">
-            <span className="section-kicker">End this Endless game?</span>
-            <h2 id="quit-title">Your current scores will be cleared.</h2>
+            <span className="section-kicker">
+              {confirmationAction === "end"
+                ? "End this Endless game?"
+                : "Quit this game?"}
+            </span>
+            <h2 id="quit-title">
+              {confirmationAction === "end"
+                ? "The highest-scoring player will win."
+                : "No winner will be declared."}
+            </h2>
             <p>
-              Your final scores will be shown before you return to the lobby.
+              {confirmationAction === "end"
+                ? "Tied leaders will share the win."
+                : "Your current scores will be cleared and you’ll return to the lobby."}
             </p>
             <div className="quitActions">
               <button
                 className="cancelQuit"
                 type="button"
-                onClick={() => setShowQuitConfirmation(false)}
+                onClick={() => setConfirmationAction(null)}
               >
                 Keep playing
               </button>
               <button
                 className="confirmQuit"
                 type="button"
-                onClick={() => {
-                  setShowQuitConfirmation(false);
-                  setGameEnded(true);
-                }}
+                onClick={
+                  confirmationAction === "end"
+                    ? endEndlessGame
+                    : () => setIsNewGame(true)
+                }
               >
-                End game
+                {confirmationAction === "end" ? "End game" : "Quit game"}
               </button>
             </div>
           </section>
@@ -120,11 +146,18 @@ const CardCarousel = ({
             <button
               className="quitGameButton"
               type="button"
-              onClick={() => setShowQuitConfirmation(true)}
+              onClick={() => setConfirmationAction("end")}
             >
               End game
             </button>
           )}
+          <button
+            className="quitGameButton"
+            type="button"
+            onClick={() => setConfirmationAction("quit")}
+          >
+            Quit game
+          </button>
         </div>
       </div>
       <div className="gameLayout">
