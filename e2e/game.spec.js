@@ -55,6 +55,16 @@ test("world map opens and identifies countries", async ({ page }) => {
   await expect(
     dialog.getByRole("img", { name: "Interactive world map" }),
   ).toHaveAttribute("viewBox", "430 205 190 150");
+  await dialog
+    .getByRole("button", { name: "Caribbean & Central America" })
+    .click();
+  await expect(
+    dialog.getByRole("img", { name: "Interactive world map" }),
+  ).toHaveAttribute("viewBox", "170 300 265 190");
+  await dialog.getByRole("button", { name: "Pacific Islands" }).click();
+  await expect(
+    dialog.getByRole("img", { name: "Interactive world map" }),
+  ).toHaveAttribute("viewBox", "785 350 225 230");
   await dialog.getByRole("button", { name: "France" }).focus();
   await expect(dialog.getByRole("status")).toHaveText("France");
   await dialog.getByRole("button", { name: "Close map" }).click();

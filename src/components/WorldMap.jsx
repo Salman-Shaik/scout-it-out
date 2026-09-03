@@ -6,7 +6,8 @@ import "./css/WorldMap.css";
 const WORLD_VIEW = { x: 0, y: 0, width: 1010, height: 666 };
 const REGION_VIEWS = {
   europe: { x: 430, y: 205, width: 190, height: 150 },
-  northAmerica: { x: 25, y: 120, width: 390, height: 330 },
+  centralAmericaAndCaribbean: { x: 170, y: 300, width: 265, height: 190 },
+  pacificIslands: { x: 785, y: 350, width: 225, height: 230 },
 };
 
 const WorldMap = ({ countries, onClose }) => {
@@ -70,9 +71,15 @@ const WorldMap = ({ countries, onClose }) => {
             </button>
             <button
               type="button"
-              onClick={() => setView(REGION_VIEWS.northAmerica)}
+              onClick={() => setView(REGION_VIEWS.centralAmericaAndCaribbean)}
             >
-              North America
+              Caribbean &amp; Central America
+            </button>
+            <button
+              type="button"
+              onClick={() => setView(REGION_VIEWS.pacificIslands)}
+            >
+              Pacific Islands
             </button>
             <button type="button" onClick={() => setView(WORLD_VIEW)}>
               Whole world

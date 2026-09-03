@@ -111,9 +111,15 @@ test("opens and closes the interactive world map", async () => {
   await user.click(within(dialog).getByRole("button", { name: "Europe" }));
   expect(map).toHaveAttribute("viewBox", "430 205 190 150");
   await user.click(
-    within(dialog).getByRole("button", { name: "North America" }),
+    within(dialog).getByRole("button", {
+      name: "Caribbean & Central America",
+    }),
   );
-  expect(map).toHaveAttribute("viewBox", "25 120 390 330");
+  expect(map).toHaveAttribute("viewBox", "170 300 265 190");
+  await user.click(
+    within(dialog).getByRole("button", { name: "Pacific Islands" }),
+  );
+  expect(map).toHaveAttribute("viewBox", "785 350 225 230");
   await user.click(
     within(dialog).getByRole("button", { name: /whole world/i }),
   );
