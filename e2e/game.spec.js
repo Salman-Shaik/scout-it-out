@@ -61,6 +61,9 @@ test("players can quit without declaring a winner", async ({ page }) => {
   ).toBeVisible();
   await confirmation.getByRole("button", { name: "Quit game" }).click();
   await expect(page.getByText("Build your scout crew")).toBeVisible();
+  await page.reload();
+  await expect(page.getByText("Build your scout crew")).toBeVisible();
+  await expect(page.getByText("Game in progress")).toHaveCount(0);
 });
 
 test("flag reveal does not disclose the answer", async ({ page }) => {

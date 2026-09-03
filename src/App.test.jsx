@@ -115,6 +115,31 @@ test("restores Endless mode", () => {
   expect(screen.getByRole("button", { name: "End game" })).toBeInTheDocument();
 });
 
+test("clears the saved game when a player quits", async () => {
+  const user = userEvent.setup();
+  localStorage.setItem(
+    "scoutItOutPlayers",
+    JSON.stringify([
+      { name: "Ada", score: 2 },
+      { name: "Grace", score: 1 },
+      { name: "Linus", score: 0 },
+    ]),
+  );
+
+  render(<App />);
+  await user.click(screen.getByRole("button", { name: "Quit game" }));
+  await user.click(
+    within(screen.getByRole("dialog")).getByRole("button", {
+      name: "Quit game",
+    }),
+  );
+
+  expect(screen.getByText("Build your scout crew")).toBeInTheDocument();
+  await waitFor(() =>
+    expect(localStorage.getItem("scoutItOutPlayers")).toBe("[]"),
+  );
+});
+
 test("uses the system theme and remembers a manual override", async () => {
   const user = userEvent.setup();
   const originalMatchMedia = window.matchMedia;

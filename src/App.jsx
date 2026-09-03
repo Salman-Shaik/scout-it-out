@@ -79,7 +79,12 @@ function App() {
   };
 
   const setGameState = (showLobby) => {
-    if (!showLobby) setInfo(shuffle(countryData));
+    if (showLobby) {
+      setPlayers([]);
+      localStorage.removeItem(STORAGE_KEY);
+    } else {
+      setInfo(shuffle(countryData));
+    }
     setIsNewGame(showLobby);
   };
 
