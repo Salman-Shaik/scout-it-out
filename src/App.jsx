@@ -4,6 +4,7 @@ import Lobby from "./components/Lobby";
 import "./App.css";
 import countryData from "./data/countries_info.json";
 import Player from "./model/Player";
+import RuleBook from "./components/RuleBook";
 
 const STORAGE_KEY = "scoutItOutPlayers";
 const THEME_KEY = "scoutItOutTheme";
@@ -55,6 +56,7 @@ function App() {
   const [isNewGame, setIsNewGame] = useState(() => loadPlayers().length === 0);
   const [winTarget, setWinTarget] = useState(loadWinTarget);
   const [theme, setTheme] = useState(getInitialTheme);
+  const [showRuleBook, setShowRuleBook] = useState(false);
 
   useEffect(() => {
     localStorage.setItem(
@@ -92,6 +94,13 @@ function App() {
           <h1>Scout It Out</h1>
         </div>
         <div className="header-actions">
+          <button
+            className="rulesButton"
+            type="button"
+            onClick={() => setShowRuleBook(true)}
+          >
+            How to play
+          </button>
           <span className="country-count">195 countries</span>
           <button
             className="theme-toggle"
@@ -109,6 +118,7 @@ function App() {
           </button>
         </div>
       </header>
+      {showRuleBook && <RuleBook onClose={() => setShowRuleBook(false)} />}
       {isNewGame ? (
         <section>
           <Lobby

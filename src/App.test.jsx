@@ -37,6 +37,28 @@ test("renders the game lobby", () => {
   expect(screen.getByPlaceholderText(/enter player name/i)).toBeInTheDocument();
 });
 
+test("opens and closes the rule book", async () => {
+  const user = userEvent.setup();
+  render(<App />);
+
+  await user.click(screen.getByRole("button", { name: /how to play/i }));
+  const dialog = screen.getByRole("dialog");
+  expect(
+    within(dialog).getByRole("heading", { name: /how to play/i }),
+  ).toBeInTheDocument();
+  expect(
+    within(dialog).getByText(/read the clues in order/i),
+  ).toBeInTheDocument();
+  expect(
+    within(dialog).getByRole("link", { name: /official skillmatics game/i }),
+  ).toHaveAttribute("href", expect.stringContaining("skillmaticscardgame.com"));
+
+  await user.click(
+    within(dialog).getByRole("button", { name: /close rules/i }),
+  );
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+});
+
 test("restores saved players and persists them", async () => {
   localStorage.setItem(
     "scoutItOutPlayers",

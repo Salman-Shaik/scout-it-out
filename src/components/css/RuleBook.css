@@ -1,0 +1,142 @@
+.overlay > .ruleBook {
+  width: min(820px, 100%);
+  padding: clamp(1.35rem, 4vw, 2.5rem);
+  margin: min(4vh, 2rem) auto;
+  color: var(--ink);
+}
+
+.ruleBookHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.ruleBookHeader h2 {
+  margin: 0.25rem 0 0;
+  color: var(--forest);
+  font:
+    800 clamp(2rem, 6vw, 3.5rem) "Manrope",
+    sans-serif;
+  letter-spacing: -0.06em;
+}
+
+.ruleBookClose,
+.rulesButton {
+  min-height: 44px;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.ruleBookLead {
+  max-width: 620px;
+  margin: 0.8rem 0 1.4rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.ruleSteps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 0;
+  counter-reset: rules;
+  list-style: none;
+}
+
+.ruleSteps li {
+  position: relative;
+  min-height: 132px;
+  padding: 1.1rem 1rem 1rem 3.6rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--lime) 10%, var(--paper));
+  counter-increment: rules;
+}
+
+.ruleSteps li::before {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--lime);
+  color: var(--on-lime);
+  content: counter(rules);
+  font-weight: 800;
+}
+
+.ruleSteps strong,
+.ruleSteps span {
+  display: block;
+}
+
+.ruleSteps span {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.winningRules,
+.ruleBookSource {
+  padding: 1.1rem 1.25rem;
+  margin-top: 0.8rem;
+  border-radius: 18px;
+}
+
+.winningRules {
+  background: var(--forest);
+  color: var(--on-forest);
+}
+
+.winningRules h3,
+.winningRules p {
+  margin: 0;
+}
+
+.winningRules p + p {
+  margin-top: 0.5rem;
+}
+
+.ruleBookSource {
+  display: grid;
+  gap: 0.3rem;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.ruleBookSource strong {
+  color: var(--ink);
+}
+
+.ruleBookSource a {
+  width: fit-content;
+  margin-top: 0.25rem;
+  color: var(--violet);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .overlay > .ruleBook {
+    margin: 0 auto;
+    border-radius: 24px;
+  }
+
+  .ruleSteps {
+    grid-template-columns: 1fr;
+  }
+
+  .ruleSteps li {
+    min-height: auto;
+  }
+}

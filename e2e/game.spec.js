@@ -6,16 +6,30 @@ const startGame = async (page, target = "7") => {
     await page.getByPlaceholder("Enter Player Name").fill(name);
     await page.getByRole("button", { name: "Add player" }).click();
   }
-  await page
-    .getByRole("radio", { name: new RegExp(`^${target}`) })
-    .locator("..")
-    .click();
+  if (target !== "7") {
+    await page.getByText(target, { exact: true }).click();
+  }
   page.once("dialog", (dialog) => dialog.accept());
   await page.getByRole("button", { name: "Start exploring" }).click();
   await expect(
     page.getByText(target === "Endless" ? "Endless" : `First to ${target}`),
   ).toBeVisible();
 };
+
+test("rule book explains the digital game", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "How to play" }).click();
+  const rules = page.getByRole("dialog");
+  await expect(
+    rules.getByRole("heading", { name: "How to play" }),
+  ).toBeVisible();
+  await expect(rules.getByText("Read the clues in order")).toBeVisible();
+  await expect(
+    rules.getByText(/tied leaders share the victory/i),
+  ).toBeVisible();
+  await rules.getByRole("button", { name: "Close rules" }).click();
+  await expect(rules).toBeHidden();
+});
 
 test("players can end an Endless game", async ({ page }) => {
   await startGame(page, "Endless");
