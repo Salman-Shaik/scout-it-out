@@ -17,6 +17,12 @@
   text-transform: uppercase;
 }
 
+.gameToolbarActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .quitGameButton {
   min-height: 40px;
   padding: 0.55rem 0.9rem;
@@ -44,7 +50,9 @@
   max-width: 520px;
   margin: 0.5rem auto 0.75rem;
   color: var(--forest);
-  font: 800 clamp(1.7rem, 5vw, 2.8rem) "Manrope", sans-serif;
+  font:
+    800 clamp(1.7rem, 5vw, 2.8rem) "Manrope",
+    sans-serif;
   letter-spacing: -0.05em;
   line-height: 1.08;
 }
@@ -294,7 +302,7 @@
     display: none;
   }
 
-  .quitGameButton {
+  .gameToolbarActions {
     margin-left: auto;
   }
 

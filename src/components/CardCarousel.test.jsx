@@ -6,14 +6,14 @@ import Player from "../model/Player";
 const items = [
   {
     answer: "Alpha",
-    country_code: "aa",
+    country_code: "fr",
     clues: ["A1", "A2", "A3", "A4", "A5", "A6"],
     continent: "Asia",
     buzzword: "A",
   },
   {
     answer: "Beta",
-    country_code: "bb",
+    country_code: "de",
     clues: ["B1", "B2", "B3", "B4", "B5", "B6"],
     continent: "Europe",
     buzzword: "B",
@@ -87,6 +87,35 @@ test("confirms before quitting an unfinished game", async () => {
   const dialog = screen.getByRole("dialog");
   await user.click(within(dialog).getByRole("button", { name: /quit game/i }));
   expect(setIsNewGame).toHaveBeenCalledWith(true);
+});
+
+test("opens and closes the interactive world map", async () => {
+  const user = userEvent.setup();
+  renderCarousel();
+
+  await user.click(screen.getByRole("button", { name: /world map/i }));
+  const dialog = await screen.findByRole("dialog");
+  expect(
+    within(dialog).getByRole("heading", { name: /world map/i }),
+  ).toBeInTheDocument();
+  expect(
+    within(dialog).getByRole("img", { name: /interactive world map/i }),
+  ).toBeInTheDocument();
+
+  const alpha = within(dialog).getByRole("button", { name: "Alpha" });
+  await user.hover(alpha);
+  expect(dialog.querySelector(".mapPopup")).toHaveTextContent("Alpha");
+  await user.unhover(alpha);
+  expect(dialog.querySelector(".mapPopup")).not.toBeInTheDocument();
+  await user.click(alpha);
+  expect(dialog.querySelector(".mapPopup")).toHaveTextContent("Alpha");
+  alpha.focus();
+  expect(
+    within(dialog).getByText("Alpha", { selector: "output" }),
+  ).toBeInTheDocument();
+
+  await user.click(within(dialog).getByRole("button", { name: /close map/i }));
+  expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 });
 
 test("shows the winner and starts a new game", async () => {

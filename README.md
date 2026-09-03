@@ -23,5 +23,13 @@ Other commands:
 
 ```powershell
 npm test
+npm run test:coverage
+npm run test:e2e
 npm run build
 ```
+
+## Map attribution
+
+World map geometry is provided by
+[`@svg-maps/world`](https://github.com/VictorCazanave/svg-maps/tree/master/packages/world)
+by Victor Cazanave, licensed under CC BY 4.0.

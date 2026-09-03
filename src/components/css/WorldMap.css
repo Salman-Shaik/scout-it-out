@@ -1,0 +1,129 @@
+.overlay > .worldMapDialog {
+  width: min(1120px, 100%);
+  padding: clamp(1rem, 3vw, 2rem);
+  margin: min(5vh, 2.5rem) auto;
+  color: var(--ink);
+}
+
+.worldMapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.worldMapHeader h2 {
+  margin: 0.25rem 0 0;
+  color: var(--forest);
+  font:
+    800 clamp(1.8rem, 4vw, 3rem) "Manrope",
+    sans-serif;
+  letter-spacing: -0.055em;
+}
+
+.mapCloseButton,
+.worldMapButton {
+  min-height: 40px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.worldMapButton:hover,
+.mapCloseButton:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+
+.mapInstructions {
+  margin: 0.5rem 0 1rem;
+  color: var(--muted);
+}
+
+.mapCanvas {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: rgba(124, 108, 242, 0.08);
+}
+
+.worldMapSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: manipulation;
+}
+
+.mapCountry {
+  fill: var(--lime);
+  stroke: var(--paper);
+  stroke-width: 0.8;
+  cursor: pointer;
+  transition: fill 120ms ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.mapCountry:hover,
+.mapCountry:focus {
+  fill: var(--orange);
+  outline: none;
+}
+
+.mapPopup {
+  position: absolute;
+  z-index: 2;
+  padding: 0.45rem 0.65rem;
+  border-radius: 10px;
+  background: var(--forest);
+  color: var(--on-forest);
+  font-size: 0.78rem;
+  font-weight: 700;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 10px));
+  white-space: nowrap;
+}
+
+.selectedCountry {
+  display: block;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  border-radius: 14px;
+  background: var(--lime);
+  color: var(--on-lime);
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (max-width: 540px) {
+  .overlay > .worldMapDialog {
+    min-height: calc(100vh - 1rem);
+    padding: 1rem;
+    margin: 0 auto;
+    border-radius: 24px;
+  }
+
+  .worldMapHeader {
+    align-items: flex-start;
+  }
+
+  .mapInstructions {
+    font-size: 0.85rem;
+  }
+
+  .mapCanvas {
+    overflow-x: auto;
+    border-radius: 16px;
+  }
+
+  .worldMapSvg {
+    width: 720px;
+    max-width: none;
+  }
+}

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import "./css/CardCarousel.css";
 import Card from "./Card";
 import Overlay from "./Overlay";
 import InfoButton from "./InfoButton";
 import Player from "../model/Player";
+
+const WorldMap = lazy(() => import("./WorldMap"));
 
 const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -12,6 +14,7 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
   const [disableNext, setDisableNext] = useState(true);
   const [winner, setWinner] = useState("");
   const [showQuitConfirmation, setShowQuitConfirmation] = useState(false);
+  const [showWorldMap, setShowWorldMap] = useState(false);
 
   const handleNextCard = () => {
     setCurrentIndex((index) => Math.min(index + 1, items.length - 1));
@@ -59,7 +62,9 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
           <section className="quitOverlay" aria-labelledby="quit-title">
             <span className="section-kicker">End this game?</span>
             <h2 id="quit-title">Your current scores will be cleared.</h2>
-            <p>You’ll return to the lobby and can start again with a new crew.</p>
+            <p>
+              You’ll return to the lobby and can start again with a new crew.
+            </p>
             <div className="quitActions">
               <button
                 className="cancelQuit"
@@ -79,15 +84,29 @@ const CardCarousel = ({ items, players, setPlayers, setIsNewGame }) => {
           </section>
         </Overlay>
       )}
+      {showWorldMap && (
+        <Suspense fallback={<div className="mapLoading">Loading map…</div>}>
+          <WorldMap countries={items} onClose={() => setShowWorldMap(false)} />
+        </Suspense>
+      )}
       <div className="gameToolbar">
         <span>Game in progress</span>
-        <button
-          className="quitGameButton"
-          type="button"
-          onClick={() => setShowQuitConfirmation(true)}
-        >
-          Quit game
-        </button>
+        <div className="gameToolbarActions">
+          <button
+            className="worldMapButton"
+            type="button"
+            onClick={() => setShowWorldMap(true)}
+          >
+            World map
+          </button>
+          <button
+            className="quitGameButton"
+            type="button"
+            onClick={() => setShowQuitConfirmation(true)}
+          >
+            Quit game
+          </button>
+        </div>
       </div>
       <div className="gameLayout">
         <InfoButton players={players} />

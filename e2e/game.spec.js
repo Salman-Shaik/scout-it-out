@@ -42,3 +42,17 @@ test("flag reveal does not disclose the answer", async ({ page }) => {
   ).toBeVisible();
   await expect(dialog.getByText(answer, { exact: true })).toHaveCount(0);
 });
+
+test("world map opens and identifies countries", async ({ page }) => {
+  await startGame(page);
+  await page.getByRole("button", { name: "World map" }).click();
+
+  const dialog = page.getByRole("dialog");
+  await expect(
+    dialog.getByRole("img", { name: "Interactive world map" }),
+  ).toBeVisible();
+  await dialog.getByRole("button", { name: "France" }).focus();
+  await expect(dialog.getByRole("status")).toHaveText("France");
+  await dialog.getByRole("button", { name: "Close map" }).click();
+  await expect(dialog).toBeHidden();
+});
