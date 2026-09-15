@@ -1,0 +1,182 @@
+.multiPage {
+  position: relative;
+  z-index: 3;
+  width: min(900px, calc(100% - 1.5rem));
+  padding-bottom: 3rem;
+  margin: 1rem auto;
+}
+
+.multiTop,
+.multiRoomHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.multiTop {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.multiPanel {
+  padding: clamp(1.25rem, 4vw, 2rem);
+  margin-bottom: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+.multiPanel h2 {
+  margin: 0.25rem 0 0.6rem;
+  color: var(--forest);
+  font:
+    800 clamp(2rem, 5vw, 3.5rem) "Manrope",
+    sans-serif;
+  letter-spacing: -0.06em;
+}
+
+.multiPanel h3 {
+  margin: 0.5rem 0;
+  color: var(--forest);
+  font:
+    800 1.5rem "Manrope",
+    sans-serif;
+}
+
+.multiPanel label:not(.multiTargets label) {
+  display: block;
+  margin: 1rem 0 0.4rem;
+  font-weight: 700;
+}
+
+.multiPanel input:not([type="radio"]),
+.multiPanel select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.multiPage button {
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.multiPage button.multiPrimary {
+  width: 100%;
+  margin-top: 1rem;
+  border: 0;
+  background: var(--forest);
+  color: var(--on-forest);
+}
+
+.multiPage button.multiSecondary {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.multiPage button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.multiTargets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin-top: 1rem;
+  border: 0;
+}
+
+.multiTargets legend {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.multiTargets label {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.multiTargets input {
+  margin-right: 0.3rem;
+}
+
+.multiDivider {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.multiError,
+.multiBusy,
+.multiNotification {
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--lime);
+  color: var(--on-lime);
+  font-weight: 700;
+}
+
+.multiPlayers {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.multiPlayers > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.holderCard {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--cream);
+}
+
+.holderCard h4 {
+  margin: 0;
+  color: var(--forest);
+  font-size: 1.4rem;
+}
+
+.holderCard li {
+  margin: 0.55rem 0;
+}
+
+.holderCard .rolledClue {
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  background: var(--lime);
+  color: var(--on-lime);
+  font-weight: 700;
+}
+
+.multiExit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.multiBonusActions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.multiBonusActions button { min-height: 44px; }
+.multiBonusFlag.fi { display: block; width: min(320px, 90%); height: 200px; margin: 1rem auto; background-size: cover; box-shadow: 0 12px 28px #0003; }

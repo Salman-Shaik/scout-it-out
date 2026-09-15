@@ -19,6 +19,21 @@ npm install
 npm start
 ```
 
+The app uses the existing single-device game until Supabase is configured.
+For the shared-device game, create `.env.local` from `.env.example` and set
+`VITE_SUPABASE_URL` to the project URL and
+`VITE_SUPABASE_PUBLISHABLE_KEY` to the **publishable** API key shown in
+Supabase Project Settings → API Keys. A JWT signing key or key ID is not an
+API key and must never be placed in a `VITE_` variable. The shared game also
+requires the migration in `supabase/migrations` and anonymous sign-ins enabled
+in Supabase Auth. Add the same two public variables in Vercel before deploying
+multiplayer mode.
+
+This is a family-game implementation, not an anti-cheat design: country facts
+are still bundled into the browser app, so a player who inspects the client
+bundle can discover answers. Only the card holder sees the card in the normal
+UI. Keep this limitation in mind before using it for competitive play.
+
 Other commands:
 
 ```powershell

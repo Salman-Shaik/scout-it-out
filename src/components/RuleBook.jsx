@@ -2,7 +2,7 @@ import React from "react";
 import Overlay from "./Overlay";
 import "./css/RuleBook.css";
 
-const RuleBook = ({ onClose }) => (
+const RuleBook = ({ onClose, multiplayer = false }) => (
   <Overlay showOverlay>
     <article className="ruleBook" aria-labelledby="rulebook-title">
       <header className="ruleBookHeader">
@@ -16,9 +16,25 @@ const RuleBook = ({ onClose }) => (
       </header>
 
       <p className="ruleBookLead">
-        Listen closely, guess the mystery country, and collect points before
-        your fellow scouts do.
+        {multiplayer
+          ? "Join one room on separate devices. One scout holds the secret card while everyone else guesses."
+          : "Listen closely, guess the mystery country, and collect points before your fellow scouts do."}
       </p>
+
+      {multiplayer && (
+        <section className="winningRules" aria-label="Shared device rules">
+          <h3>Playing on separate screens</h3>
+          <p>
+            The host creates a room and shares its code. At least three scouts
+            join before the host starts. Enter each player's age: the oldest
+            scout holds the first card. One guesser at a time rolls the die
+            once. Their screen shows the matching clue; the holder reads it
+            aloud, while the other guessers scout the map. If nobody guesses,
+            the holder passes the turn. A correct guess earns a card and a
+            bonus token, then the card holder rotates.
+          </p>
+        </section>
+      )}
 
       <ol className="ruleSteps">
         <li>
@@ -28,36 +44,40 @@ const RuleBook = ({ onClose }) => (
         <li>
           <strong>Choose a clue reader</strong>
           <span>
-            One player controls the device and keeps the country answer hidden
-            from everyone guessing.
+            {multiplayer
+              ? "The card holder keeps the secret answer on their screen and reads clues aloud."
+              : "One player controls the device and keeps the country answer hidden from everyone guessing."}
           </span>
         </li>
         <li>
           <strong>Read the clues in order</strong>
           <span>
-            Begin with clue one and reveal another when nobody guesses
-            correctly. The clues become more challenging.
+            {multiplayer
+              ? "Guessers roll a digital die; the card holder reads the matching numbered clue."
+              : "Begin with clue one and reveal another when nobody guesses correctly. The clues become more challenging."}
           </span>
         </li>
         <li>
           <strong>Use the extra hints</strong>
           <span>
-            Open the world map, show the flag, or read the continent and
-            challenge clue when the group needs help.
+            {multiplayer
+              ? "On your rolling turn, spend at most one earned token to see the flag, bonus word, continent, or re-roll."
+              : "Open the world map, show the flag, or read the continent and challenge clue when the group needs help."}
           </span>
         </li>
         <li>
           <strong>Award the point</strong>
           <span>
             Select the first player to name the country correctly, award their
-            point, then move to a fresh card.
+            {multiplayer ? " card and bonus token" : " point"}, then move to a fresh card.
           </span>
         </li>
         <li>
           <strong>Pass the device</strong>
           <span>
-            Rotate the clue-reader role after each country so everyone gets a
-            turn reading and guessing.
+            {multiplayer
+              ? "The card holder rotates automatically after each country."
+              : "Rotate the clue-reader role after each country so everyone gets a turn reading and guessing."}
           </span>
         </li>
       </ol>
@@ -70,8 +90,8 @@ const RuleBook = ({ onClose }) => (
           highest score wins, and tied leaders share the victory.
         </p>
         <p>
-          <strong>Quit game</strong> abandons any mode immediately without
-          declaring a winner.
+          <strong>Quit game</strong> abandons any mode without declaring a
+          winner. {multiplayer && "Only the room host can close a shared game."}
         </p>
       </section>
 

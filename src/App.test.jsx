@@ -4,6 +4,11 @@ import App from "./App";
 import Player from "./model/Player";
 import countryData from "./data/countries_info.json";
 
+vi.mock("./multiplayer/client", async (importOriginal) => ({
+  ...(await importOriginal()),
+  multiplayerConfigured: false,
+}));
+
 test("country deck contains no duplicate cards", () => {
   const countryCodes = countryData.map((country) => country.country_code);
   expect(new Set(countryCodes).size).toBe(countryCodes.length);
@@ -58,6 +63,7 @@ test("opens and closes the rule book", async () => {
   );
   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 });
+
 
 test("restores saved players and persists them", async () => {
   localStorage.setItem(

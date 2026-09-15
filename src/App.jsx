@@ -5,6 +5,8 @@ import "./App.css";
 import countryData from "./data/countries_info.json";
 import Player from "./model/Player";
 import RuleBook from "./components/RuleBook";
+import Multiplayer from "./multiplayer/Multiplayer";
+import { multiplayerConfigured } from "./multiplayer/client";
 
 const STORAGE_KEY = "scoutItOutPlayers";
 const THEME_KEY = "scoutItOutTheme";
@@ -57,6 +59,7 @@ function App() {
   const [winTarget, setWinTarget] = useState(loadWinTarget);
   const [theme, setTheme] = useState(getInitialTheme);
   const [showRuleBook, setShowRuleBook] = useState(false);
+  const [playTogether] = useState(multiplayerConfigured);
 
   useEffect(() => {
     localStorage.setItem(
@@ -123,8 +126,15 @@ function App() {
           </button>
         </div>
       </header>
-      {showRuleBook && <RuleBook onClose={() => setShowRuleBook(false)} />}
-      {isNewGame ? (
+      {showRuleBook && (
+        <RuleBook
+          onClose={() => setShowRuleBook(false)}
+          multiplayer={playTogether}
+        />
+      )}
+      {playTogether ? (
+        <Multiplayer />
+      ) : isNewGame ? (
         <section>
           <Lobby
             setPlayerState={setPlayers}

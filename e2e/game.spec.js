@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const startGame = async (page, target = "7") => {
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   for (const name of ["Ada", "Grace", "Linus"]) {
     await page.getByPlaceholder("Enter Player Name").fill(name);
     await page.getByRole("button", { name: "Add player" }).click();
@@ -17,7 +17,7 @@ const startGame = async (page, target = "7") => {
 };
 
 test("rule book explains the digital game", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
   await page.getByRole("button", { name: "How to play" }).click();
   const rules = page.getByRole("dialog");
   await expect(

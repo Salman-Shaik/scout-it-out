@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.116.0",
     "@svg-maps/world": "^2.0.0",
     "flag-icons": "^7.5.0",
     "react": "^19.2.0",
