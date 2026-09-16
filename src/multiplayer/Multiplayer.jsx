@@ -10,6 +10,16 @@ const countryByCode = new Map(
   countryData.map((country) => [country.country_code, country]),
 );
 const TARGETS = [3, 5, 7, 10, "endless"];
+const TOKEN_TYPES = [
+  ["flag", "See flag", "flag_tokens"],
+  ["buzzword", "Bonus word", "buzzword_tokens"],
+  ["continent", "Continent", "continent_tokens"],
+  ["reroll", "Re-roll die", "reroll_tokens"],
+];
+const tokenSummary = (player) => TOKEN_TYPES
+  .filter(([, , field]) => (player[field] || 0) > 0)
+  .map(([, label, field]) => `${label} ×${player[field]}`)
+  .join(" · ") || "No tokens";
 
 const formatRemaining = (seconds) => {
   const minutes = Math.max(1, Math.ceil(seconds / 60));
@@ -44,11 +54,12 @@ const Multiplayer = () => {
 
   const fetchGame = useCallback(async () => {
     if (!session) return;
-    const { data: gameData, error: gameError } = await supabase
-      .from("games")
-      .select("*")
-      .eq("id", session.gameId)
-      .maybeSingle();
+    const [gameResult, playerResult] = await Promise.all([
+      supabase.from("games").select("*").eq("id", session.gameId).maybeSingle(),
+      supabase.from("game_players").select("*").eq("game_id", session.gameId)
+        .order("joined_at").order("id"),
+    ]);
+    const { data: gameData, error: gameError } = gameResult;
     if (gameError) throw gameError;
     if (!gameData) {
       localStorage.removeItem(SESSION_KEY);
@@ -60,12 +71,7 @@ const Multiplayer = () => {
       setError("This room has ended or expired.");
       return;
     }
-    const { data: playerData, error: playerError } = await supabase
-      .from("game_players")
-      .select("*")
-      .eq("game_id", session.gameId)
-      .order("joined_at")
-      .order("id");
+    const { data: playerData, error: playerError } = playerResult;
     if (playerError) throw playerError;
     setGame(gameData);
     setPlayers(playerData || []);
@@ -143,7 +149,7 @@ const Multiplayer = () => {
       .subscribe();
     const poll = setInterval(() => {
       fetchGame().catch((failure) => setError(failure.message));
-    }, 10000);
+    }, 15000);
     return () => {
       clearInterval(poll);
       supabase.removeChannel(channel);
@@ -215,6 +221,13 @@ const Multiplayer = () => {
   const myBonus = isRoller && game?.bonus_user_id === user?.id
     ? game.bonus_type : null;
   const turnCountry = turnCode ? countryByCode.get(turnCode) : null;
+  const pendingGuesser = players.find(
+    (player) => player.user_id === game?.pending_guess_user_id,
+  );
+  const pendingGuess = countryByCode.get(game?.pending_guess_code);
+  const availableTokens = TOKEN_TYPES.filter(
+    ([, , field]) => (myPlayer?.[field] || 0) > 0,
+  );
 
   useEffect(() => {
     if (game?.status === "active" && user) {
@@ -334,7 +347,7 @@ const Multiplayer = () => {
               {players.map((player) => (
                 <div key={player.id}>
                   <span>{player.name}{player.user_id === game.turn_user_id && game.status === "active" ? " · rolling" : ""}</span>
-                  <strong>{player.score} cards · {player.bonus_tokens} tokens</strong>
+                  <strong>{player.score} cards <small>{tokenSummary(player)}</small></strong>
                 </div>
               ))}
             </div>
@@ -375,11 +388,13 @@ const Multiplayer = () => {
                     read the clue matching the die number. Mark a correct guess or pass the turn.
                   </p>
                   {country ? (
-                    <div className="holderCard">
-                      <h4>{country.answer}</h4>
-                      <span className={`fi fi-${country.country_code} holderFlag`}
-                        role="img" aria-label="Current country flag" />
-                      <ol>
+                    <article className="holderCard">
+                      <header className="holderCardHeader">
+                        <div><span>Secret country</span><h4>{country.answer}</h4></div>
+                        <span className={`fi fi-${country.country_code} holderFlag`}
+                          role="img" aria-label="Current country flag" />
+                      </header>
+                      <ol className="holderClues">
                         {country.clues.map((clue, index) => (
                           <li
                             key={clue}
@@ -393,9 +408,11 @@ const Multiplayer = () => {
                           </li>
                         ))}
                       </ol>
-                      <p>Continent: {country.continent}</p>
-                      <p>Challenge clue: {country.buzzword}</p>
-                    </div>
+                      <footer className="holderCardFooter">
+                        <p><span>Continent</span>{country.continent}</p>
+                        <p><span>Challenge clue</span>{country.buzzword}</p>
+                      </footer>
+                    </article>
                   ) : (
                     <p>Loading your secret card…</p>
                   )}
@@ -410,6 +427,24 @@ const Multiplayer = () => {
                       {game.last_event.player_name} rolled{" "}
                       {game.last_event.roll}! Read clue {game.last_event.roll}.
                     </p>
+                  )}
+                  {pendingGuesser && pendingGuess && (
+                    <div className="guessNotification" role="status">
+                      <span className="section-kicker">Map guess</span>
+                      <p><strong>{pendingGuesser.name}</strong> guessed <strong>{pendingGuess.answer}</strong>.</p>
+                      <div className="guessDecisionActions">
+                        <button className="multiPrimary" type="button" disabled={busy || !game.clue_roll}
+                          onClick={() => perform(() => rpc("award_point", {
+                            target_game_id: game.id, guessed_user_id: pendingGuesser.user_id,
+                          }))}>
+                          Correct — award card
+                        </button>
+                        <button type="button" disabled={busy}
+                          onClick={() => perform(() => rpc("reject_country_guess", { target_game_id: game.id }))}>
+                          Not correct
+                        </button>
+                      </div>
+                    </div>
                   )}
                   <label htmlFor="guesser-select">First correct guesser</label>
                   <select
@@ -426,6 +461,7 @@ const Multiplayer = () => {
                         </option>
                       ))}
                   </select>
+                  <div className="holderDecisionActions">
                   <button
                     className="multiPrimary"
                     type="button"
@@ -446,6 +482,7 @@ const Multiplayer = () => {
                     onClick={() => perform(() => rpc("pass_turn", { target_game_id: game.id }))}>
                     No correct guess: next roller
                   </button>
+                  </div>
                 </>
               ) : isRoller ? (
                 <>
@@ -466,16 +503,21 @@ const Multiplayer = () => {
                     Roll digital die
                   </button>
                   {game.clue_roll && <p role="status">You rolled {game.clue_roll}. Clue {game.clue_roll}: {turnCountry?.clues?.[game.clue_roll - 1] || "Listen as the card holder reads your clue."}</p>}
-                  <p>You have {myPlayer?.bonus_tokens || 0} bonus token(s). Use at most one on this turn.</p>
-                  <div className="multiBonusActions">
-                    {[["flag", "See flag"], ["buzzword", "Bonus word"], ["continent", "Continent"], ["reroll", "Re-roll die"]].map(([kind, label]) => (
-                      <button key={kind} type="button"
-                        disabled={busy || !myPlayer?.bonus_tokens || game.token_used_this_turn || (kind === "reroll" && !game.clue_roll)}
+                  <p>Use at most one of your earned tokens on this turn.</p>
+                  {game.token_used_this_turn ? (
+                    <p className="tokenStatus">Token used for this turn.</p>
+                  ) : availableTokens.length ? (
+                    <div className="multiBonusActions">
+                    {availableTokens.map(([kind, label, field]) => {
+                      const count = myPlayer?.[field] || 0;
+                      return <button key={kind} type="button"
+                        disabled={busy || count < 1 || game.token_used_this_turn || (kind === "reroll" && !game.clue_roll)}
                         onClick={() => perform(() => rpc("use_bonus_token", { target_game_id: game.id, help_type: kind }))}>
-                        {label} · 1 token
-                      </button>
-                    ))}
-                  </div>
+                        {label} <span aria-label={`${count} available`}>{count}</span>
+                      </button>;
+                    })}
+                    </div>
+                  ) : <p className="tokenStatus">No help tokens available yet.</p>}
                   {myBonus === "flag" && turnCountry && <span className={`fi fi-${turnCountry.country_code} multiBonusFlag`} role="img" aria-label="Mystery flag" />}
                   {myBonus === "buzzword" && <p>Bonus word: {turnCountry?.buzzword || "Ask the card holder for the bonus word."}</p>}
                   {myBonus === "continent" && <p>Continent: {turnCountry?.continent || "Ask the card holder for the continent."}</p>}
@@ -561,7 +603,15 @@ const Multiplayer = () => {
           </section>
           <span className="sr-only">Signed in as {myPlayer?.name}</span>
           {showMap && <Suspense fallback={<p>Loading map…</p>}>
-            <WorldMap countries={countryData} onClose={() => setShowMap(false)} />
+            <WorldMap countries={countryData} onClose={() => setShowMap(false)}
+              submitting={busy}
+              onCountrySelect={isHolder ? undefined : (countryCode) => perform(async () => {
+                await rpc("submit_country_guess", {
+                  target_game_id: game.id,
+                  country_code: countryCode,
+                });
+                setShowMap(false);
+              })} />
           </Suspense>}
         </>
       )}

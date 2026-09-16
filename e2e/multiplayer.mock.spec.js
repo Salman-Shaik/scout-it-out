@@ -68,6 +68,11 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await host.getByRole("button", { name: "Roll digital die" }).click();
     await expect(host.getByText(/clue [1-6]:/i)).toBeVisible();
     await expect(host.getByRole("button", { name: "Roll digital die" })).toBeDisabled();
+    await mobile.getByLabel("Or choose by name").selectOption("ca");
+    await mobile.getByRole("button", { name: "Guess Canada" }).click();
+    await refresh(elder);
+    await expect(elder.locator(".guessNotification")).toContainText("Linus guessed Canada");
+    await elder.getByRole("button", { name: "Not correct" }).click();
     await host.getByRole("button", { name: "Open world map" }).click();
     await expect(host.getByRole("dialog", { name: "World map" })).toBeVisible();
     await host.getByRole("button", { name: "Close map" }).click();
@@ -83,7 +88,8 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await elder.getByRole("button", { name: /award card and token/i }).click();
     await refresh(host);
     await refresh(mobile);
-    await expect(host.getByText(/1 cards · 1 tokens/i)).toBeVisible();
+    await expect(host.getByText(/1 cards/i)).toBeVisible();
+    await expect(host.getByText(/See flag ×1/i)).toBeVisible();
     await expect(mobile.getByRole("heading", { name: "You hold the card" })).toBeVisible();
     await expect(mobile.getByRole("img", { name: "Current country flag" })).toBeVisible();
     expect(await mobile.locator(".holderCard h4").textContent()).not.toBe(firstAnswer);
@@ -93,9 +99,9 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await refresh(mobile);
     await mobile.getByRole("button", { name: /next roller/i }).click();
     await refresh(host);
-    await host.getByRole("button", { name: /see flag.*1 token/i }).click();
+    await host.getByRole("button", { name: /see flag.*1 available/i }).click();
     await expect(host.getByRole("img", { name: "Mystery flag" })).toBeVisible();
-    await expect(host.getByRole("button", { name: /bonus word.*1 token/i })).toBeDisabled();
+    await expect(host.locator(".multiBonusActions button")).toHaveCount(0);
     await refresh(host);
     await expect(host.getByRole("img", { name: "Mystery flag" })).toBeVisible();
   } finally {

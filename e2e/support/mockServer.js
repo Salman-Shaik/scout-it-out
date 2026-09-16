@@ -107,6 +107,7 @@ export class MockGameServer {
         card_holder_user_id: userId, turn_user_id: null, current_card_index: 0,
         clue_roll: null, die_roll: null, token_used_this_turn: false,
         bonus_type: null, bonus_user_id: null, last_event: {}, winner_user_ids: [],
+        pending_guess_user_id: null, pending_guess_code: null,
         expires_at: new Date(Date.now() + 45 * 60000).toISOString() };
       this.players = [];
       this.addPlayer(userId, input.player_name, input.player_age);
@@ -157,11 +158,13 @@ export class MockGameServer {
     }
     if (name === "use_bonus_token") {
       const player = this.player(userId);
-      if (this.game.turn_user_id !== userId || this.game.token_used_this_turn || !player.bonus_tokens)
+      const field = `${input.help_type}_tokens`;
+      if (this.game.turn_user_id !== userId || this.game.token_used_this_turn || !player[field])
         throw Error("Bonus token unavailable");
       if (input.help_type === "reroll" && !this.game.clue_roll)
         throw Error("Roll first");
       player.bonus_tokens--;
+      player[field]--;
       this.game.token_used_this_turn = true;
       this.game.bonus_type = input.help_type;
       this.game.bonus_user_id = userId;
@@ -171,12 +174,27 @@ export class MockGameServer {
       this.event("bonus_used", { player_name: player.name, help_type: input.help_type });
       return this.game.clue_roll;
     }
+    if (name === "submit_country_guess") {
+      if (this.game.card_holder_user_id === userId) throw Error("Only a guesser can submit");
+      this.game.pending_guess_user_id = userId;
+      this.game.pending_guess_code = input.country_code;
+      this.event("country_guessed", { player_name: this.player(userId).name, country_code: input.country_code });
+      return null;
+    }
+    if (name === "reject_country_guess") {
+      if (this.game.card_holder_user_id !== userId) throw Error("Only holder can reject");
+      this.game.pending_guess_user_id = null;
+      this.game.pending_guess_code = null;
+      this.event("guess_rejected");
+      return null;
+    }
     if (name === "award_point") {
       if (this.game.card_holder_user_id !== userId || !this.game.clue_roll)
         throw Error("Holder must wait for a roll");
       const winner = this.player(input.guessed_user_id);
       winner.score++;
       winner.bonus_tokens++;
+      winner.flag_tokens++;
       this.game.current_card_index++;
       const holderIndex = this.players.findIndex((player) => player.user_id === userId);
       this.game.card_holder_user_id = this.players[(holderIndex + 1) % this.players.length].user_id;
@@ -209,6 +227,7 @@ export class MockGameServer {
   addPlayer(id, name, age) {
     const player = { id: `mock-player-${this.players.length + 1}`, game_id: this.game.id,
       user_id: id, name, age, score: 0, bonus_tokens: 0,
+      flag_tokens: 0, buzzword_tokens: 0, continent_tokens: 0, reroll_tokens: 0,
       joined_at: new Date(Date.now() + this.players.length * 1000).toISOString() };
     this.players.push(player);
     return player;
@@ -226,5 +245,7 @@ export class MockGameServer {
     this.game.token_used_this_turn = false;
     this.game.bonus_type = null;
     this.game.bonus_user_id = null;
+    this.game.pending_guess_user_id = null;
+    this.game.pending_guess_code = null;
   }
 }

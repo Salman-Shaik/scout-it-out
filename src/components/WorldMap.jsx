@@ -10,8 +10,9 @@ const REGION_VIEWS = {
   pacificIslands: { x: 785, y: 350, width: 225, height: 230 },
 };
 
-const WorldMap = ({ countries, onClose }) => {
+const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false }) => {
   const [activeCountry, setActiveCountry] = useState("Select a country");
+  const [activeCode, setActiveCode] = useState(null);
   const [pointer, setPointer] = useState(null);
   const [view, setView] = useState(WORLD_VIEW);
   const countryNames = useMemo(
@@ -24,10 +25,14 @@ const WorldMap = ({ countries, onClose }) => {
   const locations = worldMap.locations.filter((location) =>
     countryNames.has(location.id),
   );
+  const countryOptions = [...countryNames.entries()].sort((a, b) =>
+    a[1].localeCompare(b[1]),
+  );
 
   const showCountry = (location, event) => {
     const bounds = event.currentTarget.ownerSVGElement.getBoundingClientRect();
     setActiveCountry(countryNames.get(location.id));
+    setActiveCode(location.id);
     setPointer({
       x: event.clientX - bounds.left,
       y: event.clientY - bounds.top,
@@ -62,7 +67,9 @@ const WorldMap = ({ countries, onClose }) => {
           </button>
         </header>
         <p className="mapInstructions">
-          Hover, tap, or use the keyboard to discover country names.
+          {onCountrySelect
+            ? "Tap a country, then submit it as your guess."
+            : "Hover, tap, or use the keyboard to discover country names."}
         </p>
         <nav className="mapControls" aria-label="Map controls">
           <div className="regionControls">
@@ -124,7 +131,7 @@ const WorldMap = ({ countries, onClose }) => {
                   onMouseMove={(event) => showCountry(location, event)}
                   onMouseLeave={() => setPointer(null)}
                   onClick={(event) => showCountry(location, event)}
-                  onFocus={() => setActiveCountry(name)}
+                  onFocus={() => { setActiveCountry(name); setActiveCode(location.id); }}
                 >
                   <title>{name}</title>
                 </path>
@@ -144,6 +151,26 @@ const WorldMap = ({ countries, onClose }) => {
         <output className="selectedCountry" aria-live="polite">
           {activeCountry}
         </output>
+        {onCountrySelect && (
+          <div className="mapGuessControls">
+            <label htmlFor="map-country-guess">Or choose by name</label>
+            <select id="map-country-guess" value={activeCode || ""}
+              onChange={(event) => {
+                const code = event.target.value;
+                setActiveCode(code || null);
+                setActiveCountry(code ? countryNames.get(code) : "Select a country");
+                setPointer(null);
+              }}>
+              <option value="">Select a country</option>
+              {countryOptions.map(([code, name]) => <option key={code} value={code}>{name}</option>)}
+            </select>
+            <button type="button" className="mapGuessButton"
+              disabled={!activeCode || submitting}
+              onClick={() => onCountrySelect(activeCode)}>
+              {activeCode ? `Guess ${activeCountry}` : "Select a country to guess"}
+            </button>
+          </div>
+        )}
       </section>
     </Overlay>
   );

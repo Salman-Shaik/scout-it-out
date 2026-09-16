@@ -32,6 +32,16 @@ test("shuffles country codes without losing or repeating cards", () => {
   randomSpy.mockRestore();
 });
 
+test("reports multiplayer as unavailable when configuration is missing", async () => {
+  vi.stubEnv("VITE_SUPABASE_URL", "");
+  vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "");
+  vi.resetModules();
+  const client = await import("./client");
+  expect(client.multiplayerConfigured).toBe(false);
+  expect(client.supabase).toBeNull();
+  vi.unstubAllEnvs();
+});
+
 test("reuses an existing anonymous identity", async () => {
   vi.stubEnv("VITE_SUPABASE_URL", "https://test.supabase.co");
   vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_test");

@@ -14,15 +14,18 @@ vi.mock("./client", () => ({
   },
 }));
 vi.mock("../components/WorldMap", () => ({
-  default: ({ onClose }) => <div role="dialog" aria-label="World map"><button onClick={onClose}>Close map</button></div>,
+  default: ({ onClose, onCountrySelect }) => <div role="dialog" aria-label="World map">
+    <button onClick={onClose}>Close map</button>
+    {onCountrySelect && <button onClick={() => onCountrySelect("ca")}>Guess Canada</button>}
+  </div>,
 }));
 
 const USER_ID = "user-a";
 const GAME_ID = "game-one";
 const defaultPlayers = [
-  { id: "player-a", user_id: USER_ID, name: "Ada", age: 40, score: 0, bonus_tokens: 0 },
-  { id: "player-b", user_id: "user-b", name: "Grace", age: 35, score: 0, bonus_tokens: 0 },
-  { id: "player-c", user_id: "user-c", name: "Linus", age: 30, score: 0, bonus_tokens: 0 },
+  { id: "player-a", user_id: USER_ID, name: "Ada", age: 40, score: 0, bonus_tokens: 0, flag_tokens: 0, buzzword_tokens: 0, continent_tokens: 0, reroll_tokens: 0 },
+  { id: "player-b", user_id: "user-b", name: "Grace", age: 35, score: 0, bonus_tokens: 0, flag_tokens: 0, buzzword_tokens: 0, continent_tokens: 0, reroll_tokens: 0 },
+  { id: "player-c", user_id: "user-c", name: "Linus", age: 30, score: 0, bonus_tokens: 0, flag_tokens: 0, buzzword_tokens: 0, continent_tokens: 0, reroll_tokens: 0 },
 ];
 
 let game;
@@ -540,6 +543,7 @@ test("room creation sends the player's age for oldest-holder selection", async (
 });
 
 test("a waiting guesser sees the map instead of dice or card", async () => {
+  const user = userEvent.setup();
   game = gameRow({ status: "active", card_holder_user_id: "user-b",
     turn_user_id: "user-c" });
   roomSession();
@@ -547,6 +551,9 @@ test("a waiting guesser sees the map instead of dice or card", async () => {
   expect(await screen.findByRole("dialog", { name: "World map" })).toBeInTheDocument();
   expect(screen.queryByRole("button", { name: "Roll digital die" })).toBeNull();
   expect(screen.queryByText("Senegal")).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Close map" }));
+  await user.click(screen.getByRole("button", { name: "Open world map" }));
+  expect(screen.getByRole("dialog", { name: "World map" })).toBeInTheDocument();
 });
 
 test("current roller sees the rolled clue and cannot roll twice", async () => {
@@ -573,7 +580,7 @@ test("current roller sees the rolled clue and cannot roll twice", async () => {
 test("bonus token can be spent once on the roller's turn", async () => {
   const user = userEvent.setup();
   players = players.map((player) => player.user_id === USER_ID
-    ? { ...player, bonus_tokens: 1 } : player);
+    ? { ...player, bonus_tokens: 1, flag_tokens: 1 } : player);
   game = gameRow({ status: "active", card_holder_user_id: "user-b",
     turn_user_id: USER_ID, clue_roll: 2 });
   roomSession();
@@ -581,7 +588,7 @@ test("bonus token can be spent once on the roller's turn", async () => {
     if (name === "get_turn_card_code") return "sn";
     if (name === "use_bonus_token") {
       players = players.map((player) => player.user_id === USER_ID
-        ? { ...player, bonus_tokens: 0 } : player);
+        ? { ...player, bonus_tokens: 0, flag_tokens: 0 } : player);
       game = gameRow({ status: "active", card_holder_user_id: "user-b",
         turn_user_id: USER_ID, clue_roll: 2, token_used_this_turn: true,
         bonus_type: parameters.help_type, bonus_user_id: USER_ID });
@@ -589,9 +596,10 @@ test("bonus token can be spent once on the roller's turn", async () => {
     return null;
   });
   render(<Multiplayer />);
-  await user.click(await screen.findByRole("button", { name: /see flag.*1 token/i }));
+  await user.click(await screen.findByRole("button", { name: /see flag.*1 available/i }));
   expect(await screen.findByRole("img", { name: "Mystery flag" })).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /bonus word.*1 token/i })).toBeDisabled();
+  expect(screen.queryByRole("button", { name: /bonus word/i })).toBeNull();
+  expect(screen.getByText(/token used for this turn/i)).toBeInTheDocument();
   expect(rpc).toHaveBeenCalledWith("use_bonus_token", expect.objectContaining({ help_type: "flag" }));
 });
 
@@ -627,7 +635,7 @@ test("joining a room sends age and lets the player edit it", async () => {
 test("roller can spend a re-roll token after the first die roll", async () => {
   const user = userEvent.setup();
   players = players.map((player) => player.user_id === USER_ID
-    ? { ...player, bonus_tokens: 1 } : player);
+    ? { ...player, bonus_tokens: 1, reroll_tokens: 1 } : player);
   game = gameRow({ status: "active", card_holder_user_id: "user-b",
     turn_user_id: USER_ID, clue_roll: 2 });
   roomSession();
@@ -641,9 +649,9 @@ test("roller can spend a re-roll token after the first die roll", async () => {
     return null;
   });
   render(<Multiplayer />);
-  await user.click(await screen.findByRole("button", { name: /re-roll die.*1 token/i }));
+  await user.click(await screen.findByRole("button", { name: /re-roll die.*1 available/i }));
   expect(await screen.findByText(/you rolled 5/i)).toBeInTheDocument();
-  expect(screen.getByRole("button", { name: /re-roll die.*1 token/i })).toBeDisabled();
+  expect(screen.queryByRole("button", { name: /re-roll die/i })).toBeNull();
 });
 
 test("roller may open and close the map without ending their turn", async () => {
@@ -658,13 +666,60 @@ test("roller may open and close the map without ending their turn", async () => 
   expect(screen.getByRole("button", { name: "Roll digital die" })).toBeEnabled();
 });
 
+test("a map guess is sent to the holder for a decision", async () => {
+  const user = userEvent.setup();
+  game = gameRow({ status: "active", card_holder_user_id: "user-b", turn_user_id: USER_ID });
+  roomSession();
+  render(<Multiplayer />);
+  await user.click(await screen.findByRole("button", { name: "Open world map" }));
+  await user.click(screen.getByRole("button", { name: "Guess Canada" }));
+  expect(rpc).toHaveBeenCalledWith("submit_country_guess", {
+    target_game_id: GAME_ID,
+    country_code: "ca",
+  });
+});
+
+test("the holder can reject a country submitted from the map", async () => {
+  const user = userEvent.setup();
+  game = gameRow({ status: "active", clue_roll: 2,
+    pending_guess_user_id: "user-c", pending_guess_code: "ca" });
+  roomSession();
+  render(<Multiplayer />);
+  const notice = (await screen.findByText("Map guess")).closest(".guessNotification");
+  expect(notice).toHaveTextContent(/Linus guessed Canada/i);
+  await user.click(screen.getByRole("button", { name: "Not correct" }));
+  expect(rpc).toHaveBeenCalledWith("reject_country_guess", { target_game_id: GAME_ID });
+});
+
+test("an incomplete map guess is not shown to the holder", async () => {
+  game = gameRow({ status: "active", clue_roll: 2,
+    pending_guess_user_id: "user-c", pending_guess_code: null });
+  roomSession();
+  render(<Multiplayer />);
+  expect(await screen.findByRole("heading", { name: "You hold the card" })).toBeInTheDocument();
+  expect(screen.queryByText("Map guess")).toBeNull();
+});
+
+test("the holder can approve a country submitted from the map", async () => {
+  const user = userEvent.setup();
+  game = gameRow({ status: "active", clue_roll: 2,
+    pending_guess_user_id: "user-c", pending_guess_code: "ca" });
+  roomSession();
+  render(<Multiplayer />);
+  await user.click(await screen.findByRole("button", { name: "Correct — award card" }));
+  expect(rpc).toHaveBeenCalledWith("award_point", {
+    target_game_id: GAME_ID,
+    guessed_user_id: "user-c",
+  });
+});
+
 test.each([
   ["buzzword", "Bonus word", /bonus word:/i],
   ["continent", "Continent", /continent:/i],
 ])("roller receives %s token help only on their screen", async (kind, label, result) => {
   const user = userEvent.setup();
   players = players.map((player) => player.user_id === USER_ID
-    ? { ...player, bonus_tokens: 1 } : player);
+    ? { ...player, bonus_tokens: 1, [`${kind}_tokens`]: 1 } : player);
   game = gameRow({ status: "active", card_holder_user_id: "user-b",
     turn_user_id: USER_ID, clue_roll: 2 });
   roomSession();
@@ -676,6 +731,6 @@ test.each([
     return null;
   });
   render(<Multiplayer />);
-  await user.click(await screen.findByRole("button", { name: new RegExp(`${label}.*1 token`, "i") }));
+  await user.click(await screen.findByRole("button", { name: new RegExp(`${label}.*1 available`, "i") }));
   expect(await screen.findByText(result)).toBeInTheDocument();
 });

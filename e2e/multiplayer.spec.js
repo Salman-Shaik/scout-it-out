@@ -100,7 +100,7 @@ test("three devices play rotating turns, tokens, quit, and Endless results", asy
 
     await elder.getByLabel("First correct guesser").selectOption({ label: "Ada" });
     await elder.getByRole("button", { name: /award card and token/i }).click();
-    await expect(host.getByText(/1 cards · 1 tokens/i)).toBeVisible();
+    await expect(host.getByText(/1 cards/i)).toBeVisible();
     await expect(mobile.getByRole("heading", { name: "You hold the card" })).toBeVisible();
     await expect(mobile.getByRole("img", { name: "Current country flag" })).toBeVisible();
 
@@ -108,9 +108,9 @@ test("three devices play rotating turns, tokens, quit, and Endless results", asy
     await elder.getByRole("button", { name: "Roll digital die" }).click();
     await mobile.getByRole("button", { name: /next roller/i }).click();
     await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
-    await host.getByRole("button", { name: /see flag.*1 token/i }).click();
-    await expect(host.getByRole("img", { name: "Mystery flag" })).toBeVisible();
-    await expect(host.getByRole("button", { name: /bonus word.*1 token/i })).toBeDisabled();
+    await host.getByRole("button", { name: "Roll digital die" }).click();
+    await host.locator(".multiBonusActions button:not([disabled])").first().click();
+    await expect(host.locator(".multiBonusActions button:not([disabled])")).toHaveCount(0);
 
     await host.reload({ waitUntil: "domcontentloaded" });
     await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();

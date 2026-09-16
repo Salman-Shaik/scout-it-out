@@ -147,6 +147,26 @@
   text-align: center;
 }
 
+.mapGuessControls { display: grid; gap: .45rem; margin-top: .65rem; }
+.mapGuessControls label { color: var(--muted); font-size: .78rem; font-weight: 800; }
+.mapGuessControls select { width: 100%; min-height: 48px; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); }
+.mapGuessButton {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 0;
+  border: 0;
+  border-radius: 14px;
+  background: var(--forest);
+  color: var(--on-forest);
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.mapGuessButton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 @media (max-width: 540px) {
   .overlay > .worldMapDialog {
     min-height: calc(100vh - 1rem);
@@ -169,11 +189,14 @@
   }
 
   .regionControls {
-    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .regionControls button {
-    flex: 1 0 auto;
+    width: 100%;
+    min-height: 48px;
+    white-space: normal;
   }
 
   .zoomControls {
