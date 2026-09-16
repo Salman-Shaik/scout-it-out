@@ -382,6 +382,39 @@ test("live game events refresh a guesser's screen", async () => {
   );
 });
 
+test("overlapping realtime refreshes are coalesced without stale races", async () => {
+  game = gameRow({ status: "active", card_holder_user_id: "user-b", turn_user_id: USER_ID });
+  roomSession();
+  render(<Multiplayer />);
+  await screen.findByText("Your turn to roll");
+
+  let releaseSlowRead;
+  const slowRead = new Promise((resolve) => { releaseSlowRead = resolve; });
+  let gameReads = 0;
+  supabase.from.mockImplementation((table) => {
+    const query = {
+      select: () => query,
+      eq: () => query,
+      order: () => query,
+      maybeSingle: () => {
+        if (table !== "games") return Promise.resolve({ data: roomSecret, error: null });
+        gameReads += 1;
+        if (gameReads === 1) return slowRead;
+        return Promise.resolve({ data: game, error: null });
+      },
+      then: (resolve) => Promise.resolve({ data: players, error: null }).then(resolve),
+    };
+    return query;
+  });
+  const notify = listeners.find((listener) => listener.table === "games").callback;
+  notify({ new: { id: GAME_ID } });
+  notify({ new: { id: GAME_ID } });
+  notify({ new: { id: GAME_ID } });
+  expect(gameReads).toBe(1);
+  releaseSlowRead({ data: game, error: null });
+  await waitFor(() => expect(gameReads).toBe(2));
+});
+
 test("card holder sees no stale roll notification", async () => {
   game = gameRow({
     status: "active",

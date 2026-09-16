@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
+import React, { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import countryData from "../data/countries_info.json";
 import "flag-icons/css/flag-icons.min.css";
 import { ensureAnonymousUser, rpc, shuffleCodes, supabase } from "./client";
@@ -51,8 +51,10 @@ const Multiplayer = () => {
   const [error, setError] = useState("");
   const [now, setNow] = useState(Date.now());
   const [showMap, setShowMap] = useState(false);
+  const refreshPromiseRef = useRef(null);
+  const refreshQueuedRef = useRef(false);
 
-  const fetchGame = useCallback(async () => {
+  const loadGame = useCallback(async () => {
     if (!session) return;
     const [gameResult, playerResult] = await Promise.all([
       supabase.from("games").select("*").eq("id", session.gameId).maybeSingle(),
@@ -94,6 +96,24 @@ const Multiplayer = () => {
       setTurnCode(null);
     }
   }, [session, user]);
+
+  const fetchGame = useCallback(() => {
+    if (!session) return Promise.resolve();
+    if (refreshPromiseRef.current) {
+      refreshQueuedRef.current = true;
+      return refreshPromiseRef.current;
+    }
+    const refresh = (async () => {
+      do {
+        refreshQueuedRef.current = false;
+        await loadGame();
+      } while (refreshQueuedRef.current);
+    })();
+    refreshPromiseRef.current = refresh.finally(() => {
+      refreshPromiseRef.current = null;
+    });
+    return refreshPromiseRef.current;
+  }, [loadGame, session]);
 
   const connect = useCallback(() => {
     setConnecting(true);
