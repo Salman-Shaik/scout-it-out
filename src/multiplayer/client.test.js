@@ -65,6 +65,24 @@ test("signs in a new anonymous player and handles auth failures", async () => {
   vi.unstubAllEnvs();
 });
 
+test("concurrent startup calls share one anonymous sign-in", async () => {
+  vi.stubEnv("VITE_SUPABASE_URL", "https://test.supabase.co");
+  vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_test");
+  vi.resetModules();
+  fakeClient.auth.getUser.mockClear().mockResolvedValue({ data: { user: null } });
+  fakeClient.auth.signInAnonymously.mockClear().mockResolvedValue({
+    data: { user: { id: "SamePlayer" } }, error: null,
+  });
+  const client = await import("./client");
+  const [first, second] = await Promise.all([
+    client.ensureAnonymousUser(), client.ensureAnonymousUser(),
+  ]);
+  expect(first).toEqual(second);
+  expect(fakeClient.auth.getUser).toHaveBeenCalledTimes(1);
+  expect(fakeClient.auth.signInAnonymously).toHaveBeenCalledTimes(1);
+  vi.unstubAllEnvs();
+});
+
 test("RPC returns successful data and propagates database errors", async () => {
   vi.stubEnv("VITE_SUPABASE_URL", "https://test.supabase.co");
   vi.stubEnv("VITE_SUPABASE_PUBLISHABLE_KEY", "sb_publishable_test");

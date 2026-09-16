@@ -11,12 +11,19 @@ export const supabase = multiplayerConfigured
     })
   : null;
 
-export const ensureAnonymousUser = async () => {
-  const { data: existing } = await supabase.auth.getUser();
-  if (existing.user) return existing.user;
-  const { data, error } = await supabase.auth.signInAnonymously();
-  if (error) throw error;
-  return data.user;
+let signInPromise;
+
+export const ensureAnonymousUser = () => {
+  if (!signInPromise) {
+    signInPromise = (async () => {
+      const { data: existing } = await supabase.auth.getUser();
+      if (existing.user) return existing.user;
+      const { data, error } = await supabase.auth.signInAnonymously();
+      if (error) throw error;
+      return data.user;
+    })().finally(() => { signInPromise = null; });
+  }
+  return signInPromise;
 };
 
 export const shuffleCodes = (countries) => {

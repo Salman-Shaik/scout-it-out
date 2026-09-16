@@ -50,7 +50,7 @@ const WorldMap = ({ countries, onClose }) => {
   const viewBox = `${view.x} ${view.y} ${view.width} ${view.height}`;
 
   return (
-    <Overlay showOverlay>
+    <Overlay showOverlay labelledBy="world-map-title">
       <section className="worldMapDialog" aria-labelledby="world-map-title">
         <header className="worldMapHeader">
           <div>

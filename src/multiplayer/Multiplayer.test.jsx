@@ -161,6 +161,8 @@ test("starts a shared game and card holder sees the secret card", async () => {
   );
   expect(await screen.findByText("You hold the card")).toBeInTheDocument();
   expect(screen.getByText("Senegal")).toBeInTheDocument();
+  expect(screen.getByRole("img", { name: "Current country flag" })).toBeInTheDocument();
+  expect(screen.queryByText(/time remaining/i)).toBeNull();
   expect(screen.getByRole("button", { name: /award card and token/i })).toBeDisabled();
   expect(
     screen.queryByRole("button", { name: /roll digital die/i }),

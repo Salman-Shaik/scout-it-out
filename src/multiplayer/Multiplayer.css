@@ -160,6 +160,16 @@
   font-size: 1.4rem;
 }
 
+.holderFlag.fi {
+  display: block;
+  width: min(300px, 100%);
+  height: clamp(110px, 24vw, 175px);
+  margin: 1rem 0;
+  border-radius: 10px;
+  background-size: cover;
+  box-shadow: 0 10px 25px #0003;
+}
+
 .holderCard li {
   margin: 0.55rem 0;
 }
@@ -177,6 +187,27 @@
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.multiBonusActions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
-.multiBonusActions button { min-height: 44px; }
+.multiBonusActions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin: 1rem 0; }
+.multiBonusActions button { min-height: 48px; }
 .multiBonusFlag.fi { display: block; width: min(320px, 90%); height: 200px; margin: 1rem auto; background-size: cover; box-shadow: 0 12px 28px #0003; }
+
+@media (max-width: 600px) {
+  .multiPage { width: calc(100% - 1rem); margin: .25rem auto; padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+  .multiTop { margin: .5rem .25rem .75rem; font-size: .84rem; }
+  .multiPanel { padding: 1rem; margin-bottom: .75rem; border-radius: 18px; }
+  .multiPanel h2 { font-size: clamp(2rem, 9vw, 2.7rem); line-height: 1.08; }
+  .multiPanel h3 { font-size: 1.25rem; }
+  .multiRoomHeader { align-items: flex-start; gap: .5rem; }
+  .multiRoomHeader h2 { overflow-wrap: anywhere; }
+  .multiRoomHeader > strong { max-width: 45%; text-align: right; font-size: .82rem; }
+  .multiPlayers > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .4rem; align-items: center; }
+  .multiPlayers > div span { overflow-wrap: anywhere; }
+  .multiPlayers > div strong { font-size: .76rem; text-align: right; }
+  .multiTargets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .multiTargets legend { grid-column: 1 / -1; }
+  .multiTargets label { display: flex; align-items: center; min-height: 44px; border-radius: 12px; }
+  .multiPage button { width: 100%; min-height: 48px; }
+  .holderCard { padding: .85rem; }
+  .holderFlag.fi { width: 100%; height: min(45vw, 175px); }
+  .multiExit { display: grid; }
+}

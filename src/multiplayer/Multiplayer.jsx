@@ -81,7 +81,8 @@ const Multiplayer = () => {
     } else {
       setDeck(null);
     }
-    if (gameData.turn_user_id === user?.id && gameData.clue_roll) {
+    if (gameData.turn_user_id === user?.id &&
+      (gameData.clue_roll || gameData.bonus_user_id === user?.id)) {
       setTurnCode(await rpc("get_turn_card_code", { target_game_id: session.gameId }));
     } else {
       setTurnCode(null);
@@ -205,9 +206,6 @@ const Multiplayer = () => {
     if (!isHolder || !deck || !game) return null;
     return countryByCode.get(deck[game.current_card_index]);
   }, [deck, game, isHolder]);
-  const remaining = game
-    ? Math.max(0, Math.ceil((new Date(game.expires_at).getTime() - now) / 1000))
-    : 0;
   const winners = players.filter((player) =>
     game?.winner_user_ids?.includes(player.user_id),
   );
@@ -219,9 +217,8 @@ const Multiplayer = () => {
   const turnCountry = turnCode ? countryByCode.get(turnCode) : null;
 
   useEffect(() => {
-    if (game?.status === "active" && user &&
-      game.card_holder_user_id !== user.id && game.turn_user_id !== user.id) {
-      setShowMap(true);
+    if (game?.status === "active" && user) {
+      setShowMap(game.card_holder_user_id !== user.id && game.turn_user_id !== user.id);
     }
   }, [game?.status, game?.card_holder_user_id, game?.turn_user_id, user]);
 
@@ -329,7 +326,6 @@ const Multiplayer = () => {
                   : `First to ${game.win_target}`}
               </strong>
             </div>
-            <p>Time remaining: {formatRemaining(remaining)}</p>
             <p>
               Card holder: <strong>{cardHolder?.name || "Waiting…"}</strong>
               {isHolder && " (you)"}
@@ -381,6 +377,8 @@ const Multiplayer = () => {
                   {country ? (
                     <div className="holderCard">
                       <h4>{country.answer}</h4>
+                      <span className={`fi fi-${country.country_code} holderFlag`}
+                        role="img" aria-label="Current country flag" />
                       <ol>
                         {country.clues.map((clue, index) => (
                           <li

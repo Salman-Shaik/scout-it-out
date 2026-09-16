@@ -256,8 +256,16 @@
 
 @media (max-width: 540px) {
   .App-header {
-    min-height: 76px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: .7rem .8rem;
+    min-height: 0;
+    padding: .85rem 1rem;
   }
+
+  .brand-mark { width: 42px; height: 42px; }
+  .header-actions { grid-column: 1 / -1; justify-content: space-between; margin: 0; }
+  .header-actions .rulesButton { min-height: 44px; }
 
   .brand-eyebrow,
   .country-count {
