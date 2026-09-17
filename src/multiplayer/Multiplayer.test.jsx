@@ -14,9 +14,11 @@ vi.mock("./client", () => ({
   },
 }));
 vi.mock("../components/WorldMap", () => ({
-  default: ({ onClose, onCountrySelect }) => <div role="dialog" aria-label="World map">
+  default: ({ onClose, onCountrySelect, guessingDisabled, guessingMessage }) => <div role="dialog" aria-label="World map">
     <button onClick={onClose}>Close map</button>
-    {onCountrySelect && <button onClick={() => onCountrySelect("ca")}>Guess Canada</button>}
+    {guessingMessage && <p>{guessingMessage}</p>}
+    {onCountrySelect && <button disabled={guessingDisabled}
+      onClick={() => onCountrySelect("ca")}>Guess Canada</button>}
   </div>,
 }));
 
@@ -575,18 +577,55 @@ test("room creation sends the player's age for oldest-holder selection", async (
   }));
 });
 
-test("a waiting guesser sees the map instead of dice or card", async () => {
+test("a waiting guesser chooses when to open the map", async () => {
   const user = userEvent.setup();
   game = gameRow({ status: "active", card_holder_user_id: "user-b",
     turn_user_id: "user-c" });
   roomSession();
   render(<Multiplayer />);
-  expect(await screen.findByRole("dialog", { name: "World map" })).toBeInTheDocument();
+  expect(await screen.findByRole("heading", { name: "Scout the map" })).toBeInTheDocument();
+  expect(screen.queryByRole("dialog", { name: "World map" })).toBeNull();
   expect(screen.queryByRole("button", { name: "Roll digital die" })).toBeNull();
   expect(screen.queryByText("Senegal")).toBeNull();
-  await user.click(screen.getByRole("button", { name: "Close map" }));
   await user.click(screen.getByRole("button", { name: "Open world map" }));
-  expect(screen.getByRole("dialog", { name: "World map" })).toBeInTheDocument();
+  expect(await screen.findByRole("dialog", { name: "World map" })).toBeInTheDocument();
+});
+
+test("waiting players see the revealed clue and shared bonus information", async () => {
+  game = gameRow({ status: "active", card_holder_user_id: "user-b",
+    turn_user_id: "user-c", clue_roll: 2, token_used_this_turn: true,
+    bonus_type: "continent", bonus_user_id: "user-c" });
+  roomSession();
+  rpc.mockImplementation(async (name) => name === "get_turn_card_code" ? "sn" : null);
+  render(<Multiplayer />);
+  const updates = await screen.findByLabelText("Shared round updates");
+  expect(updates).toHaveTextContent(/Clue 2/i);
+  expect(updates).toHaveTextContent(/Gorée Island/i);
+  expect(updates).toHaveTextContent(/Linus used Continent/i);
+  expect(updates).toHaveTextContent(/Continent: Africa/i);
+});
+
+test("shared token activity remains understandable while player details load", async () => {
+  game = gameRow({ status: "active", card_holder_user_id: "user-b",
+    turn_user_id: USER_ID, clue_roll: 2, token_used_this_turn: true,
+    bonus_type: "reroll", bonus_user_id: "not-loaded" });
+  roomSession();
+  rpc.mockImplementation(async (name) => name === "get_turn_card_code" ? "sn" : null);
+  render(<Multiplayer />);
+  const updates = await screen.findByLabelText("Shared round updates");
+  expect(updates).toHaveTextContent(/A player used Re-roll die/i);
+  expect(updates).toHaveTextContent(/new roll is 2/i);
+});
+
+test("a player cannot submit a second map guess during the same turn", async () => {
+  const user = userEvent.setup();
+  game = gameRow({ status: "active", card_holder_user_id: "user-b",
+    turn_user_id: "user-c", clue_roll: 2, map_guess_user_ids: [USER_ID] });
+  roomSession();
+  rpc.mockImplementation(async (name) => name === "get_turn_card_code" ? "sn" : null);
+  render(<Multiplayer />);
+  await user.click(await screen.findByRole("button", { name: "Open world map" }));
+  expect(await screen.findByRole("button", { name: "Guess Canada" })).toBeDisabled();
 });
 
 test("current roller sees the rolled clue and cannot roll twice", async () => {
@@ -605,7 +644,7 @@ test("current roller sees the rolled clue and cannot roll twice", async () => {
   });
   render(<Multiplayer />);
   await user.click(await screen.findByRole("button", { name: "Roll digital die" }));
-  expect(await screen.findByText(/clue 1:/i)).toBeInTheDocument();
+  expect(await screen.findByLabelText("Shared round updates")).toHaveTextContent(/Clue 1/i);
   expect(screen.getByRole("button", { name: "Roll digital die" })).toBeDisabled();
   expect(screen.queryByText("Senegal")).toBeNull();
 });
@@ -630,7 +669,7 @@ test("bonus token can be spent once on the roller's turn", async () => {
   });
   render(<Multiplayer />);
   await user.click(await screen.findByRole("button", { name: /see flag.*1 available/i }));
-  expect(await screen.findByRole("img", { name: "Mystery flag" })).toBeInTheDocument();
+  expect(await screen.findByRole("img", { name: "Shared mystery flag" })).toBeInTheDocument();
   expect(screen.queryByRole("button", { name: /bonus word/i })).toBeNull();
   expect(screen.getByText(/token used for this turn/i)).toBeInTheDocument();
   expect(rpc).toHaveBeenCalledWith("use_bonus_token", expect.objectContaining({ help_type: "flag" }));
@@ -694,14 +733,29 @@ test("roller may open and close the map without ending their turn", async () => 
   render(<Multiplayer />);
   await user.click(await screen.findByRole("button", { name: "Open world map" }));
   expect(await screen.findByRole("dialog", { name: "World map" })).toBeInTheDocument();
+  expect(screen.getByText(/wait for the clue before submitting/i)).toBeInTheDocument();
   await user.click(screen.getByRole("button", { name: "Close map" }));
   expect(screen.queryByRole("dialog", { name: "World map" })).toBeNull();
   expect(screen.getByRole("button", { name: "Roll digital die" })).toBeEnabled();
 });
 
+test("map guessing pauses while another guess awaits review", async () => {
+  const user = userEvent.setup();
+  game = gameRow({ status: "active", card_holder_user_id: "user-b",
+    turn_user_id: USER_ID, clue_roll: 2, pending_guess_user_id: "user-c",
+    pending_guess_code: "ca" });
+  roomSession();
+  rpc.mockImplementation(async (name) => name === "get_turn_card_code" ? "sn" : null);
+  render(<Multiplayer />);
+  await user.click(await screen.findByRole("button", { name: "Open world map" }));
+  expect(await screen.findByText(/wait while the card holder reviews/i)).toBeInTheDocument();
+  expect(screen.getByRole("button", { name: "Guess Canada" })).toBeDisabled();
+});
+
 test("a map guess is sent to the holder for a decision", async () => {
   const user = userEvent.setup();
-  game = gameRow({ status: "active", card_holder_user_id: "user-b", turn_user_id: USER_ID });
+  game = gameRow({ status: "active", card_holder_user_id: "user-b",
+    turn_user_id: USER_ID, clue_roll: 2 });
   roomSession();
   render(<Multiplayer />);
   await user.click(await screen.findByRole("button", { name: "Open world map" }));
@@ -718,7 +772,7 @@ test("the holder can reject a country submitted from the map", async () => {
     pending_guess_user_id: "user-c", pending_guess_code: "ca" });
   roomSession();
   render(<Multiplayer />);
-  const notice = (await screen.findByText("Map guess")).closest(".guessNotification");
+  const notice = (await screen.findByText("Map guess")).closest(".roundUpdate");
   expect(notice).toHaveTextContent(/Linus guessed Canada/i);
   await user.click(screen.getByRole("button", { name: "Not correct" }));
   expect(rpc).toHaveBeenCalledWith("reject_country_guess", { target_game_id: GAME_ID });

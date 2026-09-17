@@ -81,11 +81,11 @@ test("three devices play rotating turns, tokens, quit, and Endless results", asy
     await expect(elder.getByRole("heading", { name: "You hold the card" })).toBeVisible();
     await expect(elder.getByRole("img", { name: "Current country flag" })).toBeVisible();
     await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
-    await expect(mobile.getByRole("dialog", { name: "World map" })).toBeVisible();
+    await expect(mobile.getByRole("dialog", { name: "World map" })).toHaveCount(0);
     await expect(mobile.getByRole("button", { name: "Roll digital die" })).toHaveCount(0);
 
     await host.getByRole("button", { name: "Roll digital die" }).click();
-    await expect(host.getByText(/clue [1-6]:/i)).toBeVisible();
+    await expect(host.getByLabel("Shared round updates")).toContainText(/Clue [1-6]/i);
     await expect(host.getByRole("button", { name: "Roll digital die" })).toBeDisabled();
     await expect(elder.getByText(/read clue [1-6] aloud/i)).toBeVisible();
     await host.getByRole("button", { name: "Open world map" }).click();
@@ -96,7 +96,7 @@ test("three devices play rotating turns, tokens, quit, and Endless results", asy
     await expect(mobile.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
     await expect(mobile.getByRole("dialog", { name: "World map" })).toHaveCount(0);
     await mobile.getByRole("button", { name: "Roll digital die" }).click();
-    await expect(mobile.getByText(/clue [1-6]:/i)).toBeVisible();
+    await expect(mobile.getByLabel("Shared round updates")).toContainText(/Clue [1-6]/i);
 
     await elder.getByLabel("First correct guesser").selectOption({ label: "Ada" });
     await elder.getByRole("button", { name: /award card and token/i }).click();
@@ -114,7 +114,7 @@ test("three devices play rotating turns, tokens, quit, and Endless results", asy
 
     await host.reload({ waitUntil: "domcontentloaded" });
     await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
-    await expect(host.getByRole("img", { name: "Mystery flag" })).toBeVisible();
+    await expect(host.getByLabel("Shared round updates")).toContainText(/used/i);
 
     await closeRoom(host);
     await expect(host.getByRole("heading", { name: "Play together" })).toBeVisible();

@@ -108,6 +108,7 @@ export class MockGameServer {
         clue_roll: null, die_roll: null, token_used_this_turn: false,
         bonus_type: null, bonus_user_id: null, last_event: {}, winner_user_ids: [],
         pending_guess_user_id: null, pending_guess_code: null,
+        map_guess_user_ids: [],
         expires_at: new Date(Date.now() + 45 * 60000).toISOString() };
       this.players = [];
       this.addPlayer(userId, input.player_name, input.player_age);
@@ -144,8 +145,7 @@ export class MockGameServer {
       return roll;
     }
     if (name === "get_turn_card_code") {
-      return (this.game.clue_roll || this.game.bonus_user_id === userId)
-        && this.game.turn_user_id === userId
+      return (this.game.clue_roll || this.game.bonus_type) && this.player(userId)
         ? this.deck[this.game.current_card_index] : null;
     }
     if (name === "pass_turn") {
@@ -176,8 +176,12 @@ export class MockGameServer {
     }
     if (name === "submit_country_guess") {
       if (this.game.card_holder_user_id === userId) throw Error("Only a guesser can submit");
+      if (!this.game.clue_roll) throw Error("Wait for the clue before guessing");
+      if (this.game.map_guess_user_ids.includes(userId)) throw Error("You already submitted a map guess this turn");
+      if (this.game.pending_guess_user_id) throw Error("Wait for the current guess");
       this.game.pending_guess_user_id = userId;
       this.game.pending_guess_code = input.country_code;
+      this.game.map_guess_user_ids.push(userId);
       this.event("country_guessed", { player_name: this.player(userId).name, country_code: input.country_code });
       return null;
     }
@@ -247,5 +251,6 @@ export class MockGameServer {
     this.game.bonus_user_id = null;
     this.game.pending_guess_user_id = null;
     this.game.pending_guess_code = null;
+    this.game.map_guess_user_ids = [];
   }
 }

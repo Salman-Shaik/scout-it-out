@@ -125,12 +125,18 @@
 }
 
 .multiError,
-.multiBusy,
-.multiNotification {
+.multiBusy {
   padding: 0.85rem 1rem;
   border-radius: 12px;
   background: var(--lime);
   color: var(--on-lime);
+  font-weight: 700;
+}
+
+.multiNotification {
+  padding: .75rem 0 .75rem 1rem;
+  border-left: 3px solid var(--lime);
+  color: var(--ink);
   font-weight: 700;
 }
 
@@ -226,9 +232,15 @@
 .guessDecisionActions { display: grid; grid-template-columns: 1fr 1fr; gap: .65rem; margin-top: 1rem; }
 .holderDecisionActions .multiPrimary,
 .guessDecisionActions .multiPrimary { margin-top: 0; }
-.guessNotification { padding: 1rem; margin: 1rem 0; border: 1px solid var(--lime); border-radius: 16px; background: color-mix(in srgb, var(--lime), transparent 86%); }
-.guessNotification p { margin: .35rem 0 0; }
 .tokenStatus { padding: .75rem 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+.roundFeed { padding: 0; margin: 1rem 0 1.25rem; border: 1px solid var(--line); border-radius: 16px; background: color-mix(in srgb, var(--paper), var(--cream) 45%); }
+.roundFeedHeader { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+.roundFeedHeader span { color: var(--muted); font-size: .72rem; }
+.roundUpdate { padding: .8rem 1rem; border-bottom: 1px solid var(--line); }
+.roundUpdate:last-child { border-bottom: 0; }
+.roundUpdate > span:first-child { color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.roundUpdate p { margin: .3rem 0 0; line-height: 1.45; }
+.sharedBonusFlag.fi { display: block; width: min(220px, 100%); height: 125px; margin-top: .65rem; border-radius: 8px; background-size: cover; }
 
 .multiExit {
   display: flex;

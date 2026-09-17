@@ -136,19 +136,20 @@
 }
 
 .selectedCountry {
-  display: block;
-  min-height: 44px;
-  padding: 0.75rem 1rem;
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  padding: 0.45rem 0;
   margin-top: 0.75rem;
-  border-radius: 14px;
-  background: var(--lime);
-  color: var(--on-lime);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
   font-weight: 800;
-  text-align: center;
+  text-align: left;
 }
 
 .mapGuessControls { display: grid; gap: .45rem; margin-top: .65rem; }
 .mapGuessControls label { color: var(--muted); font-size: .78rem; font-weight: 800; }
+.mapGuessNotice { padding: .7rem .8rem; margin: 0; border-left: 3px solid var(--orange); background: color-mix(in srgb, var(--orange), transparent 92%); color: var(--ink); font-size: .85rem; }
 .mapGuessControls select { width: 100%; min-height: 48px; padding: .65rem .8rem; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); }
 .mapGuessButton {
   width: 100%;

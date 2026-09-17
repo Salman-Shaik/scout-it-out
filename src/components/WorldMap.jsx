@@ -10,7 +10,8 @@ const REGION_VIEWS = {
   pacificIslands: { x: 785, y: 350, width: 225, height: 230 },
 };
 
-const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false }) => {
+const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false,
+  guessingDisabled = false, guessingMessage = "" }) => {
   const [activeCountry, setActiveCountry] = useState("Select a country");
   const [activeCode, setActiveCode] = useState(null);
   const [pointer, setPointer] = useState(null);
@@ -153,8 +154,9 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false }) =
         </output>
         {onCountrySelect && (
           <div className="mapGuessControls">
+            {guessingMessage && <p className="mapGuessNotice" role="status">{guessingMessage}</p>}
             <label htmlFor="map-country-guess">Or choose by name</label>
-            <select id="map-country-guess" value={activeCode || ""}
+            <select id="map-country-guess" value={activeCode || ""} disabled={guessingDisabled}
               onChange={(event) => {
                 const code = event.target.value;
                 setActiveCode(code || null);
@@ -165,7 +167,7 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false }) =
               {countryOptions.map(([code, name]) => <option key={code} value={code}>{name}</option>)}
             </select>
             <button type="button" className="mapGuessButton"
-              disabled={!activeCode || submitting}
+              disabled={!activeCode || submitting || guessingDisabled}
               onClick={() => onCountrySelect(activeCode)}>
               {activeCode ? `Guess ${activeCountry}` : "Select a country to guess"}
             </button>

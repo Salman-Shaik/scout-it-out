@@ -89,8 +89,7 @@ const Multiplayer = () => {
     } else {
       setDeck(null);
     }
-    if (gameData.turn_user_id === user?.id &&
-      (gameData.clue_roll || gameData.bonus_user_id === user?.id)) {
+    if (gameData.clue_roll || gameData.bonus_type) {
       setTurnCode(await rpc("get_turn_card_code", { target_game_id: session.gameId }));
     } else {
       setTurnCode(null);
@@ -238,9 +237,10 @@ const Multiplayer = () => {
   const recentRoll =
     game?.last_event?.type === "die_rolled" &&
     now - new Date(game.last_event.at).getTime() < 8000;
-  const myBonus = isRoller && game?.bonus_user_id === user?.id
-    ? game.bonus_type : null;
   const turnCountry = turnCode ? countryByCode.get(turnCode) : null;
+  const bonusPlayer = players.find(
+    (player) => player.user_id === game?.bonus_user_id,
+  );
   const pendingGuesser = players.find(
     (player) => player.user_id === game?.pending_guess_user_id,
   );
@@ -248,12 +248,11 @@ const Multiplayer = () => {
   const availableTokens = TOKEN_TYPES.filter(
     ([, , field]) => (myPlayer?.[field] || 0) > 0,
   );
+  const hasMapGuessed = Boolean(game?.map_guess_user_ids?.includes(user?.id));
 
   useEffect(() => {
-    if (game?.status === "active" && user) {
-      setShowMap(game.card_holder_user_id !== user.id && game.turn_user_id !== user.id);
-    }
-  }, [game?.status, game?.card_holder_user_id, game?.turn_user_id, user]);
+    setShowMap(false);
+  }, [game?.turn_number]);
 
   if (!user) {
     return (
@@ -400,6 +399,54 @@ const Multiplayer = () => {
               <span className="section-kicker">
                 Country {game.current_card_index + 1}
               </span>
+              {(game.clue_roll || game.token_used_this_turn || pendingGuess) && (
+                <aside className="roundFeed" aria-label="Shared round updates" aria-live="polite">
+                  <div className="roundFeedHeader">
+                    <strong>Round updates</strong>
+                    <span>Visible to everyone</span>
+                  </div>
+                  {game.clue_roll && (
+                    <div className="roundUpdate">
+                      <span>Clue {game.clue_roll}</span>
+                      <p>{turnCountry?.clues?.[game.clue_roll - 1] || "Loading the revealed clue…"}</p>
+                    </div>
+                  )}
+                  {game.token_used_this_turn && (
+                    <div className="roundUpdate">
+                      <span>{bonusPlayer?.name || "A player"} used {
+                        TOKEN_TYPES.find(([kind]) => kind === game.bonus_type)?.[1] || "a token"
+                      }</span>
+                      {game.bonus_type === "flag" && turnCountry && (
+                        <span className={`fi fi-${turnCountry.country_code} sharedBonusFlag`}
+                          role="img" aria-label="Shared mystery flag" />
+                      )}
+                      {game.bonus_type === "buzzword" && <p>Bonus word: {turnCountry?.buzzword || "Loading…"}</p>}
+                      {game.bonus_type === "continent" && <p>Continent: {turnCountry?.continent || "Loading…"}</p>}
+                      {game.bonus_type === "reroll" && <p>The new roll is {game.clue_roll}.</p>}
+                    </div>
+                  )}
+                  {pendingGuesser && pendingGuess && (
+                    <div className="roundUpdate roundGuess">
+                      <span>Map guess</span>
+                      <p><strong>{pendingGuesser.name}</strong> guessed <strong>{pendingGuess.answer}</strong>.</p>
+                      {isHolder && (
+                        <div className="guessDecisionActions">
+                          <button className="multiPrimary" type="button" disabled={busy || !game.clue_roll}
+                            onClick={() => perform(() => rpc("award_point", {
+                              target_game_id: game.id, guessed_user_id: pendingGuesser.user_id,
+                            }))}>
+                            Correct — award card
+                          </button>
+                          <button type="button" disabled={busy}
+                            onClick={() => perform(() => rpc("reject_country_guess", { target_game_id: game.id }))}>
+                            Not correct
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </aside>
+              )}
               {isHolder ? (
                 <>
                   <h3>You hold the card</h3>
@@ -447,24 +494,6 @@ const Multiplayer = () => {
                       {game.last_event.player_name} rolled{" "}
                       {game.last_event.roll}! Read clue {game.last_event.roll}.
                     </p>
-                  )}
-                  {pendingGuesser && pendingGuess && (
-                    <div className="guessNotification" role="status">
-                      <span className="section-kicker">Map guess</span>
-                      <p><strong>{pendingGuesser.name}</strong> guessed <strong>{pendingGuess.answer}</strong>.</p>
-                      <div className="guessDecisionActions">
-                        <button className="multiPrimary" type="button" disabled={busy || !game.clue_roll}
-                          onClick={() => perform(() => rpc("award_point", {
-                            target_game_id: game.id, guessed_user_id: pendingGuesser.user_id,
-                          }))}>
-                          Correct — award card
-                        </button>
-                        <button type="button" disabled={busy}
-                          onClick={() => perform(() => rpc("reject_country_guess", { target_game_id: game.id }))}>
-                          Not correct
-                        </button>
-                      </div>
-                    </div>
                   )}
                   <label htmlFor="guesser-select">First correct guesser</label>
                   <select
@@ -522,7 +551,7 @@ const Multiplayer = () => {
                   >
                     Roll digital die
                   </button>
-                  {game.clue_roll && <p role="status">You rolled {game.clue_roll}. Clue {game.clue_roll}: {turnCountry?.clues?.[game.clue_roll - 1] || "Listen as the card holder reads your clue."}</p>}
+                  {game.clue_roll && <p role="status">You rolled {game.clue_roll}. The clue is shared above.</p>}
                   <p>Use at most one of your earned tokens on this turn.</p>
                   {game.token_used_this_turn ? (
                     <p className="tokenStatus">Token used for this turn.</p>
@@ -538,9 +567,6 @@ const Multiplayer = () => {
                     })}
                     </div>
                   ) : <p className="tokenStatus">No help tokens available yet.</p>}
-                  {myBonus === "flag" && turnCountry && <span className={`fi fi-${turnCountry.country_code} multiBonusFlag`} role="img" aria-label="Mystery flag" />}
-                  {myBonus === "buzzword" && <p>Bonus word: {turnCountry?.buzzword || "Ask the card holder for the bonus word."}</p>}
-                  {myBonus === "continent" && <p>Continent: {turnCountry?.continent || "Ask the card holder for the continent."}</p>}
                   <button type="button" onClick={() => setShowMap(true)}>Open world map</button>
                   {game.last_event?.type === "point_awarded" && (
                     <p role="status">
@@ -625,6 +651,12 @@ const Multiplayer = () => {
           {showMap && <Suspense fallback={<p>Loading map…</p>}>
             <WorldMap countries={countryData} onClose={() => setShowMap(false)}
               submitting={busy}
+              guessingDisabled={hasMapGuessed || Boolean(game.pending_guess_user_id) || !game.clue_roll}
+              guessingMessage={hasMapGuessed
+                ? "You have used your one map guess for this turn."
+                : game.pending_guess_user_id
+                  ? "Wait while the card holder reviews the current guess."
+                  : !game.clue_roll ? "Wait for the clue before submitting a guess." : ""}
               onCountrySelect={isHolder ? undefined : (countryCode) => perform(async () => {
                 await rpc("submit_country_guess", {
                   target_game_id: game.id,
