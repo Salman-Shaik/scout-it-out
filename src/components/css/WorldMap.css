@@ -1,7 +1,9 @@
 .overlay > .worldMapDialog {
   width: min(1120px, 100%);
+  max-height: calc(100dvh - 2rem);
   padding: clamp(1rem, 3vw, 2rem);
   margin: min(5vh, 2.5rem) auto;
+  overflow: auto;
   color: var(--ink);
 }
 
@@ -95,7 +97,7 @@
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: var(--radius-panel);
   background: rgba(124, 108, 242, 0.08);
 }
 
@@ -168,10 +170,18 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 900px) {
+  .mapControls { align-items: stretch; flex-direction: column; }
+  .regionControls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .regionControls button { width: 100%; min-height: 46px; white-space: normal; }
+  .zoomControls { align-self: flex-end; }
+}
+
 @media (max-width: 540px) {
   .overlay > .worldMapDialog {
-    min-height: calc(100vh - 1rem);
-    padding: 1rem;
+    min-height: calc(100dvh - 1rem);
+    max-height: calc(100dvh - 1rem);
+    padding: .85rem;
     margin: 0 auto;
     border-radius: 24px;
   }
@@ -182,16 +192,6 @@
 
   .mapInstructions {
     font-size: 0.85rem;
-  }
-
-  .mapControls {
-    align-items: stretch;
-    flex-direction: column;
-  }
-
-  .regionControls {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .regionControls button {
@@ -210,7 +210,14 @@
   }
 
   .worldMapSvg {
-    width: 720px;
+    width: 680px;
     max-width: none;
   }
+}
+
+@media (max-width: 360px) {
+  .worldMapHeader { gap: .5rem; }
+  .worldMapHeader h2 { font-size: 1.65rem; }
+  .mapCloseButton { padding-inline: .7rem; }
+  .regionControls { grid-template-columns: 1fr; }
 }

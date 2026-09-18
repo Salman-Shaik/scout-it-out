@@ -254,6 +254,12 @@
   z-index: 3;
 }
 
+@media (min-width: 541px) and (max-width: 1024px) {
+  .App-header { min-height: 82px; padding: 1rem 3vw; }
+  .brand-mark { width: 44px; height: 44px; border-radius: 14px; }
+  .header-actions { gap: .45rem; }
+}
+
 @media (max-width: 540px) {
   .App-header {
     display: grid;
@@ -271,4 +277,12 @@
   .country-count {
     display: none;
   }
+}
+
+@media (max-width: 360px) {
+  .App-header { padding: .75rem; }
+  .App-header h1 { font-size: 1.35rem; }
+  .header-actions { gap: .4rem; }
+  .header-actions .rulesButton { padding-inline: .7rem; }
+  .theme-toggle { min-width: 52px; }
 }

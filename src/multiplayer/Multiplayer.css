@@ -1,7 +1,7 @@
 .multiPage {
   position: relative;
   z-index: 3;
-  width: min(900px, calc(100% - 1.5rem));
+  width: min(960px, calc(100% - 2rem));
   padding-bottom: 3rem;
   margin: 1rem auto;
 }
@@ -23,10 +23,12 @@
   padding: clamp(1.25rem, 4vw, 2rem);
   margin-bottom: 1rem;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: var(--radius-panel);
   background: var(--paper);
-  box-shadow: var(--shadow);
+  box-shadow: 0 16px 48px rgba(33, 48, 39, 0.1);
 }
+
+.multiPanel > p { max-width: 72ch; line-height: 1.55; }
 
 .multiPanel h2 {
   margin: 0.25rem 0 0.6rem;
@@ -54,25 +56,28 @@
 .multiPanel input:not([type="radio"]),
 .multiPanel select {
   width: 100%;
-  min-height: 46px;
+  min-height: var(--control-height);
   padding: 0.65rem 0.8rem;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-control);
   background: var(--cream);
   color: var(--ink);
   font-size: 1rem;
 }
 
 .multiPage button {
-  min-height: 44px;
+  min-height: var(--control-height);
   padding: 0.7rem 1rem;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: var(--radius-control);
   background: var(--paper);
   color: var(--ink);
   cursor: pointer;
   font-weight: 700;
 }
+
+.multiPage button:hover:not(:disabled) { border-color: var(--forest); }
+.multiPage button:active:not(:disabled) { transform: translateY(1px); }
 
 .multiPage button.multiPrimary {
   width: 100%;
@@ -192,9 +197,12 @@
 .holderFlag.fi {
   display: block;
   width: 100%;
-  height: 100%;
   min-height: 145px;
-  background-size: cover;
+  aspect-ratio: 3 / 2;
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .holderClues {
@@ -240,17 +248,26 @@
 .roundUpdate:last-child { border-bottom: 0; }
 .roundUpdate > span:first-child { color: var(--muted); font-size: .7rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .roundUpdate p { margin: .3rem 0 0; line-height: 1.45; }
-.sharedBonusFlag.fi { display: block; width: min(220px, 100%); height: 125px; margin-top: .65rem; border-radius: 8px; background-size: cover; }
+.sharedBonusFlag.fi { display: block; width: min(220px, 100%); aspect-ratio: 3 / 2; margin-top: .65rem; border-radius: 8px; background-color: #fff; background-position: center; background-repeat: no-repeat; background-size: contain; }
 
 .multiExit {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
+.multiPanel.multiExit { padding: .5rem 0; border: 0; background: transparent; box-shadow: none; }
 .multiBonusActions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin: 1rem 0; }
 .multiBonusActions button { display: flex; min-height: 48px; align-items: center; justify-content: space-between; gap: .5rem; }
 .multiBonusActions button span { display: grid; min-width: 1.7rem; height: 1.7rem; place-items: center; border-radius: 999px; background: var(--cream); }
-.multiBonusFlag.fi { display: block; width: min(320px, 90%); height: 200px; margin: 1rem auto; background-size: cover; box-shadow: 0 12px 28px #0003; }
+.multiBonusFlag.fi { display: block; width: min(320px, 90%); aspect-ratio: 3 / 2; margin: 1rem auto; background-color: #fff; background-position: center; background-repeat: no-repeat; background-size: contain; box-shadow: 0 12px 28px #0003; }
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .multiPage { width: min(94%, 900px); }
+  .multiPanel { padding: 1.5rem; }
+  .multiTargets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .multiTargets legend { grid-column: 1 / -1; }
+  .multiTargets label { display: flex; min-height: 46px; align-items: center; }
+}
 
 @media (max-width: 600px) {
   .multiPage { width: calc(100% - 1rem); margin: .25rem auto; padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
@@ -267,13 +284,27 @@
   .multiTargets { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .multiTargets legend { grid-column: 1 / -1; }
   .multiTargets label { display: flex; align-items: center; min-height: 44px; border-radius: 12px; }
-  .multiPage button { width: 100%; min-height: 48px; }
+  .multiPanel > button,
+  .holderDecisionActions button,
+  .guessDecisionActions button,
+  .multiBonusActions button,
+  .multiExit button { width: 100%; min-height: 48px; }
   .holderCardHeader { grid-template-columns: 1fr; }
   .holderCardHeader > div { padding: 1.15rem; }
-  .holderFlag.fi { width: 100%; height: min(46vw, 180px); min-height: 130px; }
+  .holderFlag.fi { width: 100%; min-height: 130px; }
   .holderClues { padding: .75rem 1rem 1rem; }
   .holderCardFooter { grid-template-columns: 1fr; }
   .holderDecisionActions, .guessDecisionActions { grid-template-columns: 1fr; }
   .holderDecisionActions .multiPrimary, .guessDecisionActions .multiPrimary { margin-top: 0; }
   .multiExit { display: grid; }
+  .roundFeedHeader { align-items: flex-start; flex-direction: column; gap: .15rem; }
+  .multiBonusActions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 360px) {
+  .multiPage { width: calc(100% - .5rem); }
+  .multiPanel { padding: .85rem; border-radius: 15px; }
+  .multiTargets { grid-template-columns: 1fr 1fr; }
+  .multiPlayers > div { grid-template-columns: 1fr; }
+  .multiPlayers > div strong { text-align: left; }
 }

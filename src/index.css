@@ -19,6 +19,9 @@
   --on-violet: #ffffff;
   --line: rgba(32, 37, 31, 0.13);
   --shadow: 0 24px 70px rgba(33, 48, 39, 0.14);
+  --radius-panel: 22px;
+  --radius-control: 12px;
+  --control-height: 46px;
   color-scheme: light dark;
 }
 
@@ -60,6 +63,11 @@ select:focus-visible {
 
 button {
   -webkit-tap-highlight-color: transparent;
+}
+
+button:not(:disabled) {
+  transition: border-color 150ms ease, background-color 150ms ease,
+    color 150ms ease, transform 150ms ease;
 }
 
 .sr-only {

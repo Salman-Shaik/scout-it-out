@@ -28,7 +28,7 @@ const joinRoom = async (page, name, age) => {
 
 const crew = async (browser, server, target = "5") => {
   const hostDevice = await openDevice(browser, server);
-  const elderDevice = await openDevice(browser, server);
+  const elderDevice = await openDevice(browser, server, { width: 820, height: 1180 });
   const mobileDevice = await openDevice(browser, server, { width: 390, height: 844 });
   const host = hostDevice.page;
   const elder = elderDevice.page;
@@ -45,6 +45,32 @@ const crew = async (browser, server, target = "5") => {
 
 const refresh = async (page) => page.reload({ waitUntil: "domcontentloaded" });
 
+test("lobby stays usable across desktop, iPad, and mobile viewports", async ({ browser }) => {
+  const server = new MockGameServer();
+  const viewports = [
+    { width: 1440, height: 900 },
+    { width: 1180, height: 820 },
+    { width: 820, height: 1180 },
+    { width: 390, height: 844 },
+    { width: 320, height: 700 },
+  ];
+  const devices = [];
+  try {
+    for (const viewport of viewports) {
+      const device = await openDevice(browser, server, viewport);
+      devices.push(device);
+      await expect.poll(() => device.page.evaluate(() =>
+        document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+      await expect(device.page.getByRole("button", { name: "Create room" })).toBeVisible();
+      const height = await device.page.getByRole("button", { name: "Create room" })
+        .evaluate((element) => element.getBoundingClientRect().height);
+      expect(height).toBeGreaterThanOrEqual(44);
+    }
+  } finally {
+    await Promise.all(devices.map(({ context }) => context.close()));
+  }
+});
+
 test("room roles, map, one roll, rotation, bonus token, and mobile layout", async ({ browser }) => {
   const server = new MockGameServer();
   const { devices, host, elder, mobile } = await crew(browser, server);
@@ -59,6 +85,8 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await refresh(mobile);
     await expect(elder.getByRole("heading", { name: "You hold the card" })).toBeVisible();
     await expect(elder.getByRole("img", { name: "Current country flag" })).toBeVisible();
+    await expect.poll(() => elder.evaluate(() =>
+      document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     const firstAnswer = await elder.locator(".holderCard h4").textContent();
     await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
     await expect(mobile.getByRole("dialog", { name: "World map" })).toHaveCount(0);
