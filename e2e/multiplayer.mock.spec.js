@@ -71,6 +71,29 @@ test("lobby stays usable across desktop, iPad, and mobile viewports", async ({ b
   }
 });
 
+test("rejecting a map guess locks manual controls and ends that roller's turn", async ({ browser }) => {
+  const server = new MockGameServer();
+  const { devices, host, elder, mobile } = await crew(browser, server);
+  try {
+    await host.getByRole("button", { name: "Start shared game" }).click();
+    await host.getByRole("button", { name: "Roll digital die" }).click();
+    await host.getByRole("button", { name: "Open world map" }).click();
+    await host.getByLabel("Or choose by name").selectOption("ca");
+    await host.getByRole("button", { name: "Guess Canada" }).click();
+    await refresh(elder);
+    await expect(elder.locator(".roundGuess")).toContainText("Ada guessed Canada");
+    await expect(elder.getByLabel("First correct guesser")).toBeDisabled();
+    await expect(elder.getByRole("button", { name: /award card and token/i })).toBeDisabled();
+    await elder.getByRole("button", { name: "Not correct" }).click();
+    await refresh(mobile);
+    await expect(mobile.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
+    await refresh(elder);
+    await expect(elder.getByLabel("First correct guesser")).toBeEnabled();
+  } finally {
+    await Promise.all(devices.map(({ context }) => context.close()));
+  }
+});
+
 test("room roles, map, one roll, rotation, bonus token, and mobile layout", async ({ browser }) => {
   const server = new MockGameServer();
   const { devices, host, elder, mobile } = await crew(browser, server);
@@ -99,24 +122,23 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await expect(host.getByRole("button", { name: "Roll digital die" })).toBeDisabled();
     await refresh(mobile);
     await expect(mobile.getByLabel("Shared round updates")).toContainText(/Clue [1-6]/i);
-    await mobile.getByRole("button", { name: "Open world map" }).click();
-    await mobile.getByLabel("Or choose by name").selectOption("ca");
-    await mobile.getByRole("button", { name: "Guess Canada" }).click();
-    await refresh(elder);
-    await expect(elder.locator(".roundGuess")).toContainText("Linus guessed Canada");
-    await refresh(host);
-    await expect(host.locator(".roundGuess")).toContainText("Linus guessed Canada");
-    await elder.getByRole("button", { name: "Not correct" }).click();
     await host.getByRole("button", { name: "Open world map" }).click();
-    await expect(host.getByRole("dialog", { name: "World map" })).toBeVisible();
-    await host.getByRole("button", { name: "Close map" }).click();
+    await host.getByLabel("Or choose by name").selectOption("ca");
+    await host.getByRole("button", { name: "Guess Canada" }).click();
     await refresh(elder);
-    await expect(elder.getByText(/read clue [1-6] aloud/i)).toBeVisible();
-    await elder.getByRole("button", { name: /next roller/i }).click();
+    await expect(elder.locator(".roundGuess")).toContainText("Ada guessed Canada");
+    await expect(elder.getByLabel("First correct guesser")).toBeDisabled();
+    await expect(elder.getByRole("button", { name: /award card and token/i })).toBeDisabled();
+    await refresh(mobile);
+    await expect(mobile.locator(".roundGuess")).toContainText("Ada guessed Canada");
+    await elder.getByRole("button", { name: "Not correct" }).click();
     await refresh(mobile);
     await expect(mobile.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
     await expect(mobile.getByRole("dialog", { name: "World map" })).toHaveCount(0);
     await mobile.getByRole("button", { name: "Roll digital die" }).click();
+    await mobile.getByRole("button", { name: "Open world map" }).click();
+    await expect(mobile.getByRole("dialog", { name: "World map" })).toBeVisible();
+    await mobile.getByRole("button", { name: "Close map" }).click();
     await refresh(elder);
     await elder.getByLabel("First correct guesser").selectOption({ label: "Ada" });
     await elder.getByRole("button", { name: /award card and token/i }).click();

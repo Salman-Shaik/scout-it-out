@@ -241,6 +241,9 @@
 .holderDecisionActions .multiPrimary,
 .guessDecisionActions .multiPrimary { margin-top: 0; }
 .tokenStatus { padding: .75rem 1rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); }
+.manualGuessControls { min-width: 0; padding: 1rem 0 0; margin: 1.25rem 0 0; border: 0; border-top: 1px solid var(--line); }
+.manualGuessControls legend { padding: 0 .5rem 0 0; color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.manualGuessControls:disabled { opacity: .48; }
 .roundFeed { padding: 0; margin: 1rem 0 1.25rem; border: 1px solid var(--line); border-radius: 16px; background: color-mix(in srgb, var(--paper), var(--cream) 45%); }
 .roundFeedHeader { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
 .roundFeedHeader span { color: var(--muted); font-size: .72rem; }

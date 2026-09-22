@@ -495,43 +495,34 @@ const Multiplayer = () => {
                       {game.last_event.roll}! Read clue {game.last_event.roll}.
                     </p>
                   )}
-                  <label htmlFor="guesser-select">First correct guesser</label>
-                  <select
-                    id="guesser-select"
-                    value={selectedGuesser}
-                    onChange={(event) => setSelectedGuesser(event.target.value)}
-                  >
-                    <option value="">Choose a player</option>
-                    {players
-                      .filter((player) => player.user_id !== user.id)
-                      .map((player) => (
-                        <option value={player.user_id} key={player.id}>
-                          {player.name}
-                        </option>
+                  <fieldset className="manualGuessControls"
+                    disabled={Boolean(pendingGuesser && pendingGuess)}>
+                    <legend>Spoken guess</legend>
+                    <label htmlFor="guesser-select">First correct guesser</label>
+                    <select id="guesser-select" value={selectedGuesser}
+                      onChange={(event) => setSelectedGuesser(event.target.value)}>
+                      <option value="">Choose a player</option>
+                      {players.filter((player) => player.user_id !== user.id).map((player) => (
+                        <option value={player.user_id} key={player.id}>{player.name}</option>
                       ))}
-                  </select>
-                  <div className="holderDecisionActions">
-                  <button
-                    className="multiPrimary"
-                    type="button"
-                    disabled={busy || !selectedGuesser || !country || !game.clue_roll}
-                    onClick={() =>
-                      perform(async () => {
-                        await rpc("award_point", {
-                          target_game_id: game.id,
-                          guessed_user_id: selectedGuesser,
-                        });
-                        setSelectedGuesser("");
-                      })
-                    }
-                  >
-                    Correct guess: award card and token
-                  </button>
-                  <button type="button" disabled={busy || !game.clue_roll}
-                    onClick={() => perform(() => rpc("pass_turn", { target_game_id: game.id }))}>
-                    No correct guess: next roller
-                  </button>
-                  </div>
+                    </select>
+                    <div className="holderDecisionActions">
+                      <button className="multiPrimary" type="button"
+                        disabled={busy || !selectedGuesser || !country || !game.clue_roll}
+                        onClick={() => perform(async () => {
+                          await rpc("award_point", {
+                            target_game_id: game.id, guessed_user_id: selectedGuesser,
+                          });
+                          setSelectedGuesser("");
+                        })}>
+                        Correct guess: award card and token
+                      </button>
+                      <button type="button" disabled={busy || !game.clue_roll}
+                        onClick={() => perform(() => rpc("pass_turn", { target_game_id: game.id }))}>
+                        No correct guess: next roller
+                      </button>
+                    </div>
+                  </fieldset>
                 </>
               ) : isRoller ? (
                 <>
@@ -657,13 +648,13 @@ const Multiplayer = () => {
                 : game.pending_guess_user_id
                   ? "Wait while the card holder reviews the current guess."
                   : !game.clue_roll ? "Wait for the clue before submitting a guess." : ""}
-              onCountrySelect={isHolder ? undefined : (countryCode) => perform(async () => {
+              onCountrySelect={!isHolder && isRoller ? (countryCode) => perform(async () => {
                 await rpc("submit_country_guess", {
                   target_game_id: game.id,
                   country_code: countryCode,
                 });
                 setShowMap(false);
-              })} />
+              }) : undefined} />
           </Suspense>}
         </>
       )}

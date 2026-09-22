@@ -105,6 +105,7 @@ export class MockGameServer {
       this.game = { id, singleton_slot: 1, room_code: "MOCK42",
         host_user_id: userId, status: "lobby", win_target: input.target_score,
         card_holder_user_id: userId, turn_user_id: null, current_card_index: 0,
+        turn_number: 0,
         clue_roll: null, die_roll: null, token_used_this_turn: false,
         bonus_type: null, bonus_user_id: null, last_event: {}, winner_user_ids: [],
         pending_guess_user_id: null, pending_guess_code: null,
@@ -175,7 +176,7 @@ export class MockGameServer {
       return this.game.clue_roll;
     }
     if (name === "submit_country_guess") {
-      if (this.game.card_holder_user_id === userId) throw Error("Only a guesser can submit");
+      if (this.game.turn_user_id !== userId) throw Error("Only the current roller can submit");
       if (!this.game.clue_roll) throw Error("Wait for the clue before guessing");
       if (this.game.map_guess_user_ids.includes(userId)) throw Error("You already submitted a map guess this turn");
       if (this.game.pending_guess_user_id) throw Error("Wait for the current guess");
@@ -187,8 +188,10 @@ export class MockGameServer {
     }
     if (name === "reject_country_guess") {
       if (this.game.card_holder_user_id !== userId) throw Error("Only holder can reject");
-      this.game.pending_guess_user_id = null;
-      this.game.pending_guess_code = null;
+      if (!this.game.pending_guess_user_id) throw Error("There is no map guess to review");
+      this.game.turn_user_id = this.nextGuesser(this.game.turn_user_id, userId);
+      this.game.turn_number++;
+      this.resetTurn();
       this.event("guess_rejected");
       return null;
     }

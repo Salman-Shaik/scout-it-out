@@ -589,6 +589,7 @@ test("a waiting guesser chooses when to open the map", async () => {
   expect(screen.queryByText("Senegal")).toBeNull();
   await user.click(screen.getByRole("button", { name: "Open world map" }));
   expect(await screen.findByRole("dialog", { name: "World map" })).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: "Guess Canada" })).toBeNull();
 });
 
 test("waiting players see the revealed clue and shared bonus information", async () => {
@@ -620,7 +621,7 @@ test("shared token activity remains understandable while player details load", a
 test("a player cannot submit a second map guess during the same turn", async () => {
   const user = userEvent.setup();
   game = gameRow({ status: "active", card_holder_user_id: "user-b",
-    turn_user_id: "user-c", clue_roll: 2, map_guess_user_ids: [USER_ID] });
+    turn_user_id: USER_ID, clue_roll: 2, map_guess_user_ids: [USER_ID] });
   roomSession();
   rpc.mockImplementation(async (name) => name === "get_turn_card_code" ? "sn" : null);
   render(<Multiplayer />);
@@ -771,11 +772,22 @@ test("the holder can reject a country submitted from the map", async () => {
   game = gameRow({ status: "active", clue_roll: 2,
     pending_guess_user_id: "user-c", pending_guess_code: "ca" });
   roomSession();
+  rpc.mockImplementation(async (name) => {
+    if (name === "get_turn_card_code") return "sn";
+    if (name === "reject_country_guess") game = gameRow({
+      status: "active", turn_user_id: "user-c", clue_roll: null,
+    });
+    return null;
+  });
   render(<Multiplayer />);
   const notice = (await screen.findByText("Map guess")).closest(".roundUpdate");
   expect(notice).toHaveTextContent(/Linus guessed Canada/i);
+  expect(screen.getByLabelText("First correct guesser")).toBeDisabled();
+  expect(screen.getByRole("button", { name: /award card and token/i })).toBeDisabled();
   await user.click(screen.getByRole("button", { name: "Not correct" }));
   expect(rpc).toHaveBeenCalledWith("reject_country_guess", { target_game_id: GAME_ID });
+  expect(await screen.findByText(/current roller:/i)).toHaveTextContent("Linus");
+  expect(screen.getByLabelText("First correct guesser")).toBeEnabled();
 });
 
 test("an incomplete map guess is not shown to the holder", async () => {
