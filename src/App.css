@@ -122,16 +122,18 @@
 }
 
 .country-count {
-  padding: 0.55rem 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: 0.35rem 0;
   margin-left: auto;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 253, 247, 0.58);
-  color: var(--forest);
+  color: var(--muted);
   font-size: 0.78rem;
   font-weight: 700;
-  backdrop-filter: blur(12px);
+  white-space: nowrap;
 }
+
+.country-count::before { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); content: ""; box-shadow: 0 0 0 3px color-mix(in srgb, var(--lime), transparent 75%); }
 
 .header-actions {
   display: flex;
@@ -200,7 +202,7 @@
 }
 
 .App[data-theme="dark"] .country-count {
-  background: rgba(24, 35, 31, 0.72);
+  color: var(--muted);
 }
 
 .App[data-theme="dark"] .lobbyContainer,

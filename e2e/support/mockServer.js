@@ -55,9 +55,12 @@ export class MockGameServer {
   }
 
   nextGuesser(current, holder) {
-    const eligible = this.players.filter((player) => player.user_id !== holder);
-    const index = eligible.findIndex((player) => player.user_id === current);
-    return eligible[(index + 1) % eligible.length].user_id;
+    const index = this.players.findIndex((player) => player.user_id === current);
+    for (let offset = 1; offset <= this.players.length; offset++) {
+      const candidate = this.players[(index + offset) % this.players.length];
+      if (candidate.user_id !== holder) return candidate.user_id;
+    }
+    return null;
   }
 
   event(type, fields = {}) {
@@ -132,7 +135,7 @@ export class MockGameServer {
       const oldest = [...this.players].sort((a, b) => b.age - a.age)[0];
       this.game.status = "active";
       this.game.card_holder_user_id = oldest.user_id;
-      this.game.turn_user_id = this.players.find((player) => player.user_id !== oldest.user_id).user_id;
+      this.game.turn_user_id = this.nextGuesser(oldest.user_id, oldest.user_id);
       this.event("game_started");
       return null;
     }
@@ -208,7 +211,8 @@ export class MockGameServer {
       this.game.current_card_index++;
       const holderIndex = this.players.findIndex((player) => player.user_id === userId);
       this.game.card_holder_user_id = this.players[(holderIndex + 1) % this.players.length].user_id;
-      this.game.turn_user_id = this.nextGuesser(winner.user_id, this.game.card_holder_user_id);
+      this.game.turn_user_id = this.nextGuesser(this.game.card_holder_user_id,
+        this.game.card_holder_user_id);
       this.resetTurn();
       if (winner.score >= this.game.win_target && this.game.win_target !== null) {
         this.game.status = "finished";

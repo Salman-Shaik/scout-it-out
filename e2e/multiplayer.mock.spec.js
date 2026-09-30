@@ -76,17 +76,18 @@ test("rejecting a map guess locks manual controls and ends that roller's turn", 
   const { devices, host, elder, mobile } = await crew(browser, server);
   try {
     await host.getByRole("button", { name: "Start shared game" }).click();
-    await host.getByRole("button", { name: "Roll digital die" }).click();
-    await host.getByRole("button", { name: "Open world map" }).click();
-    await host.getByLabel("Or choose by name").selectOption("ca");
-    await host.getByRole("button", { name: "Guess Canada" }).click();
+    await refresh(mobile);
+    await mobile.getByRole("button", { name: "Roll digital die" }).click();
+    await mobile.getByRole("button", { name: "Open world map" }).click();
+    await mobile.getByLabel("Or choose by name").selectOption("ca");
+    await mobile.getByRole("button", { name: "Guess Canada" }).click();
     await refresh(elder);
-    await expect(elder.locator(".roundGuess")).toContainText("Ada guessed Canada");
+    await expect(elder.locator(".roundGuess")).toContainText("Linus guessed Canada");
     await expect(elder.getByLabel("First correct guesser")).toBeDisabled();
     await expect(elder.getByRole("button", { name: /award card and token/i })).toBeDisabled();
     await elder.getByRole("button", { name: "Not correct" }).click();
-    await refresh(mobile);
-    await expect(mobile.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
+    await refresh(host);
+    await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
     await refresh(elder);
     await expect(elder.getByLabel("First correct guesser")).toBeEnabled();
   } finally {
@@ -111,34 +112,34 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await expect.poll(() => elder.evaluate(() =>
       document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
     const firstAnswer = await elder.locator(".holderCard h4").textContent();
-    await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
+    await expect(mobile.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
     await expect(mobile.getByRole("dialog", { name: "World map" })).toHaveCount(0);
     await expect(mobile.getByRole("button", { name: "Open world map" })).toBeVisible();
     await expect.poll(() => mobile.evaluate(() =>
       document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 
-    await host.getByRole("button", { name: "Roll digital die" }).click();
-    await expect(host.getByLabel("Shared round updates")).toContainText(/Clue [1-6]/i);
-    await expect(host.getByRole("button", { name: "Roll digital die" })).toBeDisabled();
-    await refresh(mobile);
+    await mobile.getByRole("button", { name: "Roll digital die" }).click();
     await expect(mobile.getByLabel("Shared round updates")).toContainText(/Clue [1-6]/i);
-    await host.getByRole("button", { name: "Open world map" }).click();
-    await host.getByLabel("Or choose by name").selectOption("ca");
-    await host.getByRole("button", { name: "Guess Canada" }).click();
+    await expect(mobile.getByRole("button", { name: "Roll digital die" })).toBeDisabled();
+    await refresh(host);
+    await expect(host.getByLabel("Shared round updates")).toContainText(/Clue [1-6]/i);
+    await mobile.getByRole("button", { name: "Open world map" }).click();
+    await mobile.getByLabel("Or choose by name").selectOption("ca");
+    await mobile.getByRole("button", { name: "Guess Canada" }).click();
     await refresh(elder);
-    await expect(elder.locator(".roundGuess")).toContainText("Ada guessed Canada");
+    await expect(elder.locator(".roundGuess")).toContainText("Linus guessed Canada");
     await expect(elder.getByLabel("First correct guesser")).toBeDisabled();
     await expect(elder.getByRole("button", { name: /award card and token/i })).toBeDisabled();
-    await refresh(mobile);
-    await expect(mobile.locator(".roundGuess")).toContainText("Ada guessed Canada");
+    await refresh(host);
+    await expect(host.locator(".roundGuess")).toContainText("Linus guessed Canada");
     await elder.getByRole("button", { name: "Not correct" }).click();
-    await refresh(mobile);
-    await expect(mobile.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
-    await expect(mobile.getByRole("dialog", { name: "World map" })).toHaveCount(0);
-    await mobile.getByRole("button", { name: "Roll digital die" }).click();
-    await mobile.getByRole("button", { name: "Open world map" }).click();
-    await expect(mobile.getByRole("dialog", { name: "World map" })).toBeVisible();
-    await mobile.getByRole("button", { name: "Close map" }).click();
+    await refresh(host);
+    await expect(host.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
+    await expect(host.getByRole("dialog", { name: "World map" })).toHaveCount(0);
+    await host.getByRole("button", { name: "Roll digital die" }).click();
+    await host.getByRole("button", { name: "Open world map" }).click();
+    await expect(host.getByRole("dialog", { name: "World map" })).toBeVisible();
+    await host.getByRole("button", { name: "Close map" }).click();
     await refresh(elder);
     await elder.getByLabel("First correct guesser").selectOption({ label: "Ada" });
     await elder.getByRole("button", { name: /award card and token/i }).click();
@@ -150,14 +151,15 @@ test("room roles, map, one roll, rotation, bonus token, and mobile layout", asyn
     await expect(mobile.getByRole("img", { name: "Current country flag" })).toBeVisible();
     expect(await mobile.locator(".holderCard h4").textContent()).not.toBe(firstAnswer);
 
-    await refresh(elder);
-    await elder.getByRole("button", { name: "Roll digital die" }).click();
-    await refresh(mobile);
-    await mobile.getByRole("button", { name: /next roller/i }).click();
     await refresh(host);
     await host.getByRole("button", { name: /see flag.*1 available/i }).click();
     await expect(host.getByRole("img", { name: "Shared mystery flag" })).toBeVisible();
     await expect(host.locator(".multiBonusActions button")).toHaveCount(0);
+    await host.getByRole("button", { name: "Roll digital die" }).click();
+    await refresh(mobile);
+    await mobile.getByRole("button", { name: /next roller/i }).click();
+    await refresh(elder);
+    await expect(elder.getByRole("heading", { name: "Your turn to roll" })).toBeVisible();
     await refresh(host);
     await expect(host.getByRole("img", { name: "Shared mystery flag" })).toBeVisible();
   } finally {
@@ -170,7 +172,8 @@ test("finite target ends with a winner and Endless can declare tied winners", as
   const { devices, host, elder, mobile } = await crew(browser, server, "3");
   try {
     await host.getByRole("button", { name: "Start shared game" }).click();
-    await host.getByRole("button", { name: "Roll digital die" }).click();
+    await refresh(mobile);
+    await mobile.getByRole("button", { name: "Roll digital die" }).click();
     server.player(server.game.host_user_id).score = 2;
     await refresh(elder);
     await elder.getByLabel("First correct guesser").selectOption({ label: "Ada" });
