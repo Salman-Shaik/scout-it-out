@@ -160,6 +160,9 @@ export class MockGameServer {
     if (name === "use_bonus_token") {
       const player = this.player(userId);
       const field = `${input.help_type}_tokens`;
+      if (this.game.map_guess_user_ids.includes(userId) ||
+          this.game.pending_guess_user_id === userId)
+        throw Error("Help tokens are locked after submitting a map guess");
       if (this.game.turn_user_id !== userId || this.game.token_used_this_turn || !player[field])
         throw Error("Bonus token unavailable");
       if (input.help_type === "reroll" && !this.game.clue_roll)

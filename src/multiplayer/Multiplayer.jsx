@@ -405,7 +405,7 @@ const Multiplayer = () => {
                     <strong>Round updates</strong>
                     <span>Visible to everyone</span>
                   </div>
-                  {game.clue_roll && (
+                  {game.clue_roll && !isHolder && (
                     <div className="roundUpdate">
                       <span>Clue {game.clue_roll}</span>
                       <p>{turnCountry?.clues?.[game.clue_roll - 1] || "Loading the revealed clue…"}</p>
@@ -542,16 +542,18 @@ const Multiplayer = () => {
                   >
                     Roll digital die
                   </button>
-                  {game.clue_roll && <p role="status">You rolled {game.clue_roll}. The clue is shared above.</p>}
+                  {game.clue_roll && <p role="status">You rolled {game.clue_roll}. The clue is visible above.</p>}
                   <p>Use at most one of your earned tokens on this turn.</p>
-                  {game.token_used_this_turn ? (
+                  {hasMapGuessed || game.pending_guess_user_id === user.id ? (
+                    <p className="tokenStatus">Your map guess was submitted. Help tokens are locked for this turn.</p>
+                  ) : game.token_used_this_turn ? (
                     <p className="tokenStatus">Token used for this turn.</p>
                   ) : availableTokens.length ? (
                     <div className="multiBonusActions">
                     {availableTokens.map(([kind, label, field]) => {
                       const count = myPlayer?.[field] || 0;
                       return <button key={kind} type="button"
-                        disabled={busy || count < 1 || game.token_used_this_turn || (kind === "reroll" && !game.clue_roll)}
+                        disabled={busy || count < 1 || game.token_used_this_turn || hasMapGuessed || Boolean(game.pending_guess_user_id) || (kind === "reroll" && !game.clue_roll)}
                         onClick={() => perform(() => rpc("use_bonus_token", { target_game_id: game.id, help_type: kind }))}>
                         {label} <span aria-label={`${count} available`}>{count}</span>
                       </button>;

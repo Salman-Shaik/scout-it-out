@@ -1,10 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import WorldMap from "./WorldMap";
 
 const countries = [
-  { country_code: "ca", answer: "Canada" },
-  { country_code: "fr", answer: "France" },
+  { country_code: "ca", answer: "Canada", continent: "North America" },
+  { country_code: "fr", answer: "France", continent: "Europe" },
+  { country_code: "nr", answer: "Nauru", continent: "Oceania" },
 ];
 
 test("a player selects and submits a country from every map control layout", async () => {
@@ -16,6 +17,9 @@ test("a player selects and submits a country from every map control layout", asy
   const canada = screen.getByRole("button", { name: "Canada" });
   await user.click(canada);
   expect(screen.getByText("Canada", { selector: "output" })).toBeInTheDocument();
+  await user.hover(screen.getByRole("button", { name: "France" }));
+  expect(screen.getByText("Canada", { selector: "output" })).toBeInTheDocument();
+  expect(screen.getByText("France", { selector: ".mapPopup" })).toBeInTheDocument();
   await user.click(screen.getByRole("button", { name: "Guess Canada" }));
   expect(onCountrySelect).toHaveBeenCalledWith("ca");
   const picker = screen.getByLabelText("Or choose by name");
@@ -27,6 +31,8 @@ test("a player selects and submits a country from every map control layout", asy
   await user.click(screen.getByRole("button", { name: "Europe" }));
   await user.click(screen.getByRole("button", { name: "Caribbean & Central America" }));
   await user.click(screen.getByRole("button", { name: "Pacific Islands" }));
+  await user.click(within(screen.getByRole("region", { name: "Pacific island finder" })).getByRole("button", { name: "Nauru" }));
+  expect(screen.getByRole("button", { name: "Guess Nauru" })).toBeEnabled();
   await user.click(screen.getByRole("button", { name: "Whole world" }));
   await user.click(screen.getByRole("button", { name: "Zoom in" }));
   await user.click(screen.getByRole("button", { name: "Zoom out" }));

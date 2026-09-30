@@ -123,6 +123,10 @@
   outline: none;
 }
 
+.mapCountry[aria-pressed="true"] {
+  fill: var(--violet);
+}
+
 .mapPopup {
   position: absolute;
   z-index: 2;
@@ -148,6 +152,13 @@
   font-weight: 800;
   text-align: left;
 }
+
+.islandFinder { padding: .8rem; margin-top: .65rem; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--violet), transparent 94%); }
+.islandFinder > div:first-child { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem 1rem; }
+.islandFinder span { color: var(--muted); font-size: .8rem; }
+.islandOptions { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .65rem; }
+.islandOptions button { min-height: 36px; padding: .4rem .65rem; border: 1px solid var(--line); border-radius: 9px; background: var(--paper); color: var(--ink); cursor: pointer; font-weight: 700; }
+.islandOptions button[aria-pressed="true"] { border-color: var(--violet); background: var(--violet); color: var(--on-violet); }
 
 .mapGuessControls { display: grid; gap: .45rem; margin-top: .65rem; }
 .mapGuessControls label { color: var(--muted); font-size: .78rem; font-weight: 800; }

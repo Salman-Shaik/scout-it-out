@@ -207,6 +207,7 @@ test("card holder receives a recent die-roll notification and awards a point", a
 
   await waitFor(() => expect(screen.getAllByRole("status").some((item) =>
     item.textContent.includes("Grace rolled 2! Read clue 2."))).toBe(true));
+  expect(screen.getByLabelText("Shared round updates")).not.toHaveTextContent("Clue 2");
   await user.selectOptions(
     screen.getByLabelText("First correct guesser"),
     "user-b",
@@ -627,6 +628,20 @@ test("a player cannot submit a second map guess during the same turn", async () 
   render(<Multiplayer />);
   await user.click(await screen.findByRole("button", { name: "Open world map" }));
   expect(await screen.findByRole("button", { name: "Guess Canada" })).toBeDisabled();
+});
+
+test("a player cannot use help tokens after submitting a map guess", async () => {
+  const user = userEvent.setup();
+  players = players.map((player) => player.user_id === USER_ID
+    ? { ...player, bonus_tokens: 1, flag_tokens: 1 } : player);
+  game = gameRow({ status: "active", card_holder_user_id: "user-b",
+    turn_user_id: USER_ID, clue_roll: 2, map_guess_user_ids: [USER_ID],
+    pending_guess_user_id: USER_ID, pending_guess_code: "ca" });
+  roomSession();
+  rpc.mockImplementation(async (name) => name === "get_turn_card_code" ? "sn" : null);
+  render(<Multiplayer />);
+  expect(await screen.findByText(/help tokens are locked for this turn/i)).toBeInTheDocument();
+  expect(screen.queryByRole("button", { name: /see flag/i })).toBeNull();
 });
 
 test("current roller sees the rolled clue and cannot roll twice", async () => {

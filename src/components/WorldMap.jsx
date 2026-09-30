@@ -14,8 +14,10 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false,
   guessingDisabled = false, guessingMessage = "" }) => {
   const [activeCountry, setActiveCountry] = useState("Select a country");
   const [activeCode, setActiveCode] = useState(null);
+  const [hoveredCountry, setHoveredCountry] = useState(null);
   const [pointer, setPointer] = useState(null);
   const [view, setView] = useState(WORLD_VIEW);
+  const [region, setRegion] = useState("world");
   const countryNames = useMemo(
     () =>
       new Map(
@@ -29,15 +31,28 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false,
   const countryOptions = [...countryNames.entries()].sort((a, b) =>
     a[1].localeCompare(b[1]),
   );
+  const pacificOptions = countries
+    .filter((country) => country.continent === "Oceania")
+    .map((country) => [country.country_code, country.answer])
+    .sort((a, b) => a[1].localeCompare(b[1]));
 
-  const showCountry = (location, event) => {
+  const showHoveredCountry = (location, event) => {
     const bounds = event.currentTarget.ownerSVGElement.getBoundingClientRect();
-    setActiveCountry(countryNames.get(location.id));
-    setActiveCode(location.id);
+    setHoveredCountry(countryNames.get(location.id));
     setPointer({
       x: event.clientX - bounds.left,
       y: event.clientY - bounds.top,
     });
+  };
+
+  const selectCountry = (code) => {
+    setActiveCode(code);
+    setActiveCountry(countryNames.get(code));
+  };
+
+  const useRegion = (name, nextView) => {
+    setRegion(name);
+    setView(nextView);
   };
 
   const zoomBy = (factor) => {
@@ -74,22 +89,22 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false,
         </p>
         <nav className="mapControls" aria-label="Map controls">
           <div className="regionControls">
-            <button type="button" onClick={() => setView(REGION_VIEWS.europe)}>
+            <button type="button" onClick={() => useRegion("europe", REGION_VIEWS.europe)}>
               Europe
             </button>
             <button
               type="button"
-              onClick={() => setView(REGION_VIEWS.centralAmericaAndCaribbean)}
+              onClick={() => useRegion("caribbean", REGION_VIEWS.centralAmericaAndCaribbean)}
             >
               Caribbean &amp; Central America
             </button>
             <button
               type="button"
-              onClick={() => setView(REGION_VIEWS.pacificIslands)}
+              onClick={() => useRegion("pacific", REGION_VIEWS.pacificIslands)}
             >
               Pacific Islands
             </button>
-            <button type="button" onClick={() => setView(WORLD_VIEW)}>
+            <button type="button" onClick={() => useRegion("world", WORLD_VIEW)}>
               Whole world
             </button>
           </div>
@@ -129,10 +144,11 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false,
                   role="button"
                   tabIndex="0"
                   aria-label={name}
-                  onMouseMove={(event) => showCountry(location, event)}
-                  onMouseLeave={() => setPointer(null)}
-                  onClick={(event) => showCountry(location, event)}
-                  onFocus={() => { setActiveCountry(name); setActiveCode(location.id); }}
+                  aria-pressed={activeCode === location.id}
+                  onMouseMove={(event) => showHoveredCountry(location, event)}
+                  onMouseLeave={() => { setPointer(null); setHoveredCountry(null); }}
+                  onClick={() => selectCountry(location.id)}
+                  onFocus={() => selectCountry(location.id)}
                 >
                   <title>{name}</title>
                 </path>
@@ -145,13 +161,27 @@ const WorldMap = ({ countries, onClose, onCountrySelect, submitting = false,
               style={{ left: pointer.x, top: pointer.y }}
               role="status"
             >
-              {activeCountry}
+              {hoveredCountry}
             </span>
           )}
         </div>
         <output className="selectedCountry" aria-live="polite">
           {activeCountry}
         </output>
+        {region === "pacific" && (
+          <section className="islandFinder" aria-labelledby="pacific-island-title">
+            <div>
+              <strong id="pacific-island-title">Pacific island finder</strong>
+              <span>Choose islands too small to display clearly on the map.</span>
+            </div>
+            <div className="islandOptions">
+              {pacificOptions.map(([code, name]) => (
+                <button type="button" key={code} aria-pressed={activeCode === code}
+                  onClick={() => selectCountry(code)}>{name}</button>
+              ))}
+            </div>
+          </section>
+        )}
         {onCountrySelect && (
           <div className="mapGuessControls">
             {guessingMessage && <p className="mapGuessNotice" role="status">{guessingMessage}</p>}
