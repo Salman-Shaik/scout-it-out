@@ -1,6 +1,6 @@
 create or replace function public.use_bonus_token(target_game_id uuid, help_type text)
-returns integer language plpgsql security definer set search_path = public as $$
-declare current_game public.games; roller_name text; rolled integer;
+returns smallint language plpgsql security definer set search_path = public as $$
+declare current_game public.games; roller_name text; rolled smallint;
 begin
   if help_type not in ('flag', 'buzzword', 'continent', 'reroll')
     then raise exception 'Unknown bonus help'; end if;
@@ -14,7 +14,7 @@ begin
   if current_game.token_used_this_turn then raise exception 'Only one token per turn'; end if;
   if help_type = 'reroll' and current_game.clue_roll is null
     then raise exception 'Roll the die before using a re-roll token'; end if;
-  if help_type = 'reroll' then rolled := floor(random() * 6)::integer + 1; end if;
+  if help_type = 'reroll' then rolled := floor(random() * 6 + 1)::smallint; end if;
   update public.game_players set
     flag_tokens = flag_tokens - case when help_type = 'flag' then 1 else 0 end,
     buzzword_tokens = buzzword_tokens - case when help_type = 'buzzword' then 1 else 0 end,
